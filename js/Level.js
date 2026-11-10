@@ -62,14 +62,31 @@ class Level {
 
     isMissionSuccessful() {
         const correctSet = new Set(this.correctAgents);
-        const selectedAgentIds = this.selection.map(index => this.views.cards.getAgentId(index));
-        const selectedSet = new Set(selectedAgentIds);
-        return (
-            this.selection.length === this.correctAgents.length &&
-            selectedAgentIds.every(agentId => correctSet.has(agentId)) &&
-            selectedSet.size === selectedAgentIds.length &&
-            this.correctAgents.every(index => selectedSet.has(index))
+        const correctCardIndices = this.views.cards
+            .getCards()
+            .filter(card => correctSet.has(card.agentId))
+            .map(card => card.index);
+        const selectedSet = new Set(this.selection);
+        const allMatchingCardsSelected = (
+            this.selection.length === correctCardIndices.length &&
+            selectedSet.size === this.selection.length &&
+            correctCardIndices.every(index => selectedSet.has(index))
         );
+
+        // En el nivel 2, las cartas repetidas son copias visuales de agentes ya
+        // representados. También acepta una selección de un ejemplar por tipo.
+        if (this.config.number === 2) {
+            const selectedAgentIds = this.selection.map(index => this.views.cards.getAgentId(index));
+            const oneOfEachAgentSelected = (
+                this.selection.length === correctSet.size &&
+                new Set(selectedAgentIds).size === selectedAgentIds.length &&
+                selectedAgentIds.every(agentId => correctSet.has(agentId)) &&
+                this.correctAgents.every(agentId => selectedAgentIds.includes(agentId))
+            );
+            return allMatchingCardsSelected || oneOfEachAgentSelected;
+        }
+
+        return allMatchingCardsSelected;
     }
 
     verify() {

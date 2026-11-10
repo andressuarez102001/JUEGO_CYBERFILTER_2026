@@ -1,0 +1,49 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="1920" height="1080" viewBox="0 0 1920 1080" role="img" aria-labelledby="title desc">
+  <title id="title">CyberFilter: aprende lógica. Juega la misión.</title>
+  <desc id="desc">Lámina de pitch de CyberFilter, videojuego educativo de ciencia ficción para practicar teoría de conjuntos con cinco niveles y misiones contrarreloj.</desc>
+  <defs>
+    <linearGradient id="bg" x2="1" y2="1"><stop stop-color="#07101f"/><stop offset=".54" stop-color="#10142e"/><stop offset="1" stop-color="#071827"/></linearGradient>
+    <linearGradient id="cyan" x2="1" y2="1"><stop stop-color="#7df9ff"/><stop offset="1" stop-color="#16b7e7"/></linearGradient>
+    <linearGradient id="purple" x2="1" y2="1"><stop stop-color="#bd78ff"/><stop offset="1" stop-color="#7037ef"/></linearGradient>
+    <filter id="glow"><feGaussianBlur stdDeviation="7" result="b"/><feMerge><feMergeNode in="b"/><feMergeNode in="SourceGraphic"/></feMerge></filter>
+    <pattern id="grid" width="48" height="48" patternUnits="userSpaceOnUse"><path d="M48 0H0V48" fill="none" stroke="#4bdff0" stroke-opacity=".055"/></pattern>
+    <style>
+      text{font-family:Arial,Helvetica,sans-serif;fill:#f4f7ff}.eyebrow{font-size:19px;font-weight:700;letter-spacing:5px;fill:#7df9ff}.title{font-size:92px;font-weight:900;letter-spacing:2px}.sub{font-size:31px;font-weight:500;fill:#b9c6dc}.section{font-size:19px;font-weight:800;letter-spacing:3px;fill:#82eff7}.body{font-size:23px;fill:#d6dfef}.small{font-size:18px;fill:#91a3bf}.metric{font-size:43px;font-weight:900}.metriclabel{font-size:17px;font-weight:700;letter-spacing:1px;fill:#aabbd4}.cardtitle{font-size:25px;font-weight:800}.number{font-size:18px;font-weight:900;fill:#06121d}.cta{font-size:25px;font-weight:900;letter-spacing:1px}
+    </style>
+  </defs>
+  <rect width="1920" height="1080" fill="url(#bg)"/><rect width="1920" height="1080" fill="url(#grid)"/>
+  <circle cx="1580" cy="145" r="250" fill="#5334c7" opacity=".14"/><circle cx="180" cy="950" r="310" fill="#00b6d5" opacity=".07"/>
+  <path d="M64 64H1856V1016H64Z" fill="none" stroke="#51e8f2" stroke-opacity=".28" stroke-width="2"/><path d="M64 140H1856" stroke="#51e8f2" stroke-opacity=".25"/>
+  <text x="105" y="105" class="eyebrow">VIDEOJUEGO EDUCATIVO · CIENCIA FICCIÓN · MODO INDIVIDUAL</text>
+  <text x="105" y="260" class="title">CYBER<tspan fill="#7df9ff">FILTER</tspan></text>
+  <text x="110" y="322" class="sub">Aprende lógica. Juega la misión.</text>
+  <rect x="1490" y="178" width="260" height="160" rx="22" fill="#0b2030" stroke="#48e9f2" stroke-width="2"/>
+  <text x="1620" y="234" text-anchor="middle" class="section">TU RETO</text><text x="1620" y="291" text-anchor="middle" class="metric" fill="#7df9ff">30 s</text><text x="1620" y="321" text-anchor="middle" class="small">por misión</text>
+  <text x="110" y="402" class="section">EL GANCHO</text>
+  <text x="110" y="450" class="body" font-size="27">¿Puedes encontrar a los agentes correctos antes de que acabe el tiempo?</text>
+  <text x="110" y="488" class="small">Cada decisión aplica filtros y relaciones entre conjuntos en una misión narrativa.</text>
+  <text x="110" y="558" class="section">ASÍ SE JUEGA</text>
+  <g transform="translate(110 590)">
+    <rect width="360" height="176" rx="20" fill="#101e33" stroke="#28566c" stroke-width="2"/><circle cx="42" cy="42" r="24" fill="url(#cyan)"/><text x="42" y="49" text-anchor="middle" class="number">1</text><text x="82" y="50" class="cardtitle">LEE LA MISIÓN</text><text x="28" y="101" class="body">Interpreta pistas sobre</text><text x="28" y="133" class="body">clases y atributos.</text>
+    <path d="M374 88h34" stroke="#7df9ff" stroke-width="3"/><path d="m403 79 10 9-10 9" fill="none" stroke="#7df9ff" stroke-width="3"/>
+    <g transform="translate(425)"><rect width="360" height="176" rx="20" fill="#101e33" stroke="#28566c" stroke-width="2"/><circle cx="42" cy="42" r="24" fill="url(#purple)"/><text x="42" y="49" text-anchor="middle" class="number">2</text><text x="82" y="50" class="cardtitle">FILTRA AGENTES</text><text x="28" y="101" class="body">Selecciona las cartas</text><text x="28" y="133" class="body">que cumplen la lógica.</text></g>
+    <path d="M799 88h34" stroke="#7df9ff" stroke-width="3"/><path d="m828 79 10 9-10 9" fill="none" stroke="#7df9ff" stroke-width="3"/>
+    <g transform="translate(850)"><rect width="360" height="176" rx="20" fill="#101e33" stroke="#28566c" stroke-width="2"/><circle cx="42" cy="42" r="24" fill="url(#cyan)"/><text x="42" y="49" text-anchor="middle" class="number">3</text><text x="82" y="50" class="cardtitle">VERIFICA Y AVANZA</text><text x="28" y="101" class="body">Suma puntos, supera</text><text x="28" y="133" class="body">5 niveles y aprende.</text></g>
+  </g>
+  <text x="110" y="834" class="section">POR QUÉ ATRAPA</text>
+  <g transform="translate(110 862)">
+    <rect width="385" height="100" rx="16" fill="#0d1d30" stroke="#30456b"/><text x="24" y="42" class="metric" font-size="31" fill="#7df9ff">5</text><text x="82" y="40" class="metriclabel">NIVELES PROGRESIVOS</text><text x="24" y="74" class="small">Del filtro básico al reto estricto.</text>
+    <g transform="translate(405)"><rect width="385" height="100" rx="16" fill="#0d1d30" stroke="#30456b"/><text x="24" y="42" class="metric" font-size="31" fill="#c18aff">21</text><text x="92" y="40" class="metriclabel">CARTAS POR TABLERO</text><text x="24" y="74" class="small">Observa, compara y decide.</text></g>
+    <g transform="translate(810)"><rect width="385" height="100" rx="16" fill="#0d1d30" stroke="#30456b"/><text x="24" y="42" class="metric" font-size="31" fill="#7df9ff">+</text><text x="60" y="40" class="metriclabel">RECUPERACIÓN</text><text x="24" y="74" class="small">Pregunta de apoyo si fallas.</text></g>
+  </g>
+  <g transform="translate(1390 568)">
+    <rect width="360" height="394" rx="24" fill="#11172d" stroke="#995cff" stroke-width="2"/>
+    <text x="30" y="52" class="section" fill="#c69aff">APRENDIZAJE ACTIVO</text>
+    <text x="30" y="112" class="cardtitle">No solo memorices.</text><text x="30" y="150" class="cardtitle">Decide bajo presión.</text>
+    <path d="M30 183h300" stroke="#4e467a"/>
+    <text x="30" y="229" class="body">Clasifica con atributos,</text><text x="30" y="263" class="body">detecta cruces entre grupos</text><text x="30" y="297" class="body">y comprueba tu respuesta.</text>
+    <text x="30" y="351" class="small">La misión convierte conceptos</text><text x="30" y="377" class="small">abstractos en decisiones jugables.</text>
+  </g>
+  <rect x="110" y="992" width="1640" height="1" fill="#50dce9" opacity=".3"/>
+  <text x="110" y="1040" class="cta" fill="#7df9ff">CYBERFILTER</text><text x="1750" y="1040" text-anchor="end" class="small">La lógica es tu mejor arma.</text>
+</svg>
