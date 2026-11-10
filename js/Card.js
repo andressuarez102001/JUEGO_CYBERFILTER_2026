@@ -5,10 +5,13 @@ class Card {
 
     #element;
     #index;
+    #agentId;
 
     constructor(element) {
         this.#element = element;
         this.#index = parseInt(element.getAttribute('data-index'), 10);
+        const storedAgentId = parseInt(element.getAttribute('data-agent-id'), 10);
+        this.#agentId = Number.isNaN(storedAgentId) ? this.#index : storedAgentId;
     }
 
     get element() {
@@ -17,6 +20,10 @@ class Card {
 
     get index() {
         return this.#index;
+    }
+
+    get agentId() {
+        return this.#agentId;
     }
 
     get isSelected() {

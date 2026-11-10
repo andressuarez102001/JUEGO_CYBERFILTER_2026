@@ -1,4 +1,6 @@
 class Game {
+    static CARDS_PER_LEVEL = 21;
+
     constructor(options = {}) {
         this.doc = options.document || document;
         this.localStorage = options.localStorage || window.localStorage;
@@ -26,31 +28,17 @@ class Game {
         ].map(id => this.doc.getElementById(id)).filter(target => target !== null));
 
         this.auth = new AuthService(this.user, this.localStorage, options.hasher);
-        this.leaderboard = new Leaderboard(this.localStorage);
         this.music = new MusicPlayer(this.doc.getElementById('musicaFondo'), { volume: 0.5 });
-        this.chat = new Chat({
-            input: this.doc.getElementById('chat-input'),
-            messages: this.doc.getElementById('chat-messages'),
-            sendBtn: this.doc.getElementById('chat-send-btn'),
-            getUsername: () => this.user.get()
-        });
-        this.ranking = new Ranking({
-            screens: ['ranking1', 'ranking2', 'ranking3', 'ranking4', 'ranking5']
-                .map(id => this.doc.getElementById(id))
-                .filter(screen => screen !== null),
-            navigation: GameConfig.RANKING_NAVIGATION,
-            exitBtn: this.doc.getElementById('rank-btn5'),
-            onExit: () => this.returnToLobby(),
-            resolveButton: id => this.doc.getElementById(id),
-            leaderboard: this.leaderboard
-        });
+        this.retryQuestion = new RetryQuestion(this.doc);
 
         this.levels = GameConfig.LEVELS.map(config => this.createLevel(config));
     }
 
     createLevel(config) {
+        const cards = new CardGrid(this.doc.getElementById(config.gridId));
+        cards.fillWithDuplicates(Game.CARDS_PER_LEVEL, config.correctAgents);
         const views = {
-            cards: new CardGrid(this.doc.getElementById(config.gridId)),
+            cards,
             verifyBtn: this.doc.getElementById(config.verificarBtnId),
             resultOk: this.doc.getElementById(config.resultadoCorrectoId),
             resultFail: this.doc.getElementById(config.resultadoIncorrectoId),
@@ -59,7 +47,7 @@ class Game {
         };
         const deps = {
             score: this.score,
-            onLevelComplete: levelNumber => this.handleLevelComplete(levelNumber),
+            showRetryQuestion: (level, question) => this.openRetryQuestion(level, question),
             returnToLobby: () => this.returnToLobby()
         };
         return this.levelFactory.create(config, views, deps);
@@ -69,10 +57,7 @@ class Game {
         this.registerScreens();
         this.bindAuth();
         this.bindMenuNavigation();
-        this.bindRanking();
         this.bindLevelFlow();
-        this.ranking.bindEvents();
-        this.chat.bindEvents();
         this.music.activateOnFirstClick(this.doc);
         this.user.refresh();
         this.score.sync();
@@ -137,10 +122,6 @@ class Game {
         });
     }
 
-    bindRanking() {
-        this.onClick('ranking-btn', () => this.openRankingFromMenu());
-    }
-
     bindLevelFlow() {
         GameConfig.LEVELS.forEach((config, index) => {
             const nextConfig = GameConfig.LEVELS[index + 1];
@@ -161,14 +142,6 @@ class Game {
         });
     }
 
-    handleLevelComplete(levelNumber) {
-        const name = this.user.get();
-        if (!name) {
-            return;
-        }
-        this.leaderboard.record(name, this.score.value, levelNumber);
-    }
-
     refreshLobbyIdentity() {
         const name = this.user.get();
         if (!name) {
@@ -180,20 +153,25 @@ class Game {
         }
     }
 
-    openRankingFromMenu() {
-        this.screens.hide('menu');
-        this.ranking.open(() => this.screens.show('menu'));
-    }
-
     finishRun() {
         this.levels.forEach(level => level.leave());
         GameConfig.LEVELS.forEach(config => {
             this.screens.hide(config.screenId, config.imagenId);
         });
-        this.ranking.open(() => this.returnToLobby());
+        this.returnToLobby();
+    }
+
+    openRetryQuestion(level, question) {
+        this.retryQuestion.open(
+            level.config.number,
+            question,
+            () => level.restart(),
+            () => this.returnToLobby()
+        );
     }
 
     returnToLobby() {
+        this.retryQuestion.close();
         this.levels.forEach(level => {
             level.leave();
             level.reset();
@@ -201,7 +179,6 @@ class Game {
         GameConfig.LEVELS.forEach(config => {
             this.screens.hide(config.screenId, config.imagenId);
         });
-        this.ranking.close();
         this.screens.show('lobby');
         this.score.sync();
     }

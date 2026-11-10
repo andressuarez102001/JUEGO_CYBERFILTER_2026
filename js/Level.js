@@ -36,7 +36,7 @@ class Level {
     }
 
     isCorrectIndex(index) {
-        return this.correctAgents.includes(index);
+        return this.correctAgents.includes(this.views.cards.getAgentId(index));
     }
 
     onGridClick(event) {
@@ -51,7 +51,7 @@ class Level {
         const isSelecting = !card.classList.contains('selected');
         if (isSelecting && !this.isCorrectIndex(index)) {
             this.views.cards.markIncorrect(index);
-            this.onFail('¡SELECCIÓN INCORRECTA!');
+            this.requestRetryQuestion('¡SELECCIÓN INCORRECTA!');
             return;
         }
         this.toggleCard(index);
@@ -68,10 +68,12 @@ class Level {
 
     isMissionSuccessful() {
         const correctSet = new Set(this.correctAgents);
-        const selectedSet = new Set(this.selection);
+        const selectedAgentIds = this.selection.map(index => this.views.cards.getAgentId(index));
+        const selectedSet = new Set(selectedAgentIds);
         return (
             this.selection.length === this.correctAgents.length &&
-            this.selection.every(index => correctSet.has(index)) &&
+            selectedAgentIds.every(agentId => correctSet.has(agentId)) &&
+            selectedSet.size === selectedAgentIds.length &&
             this.correctAgents.every(index => selectedSet.has(index))
         );
     }
@@ -81,7 +83,7 @@ class Level {
         if (this.isMissionSuccessful()) {
             this.onSuccess();
         } else {
-            this.onFail();
+            this.requestRetryQuestion('LA SELECCIÓN NO COMPLETA LA MISIÓN.');
         }
     }
 
@@ -90,7 +92,7 @@ class Level {
         this.showResult(this.views.resultOk);
         this.revealNextBtn();
         this.lock();
-        this.views.cards.markCorrect(this.correctAgents);
+        this.views.cards.markCorrect(this.selection);
 
         const points = this.correctAgents.length * Level.POINTS_PER_CARD + Level.SUCCESS_BONUS;
         this.deps.score.add(points);
@@ -105,6 +107,19 @@ class Level {
         this.showResult(this.views.resultFail, message);
         this.lock();
         this.views.cards.markSelectedAsWrong();
+        this.deps.returnToLobby();
+    }
+
+    requestRetryQuestion(message) {
+        this.stopTimer();
+        this.showResult(this.views.resultFail, message);
+        this.lock();
+        this.views.cards.markSelectedAsWrong();
+
+        if (typeof this.deps.showRetryQuestion === 'function') {
+            this.deps.showRetryQuestion(this, this.config.retryQuestion);
+            return;
+        }
         this.deps.returnToLobby();
     }
 

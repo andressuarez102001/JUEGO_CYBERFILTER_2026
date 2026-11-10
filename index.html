@@ -82,7 +82,6 @@
                 <button id="menu-back-btn" class="menu-btn">VOLVER AL INICIO</button>
                 <button id="about-btn" class="menu-btn">DONACIONES/SOBRE NOSOTROS</button>
                 <button id="levels-btn" class="menu-btn">NIVELES</button>
-                <button id="ranking-btn" class="menu-btn">RANKING</button>
 
                 <div class="boton-jugar-menu">
                     <button id="btn-jugar" class="btn-jugar-menu">JUGAR</button>
@@ -142,56 +141,19 @@
 
         <div class="lobby-main-content">
 
-            <div id="players-waiting-room" class="players-panel">
-                <h3 class="neon-text panel-title">SALA DE ESPERA (1/5)</h3>
-                <div class="player-list-header">
-                    <span class="pos-col"></span>
-                    <span class="name-col">AGENTE/NOMBRE</span>
-                    <span class="status-col">ESTADO</span>
-                </div>
+            <div class="players-panel">
+                <h3 class="neon-text panel-title">MODO INDIVIDUAL</h3>
                 <div class="player-list-item local-player">
-                    <span class="pos-col">1</span>
-                    <span class="name-col" id="player-name-1">AndresSuarez2910 (Tu)</span>
+                    <span class="name-col" id="player-name-1">Agente</span>
                     <span class="status-col neon-status-ready">LISTO</span>
                 </div>
-                <div class="player-list-item">
-                    <span class="pos-col">2</span>
-                    <span class="name-col" id="player-name-2">ArnulfoxX</span>
-                    <span class="status-col neon-status-waiting">ESPERANDO</span>
-                </div>
-                <div class="player-list-item">
-                    <span class="pos-col">3</span>
-                    <span class="name-col" id="player-name-3">Norberto69</span>
-                    <span class="status-col neon-status-waiting">ESPERANDO</span>
-                </div>
-                <div class="player-list-item">
-                    <span class="pos-col">4</span>
-                    <span class="name-col" id="player-name-4">Jaime34</span>
-                    <span class="status-col neon-status-waiting">ESPERANDO</span>
-                </div>
-                <div class="player-list-item">
-                    <span class="pos-col">5</span>
-                    <span class="name-col" id="player-name-5">Daniel24</span>
-                    <span class="status-col neon-status-waiting">ESPERANDO</span>
-                </div>
+                <p>Tu misión es completar los cinco niveles antes de que termine el tiempo.</p>
                 <button id="lobby-btn" class="menu-btn lobby-back-btn">MENU PRINCIPAL</button>
             </div>
 
-            <div class="lobby-chat-panel cyber-panel">
-                <h3 class="neon-text panel-title">CHAT GLOBAL</h3>
-
-                <div id="chat-messages" class="chat-messages">
-                    </div>
-
-                <div class="chat-input-area">
-                    <input type="text" id="chat-input" class="chat-input" placeholder="Escribe un mensaje...">
-                    <button id="chat-send-btn" class="chat-send-btn">ENVIAR</button>
-                </div>
-            </div>
-
             <div class="info-panel-player cyber-panel">
-                <h3>INFORMACION</h3>
-                    <p>Para pasar al siguiente nivel debes seleccionar las cartas correctas en el tiempo que corresponde a cada nivel. Cada carta correcta, suma 100 puntos, si todas las cartas seleccionadas son correctas, ganas un adicional de 200 puntos</p>
+                <h3>INFORMACIÓN DE MISIÓN</h3>
+                <p>Selecciona las cartas correctas en 30 segundos. Una carta incorrecta activa una pregunta de recuperación: si la respondes bien, repites el mismo nivel; si no, vuelves al lobby.</p>
             </div>
 
             </div>
@@ -306,11 +268,10 @@
 
     <div id="salas-multijugador" class="sala hidden">
         <div class="sala-box">
-            <h2>MODO DE JUEGO</h2>
+            <h2>MODO INDIVIDUAL</h2>
 
             <div class="info-sala-box">
-                    <button id="singleplayer-btn" class="btn-sala">SINGLE PLAYER</button>
-                    <button id="multiplayer-btn" class="btn-sala">MULTIPLAYER</button>
+                    <button id="singleplayer-btn" class="btn-sala">COMENZAR MISIÓN</button>
             </div>
             <button id="salas-back-btn" class="btn-sala">VOLVER AL MENU</button>
 
@@ -559,7 +520,7 @@
 
         <div class="mision-panel">
             <h2 class="neon-title">MISION NIVEL 4</h2>
-            <p>Rescata a los agentes con poder de software e informatica SIN EL LIDER, luego el MERCENARIO LIDER. SI SELECCIONAS UNA CARTA MAL, REGRESAS AL LOBBY. TIEMPO: 30 SEGUNDOS</p>
+            <p>Rescata a los agentes con poder de software e informatica SIN EL LIDER, luego el MERCENARIO LIDER. Si seleccionas una carta mal, responde la pregunta de recuperación. TIEMPO: 30 SEGUNDOS</p>
         </div>
 
         <div class="agentes-grid" id="agentes-grid-nivel4">
@@ -631,7 +592,7 @@
 
         <div class="mision-panel">
             <h2 class="neon-title">MISION NIVEL 5</h2>
-            <p>Rescata a LOS PERSONAJES PRINCIPALES DEL JUEGO, LUEGO RESCATA A 2 PERSONAJES QUE PERTENEZCAN A DIFERENTES CONJUNTOS PERO A LA MISMA CLASE(INFILTRADOS). NOTA: CUALQUIER MOVIMIENTO ERRONEO TE DEVOLVERA AL LOBBY Y EMPEZARAS DE NUEVO! - TIEMPO: 30 SEGUNDOS</p>
+            <p>Rescata a LOS PERSONAJES PRINCIPALES DEL JUEGO, LUEGO RESCATA A 2 PERSONAJES QUE PERTENEZCAN A DIFERENTES CONJUNTOS PERO A LA MISMA CLASE(INFILTRADOS). Un movimiento erróneo activa una pregunta de recuperación. TIEMPO: 30 SEGUNDOS</p>
         </div>
 
         <div class="agentes-grid" id="agentes-grid-nivel5">
@@ -672,13 +633,23 @@
                 Mision Fallida!
             </div>
 
-            <button id="continuarbtnRanking" class="nivel2-button hidden">TABLA RANKING</button>
+            <button id="continuarbtnRanking" class="nivel2-button hidden">FINALIZAR MISIÓN</button>
         </div>
     </div>
 
 </div>
 
-    <!-- RANKING -->
+    <div id="retry-question-modal" class="retry-modal hidden" role="dialog" aria-modal="true" aria-labelledby="retry-question-title">
+        <div class="retry-dialog">
+            <p id="retry-question-level" class="retry-level"></p>
+            <h2 id="retry-question-title">PREGUNTA DE RECUPERACIÓN</h2>
+            <p id="retry-question-text" class="retry-question-text"></p>
+            <div id="retry-question-options" class="retry-options"></div>
+            <p class="retry-help">Respuesta correcta: repites este nivel. Respuesta incorrecta: vuelves al lobby.</p>
+        </div>
+    </div>
+
+    <!-- RANKING LEGACY: no se muestra en el modo individual -->
 
     <div id="ranking1" class="login-container login-background hidden">
         <div class="rankin-box">
@@ -1168,9 +1139,8 @@
     <script src="js/Level.js"></script>
     <script src="js/StrictLevel.js"></script>
     <script src="js/LevelFactory.js"></script>
+    <script src="js/RetryQuestion.js"></script>
     <script src="js/AuthService.js"></script>
-    <script src="js/Leaderboard.js"></script>
-    <script src="js/Ranking.js"></script>
     <script src="js/GameConfig.js"></script>
     <script src="js/Game.js"></script>
     <script src="js/script.js"></script>

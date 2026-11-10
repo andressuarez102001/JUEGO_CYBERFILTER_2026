@@ -819,32 +819,35 @@ body {
 .final-training-section {
     background: rgba(0, 0, 0, 0.6);
     font-family: var(--font-main);
-    padding: 40px;
+    height: 100dvh;
+    max-height: 100vh;
+    overflow-y: auto;
+    padding: 20px 24px;
     border-radius: 10px;
     border: #00aaff 2px solid;
     box-shadow: #00aaff 0px 0px 30px;
-    width: min(94%, 1280px);
-    margin: 2% auto;
+    width: min(98%, 1500px);
+    margin: 0 auto;
     /* centrado horizontal */
     text-align: center;
 }
 
 .final-training-section h2 {
     color: #00FFFF;
+    font-size: 1.35rem;
 }
 
 .sub-intro {
     color: #ffffff;
-    font-size: 1em;
-    margin-top: 40px;
-    margin-bottom: 40px;
+    font-size: 0.85rem;
+    margin: 12px auto 18px;
 }
 
 /* --- GRID DE IDENTIFICACIÓN DE AGENTES --- */
 .agent-identification-grid {
     display: grid;
-    grid-template-columns: repeat(2, 1fr);
-    gap: 22px;
+    grid-template-columns: repeat(4, minmax(0, 1fr));
+    gap: 14px;
     text-align: left;
     width: 100%;
     margin: 0 auto;
@@ -855,32 +858,32 @@ body {
     border-radius: 8px;
     border: 1px solid currentColor;
     box-shadow: inset 0 0 18px rgba(0, 255, 255, 0.06);
-    padding: 18px;
+    padding: 12px;
     min-width: 0;
 }
 
 .id-card h3 {
-    font-size: 1.4rem;
-    margin-bottom: 14px;
+    font-size: 1.05rem;
+    margin-bottom: 8px;
     text-transform: uppercase;
 }
 
 .id-card p {
     margin: 0;
     color: #e8f8ff;
-    font-size: 0.78rem;
-    line-height: 1.45;
+    font-size: 0.68rem;
+    line-height: 1.3;
 }
 
 .agent-profile {
     display: grid;
-    grid-template-columns: 112px minmax(0, 1fr);
+    grid-template-columns: 78px minmax(0, 1fr);
     align-items: start;
-    gap: 14px;
+    gap: 9px;
 }
 
 .agent-portrait {
-    width: 112px;
+    width: 78px;
     aspect-ratio: 3 / 4;
     object-fit: cover;
     border: 1px solid currentColor;
@@ -889,29 +892,29 @@ body {
 }
 
 .agent-summary {
-    font-size: 0.86rem !important;
+    font-size: 0.72rem !important;
     font-weight: bold;
-    margin-bottom: 8px !important;
+    margin-bottom: 5px !important;
 }
 
 .id-card h4 {
     color: inherit;
-    font-size: 0.72rem;
-    margin: 6px 0;
+    font-size: 0.62rem;
+    margin: 4px 0;
     text-transform: uppercase;
 }
 
 .role-list {
     color: #f4f7ff;
     font-family: Arial, sans-serif;
-    font-size: 0.75rem;
-    line-height: 1.42;
+    font-size: 0.64rem;
+    line-height: 1.25;
     list-style: none;
     padding: 0;
 }
 
 .role-list li {
-    margin-bottom: 4px;
+    margin-bottom: 3px;
 }
 
 .role-list li::before {
@@ -922,15 +925,15 @@ body {
 
 .agent-note {
     border-top: 1px solid currentColor;
-    margin-top: 14px !important;
-    padding-top: 10px;
+    margin-top: 8px !important;
+    padding-top: 7px;
 }
 
 .agent-examples {
     display: grid;
     grid-template-columns: repeat(3, 1fr);
-    gap: 7px;
-    margin-top: 12px;
+    gap: 5px;
+    margin-top: 8px;
 }
 
 .agent-examples img {
@@ -978,17 +981,23 @@ body {
 .start-button {
     font-family: var(--font-main);
     background: #00ffaa;
-    margin-top: 30px;
+    margin-top: 16px;
     color: #1a1a3a;
     border: none;
-    padding: 15px 40px;
-    font-size: 1.5em;
+    padding: 11px 32px;
+    font-size: 1.1em;
     font-weight: bold;
     cursor: pointer;
     border-radius: 8px;
     transition: background 0.3s, transform 0.3s;
     text-transform: uppercase;
     box-shadow: 0 0 15px #00ffaa;
+}
+
+@media (max-width: 1100px) {
+    .agent-identification-grid {
+        grid-template-columns: repeat(2, minmax(0, 1fr));
+    }
 }
 
 .start-button:hover {
@@ -1172,6 +1181,83 @@ body {
     background-color: #ff000033;
     border: 1px solid #ff0000;
     color: #ff0000;
+}
+
+/* --- Pregunta de recuperación --- */
+.retry-modal {
+    position: fixed;
+    inset: 0;
+    z-index: 1000;
+    display: grid;
+    place-items: center;
+    padding: 20px;
+    background: rgba(0, 0, 0, 0.82);
+    backdrop-filter: blur(7px);
+}
+
+.retry-dialog {
+    width: min(94vw, 620px);
+    padding: 30px;
+    border: 2px solid var(--color-neon-cyan);
+    border-radius: 14px;
+    background: linear-gradient(145deg, #071324, #171134);
+    box-shadow: 0 0 30px rgba(0, 255, 255, 0.55);
+    color: white;
+    font-family: var(--font-main);
+    text-align: center;
+}
+
+.retry-level {
+    margin-bottom: 10px;
+    color: var(--color-neon-magenta);
+    font-size: 0.78rem;
+    letter-spacing: 1px;
+}
+
+.retry-dialog h2 {
+    color: var(--color-neon-cyan);
+    font-size: 1.3rem;
+}
+
+.retry-question-text {
+    margin: 20px 0;
+    font-size: 1rem;
+    line-height: 1.55;
+}
+
+.retry-options {
+    display: grid;
+    gap: 12px;
+}
+
+.retry-option {
+    width: 100%;
+    padding: 14px;
+    border: 1px solid var(--color-neon-magenta);
+    border-radius: 8px;
+    background: rgba(255, 255, 255, 0.08);
+    color: white;
+    cursor: pointer;
+    font-family: var(--font-main);
+    font-size: 0.92rem;
+    text-align: left;
+    transition: 0.2s ease;
+}
+
+.retry-option:hover,
+.retry-option:focus-visible {
+    background: var(--color-neon-magenta);
+    color: #111;
+    outline: 2px solid var(--color-neon-cyan);
+    transform: translateY(-2px);
+}
+
+.retry-help {
+    margin-top: 18px;
+    color: #c9d5e5;
+    font-family: Arial, sans-serif;
+    font-size: 0.8rem;
+    line-height: 1.4;
 }
 
 /* Estilo para el Botón de Nivel Siguiente */
@@ -1750,6 +1836,9 @@ body {
     }
 
     .final-training-section {
+        height: auto;
+        max-height: none;
+        overflow: visible;
         width: calc(100% - 24px);
         margin: 12px auto;
         padding: 24px 16px;
@@ -1892,6 +1981,22 @@ body {
 
     .chat-send-btn {
         margin-top: 0;
+    }
+
+    .retry-modal {
+        padding: 12px;
+    }
+
+    .retry-dialog {
+        padding: 22px 16px;
+    }
+
+    .retry-dialog h2 {
+        font-size: 1.08rem;
+    }
+
+    .retry-question-text {
+        font-size: 0.9rem;
     }
 
     .final-training-section h2 {
