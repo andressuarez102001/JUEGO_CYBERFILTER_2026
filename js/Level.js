@@ -1,8 +1,6 @@
 class Level {
     static POINTS_PER_CARD = 100;
     static SUCCESS_BONUS = 200;
-    static FAIL_RETRY_DELAY = 3000;
-
     constructor(config, views, deps) {
         const dependencies = deps || {};
         this.config = config;
@@ -50,6 +48,12 @@ class Level {
     }
 
     selectIndex(index, card) {
+        const isSelecting = !card.classList.contains('selected');
+        if (isSelecting && !this.isCorrectIndex(index)) {
+            this.views.cards.markIncorrect(index);
+            this.onFail('¡SELECCIÓN INCORRECTA!');
+            return;
+        }
         this.toggleCard(index);
     }
 
@@ -96,19 +100,16 @@ class Level {
         }
     }
 
-    onFail() {
+    onFail(message) {
         this.stopTimer();
-        this.showResult(this.views.resultFail);
+        this.showResult(this.views.resultFail, message);
         this.lock();
-        if (this.showWrongSelectionsOnFail) {
-            this.views.cards.markSelectedAsWrong();
-        }
-        this.restartId = setTimeout(() => this.restart(), Level.FAIL_RETRY_DELAY);
+        this.views.cards.markSelectedAsWrong();
+        this.deps.returnToLobby();
     }
 
     onTimeout() {
-        this.showResult(this.views.resultFail, '¡TIEMPO AGOTADO!');
-        this.onFail();
+        this.onFail('¡TIEMPO AGOTADO!');
     }
 
     showResult(element, message) {

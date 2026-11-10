@@ -68,7 +68,7 @@ class GameConfig {
             resultadoIncorrectoId: 'resultado-incorrecto-nivel2',
             timerId: 'timer-nivel-2',
             correctAgents: [0, 1, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13, 14, 15],
-            timeLimit: 20
+            timeLimit: 30
         }),
         new LevelConfig({
             number: 3,
@@ -83,7 +83,7 @@ class GameConfig {
             resultadoIncorrectoId: 'resultado-incorrecto-nivel3',
             timerId: 'timer-nivel-3',
             correctAgents: [0, 15],
-            timeLimit: 10,
+            timeLimit: 30,
             showWrongSelectionsOnFail: true
         }),
         new LevelConfig({
@@ -99,7 +99,7 @@ class GameConfig {
             resultadoIncorrectoId: 'resultado-incorrecto-nivel4',
             timerId: 'timer-nivel-4',
             correctAgents: [0, 6, 10, 15],
-            timeLimit: 15,
+            timeLimit: 30,
             strict: true
         }),
         new LevelConfig({
@@ -115,7 +115,7 @@ class GameConfig {
             resultadoIncorrectoId: 'resultado-incorrecto-nivel5',
             timerId: 'timer-nivel-5',
             correctAgents: [0, 1, 6, 7, 9, 14],
-            timeLimit: 10,
+            timeLimit: 30,
             strict: true
         })
     ]);

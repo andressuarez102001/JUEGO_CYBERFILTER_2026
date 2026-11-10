@@ -63,6 +63,13 @@ class CardGrid {
         });
     }
 
+    markIncorrect(index) {
+        const card = this.getCard(index);
+        if (card) {
+            card.markIncorrect();
+        }
+    }
+
     clearStates() {
         this.getCards().forEach(card => card.clearState());
     }
