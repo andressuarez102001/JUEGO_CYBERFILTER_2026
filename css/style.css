@@ -1,0 +1,1477 @@
+/* ============================================================ */
+/* VARIABLES GLOBALES (colores y fuente)                        */
+/* ============================================================ */
+
+:root {
+    --color-background-dark: #111;
+    --color-neon-cyan: #00FFFF;
+    --color-neon-magenta: #FF00FF;
+    --color-neon-blue: #00ffff;
+    --color-neon-purple: #ff00ff;
+    --color-dark-bg: #111;
+    --color-mid-bg: #1e1e3f;
+    --color-grid-lines: #00ffff44;
+    --color-text-main: #FFFFFF;
+    --color-button-default: #555555;
+    --color-button-primary: #333333;
+    --color-button-login: #87ffff;
+    --font-main: 'Orbitron', sans-serif;
+}
+
+* {
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+}
+
+html,
+body {
+    height: 100%;
+    width: 100%;
+
+    /*si se quita la imagen de fondo el automaticamente pone el color negro*/
+    background-color: black;
+}
+
+/* tipo de letra, color de letra, overflow: el texto se ajusta a la tabla o caja de informacion, si queda texto por fuera no se muestra*/
+
+body {
+    margin: 0;
+    font-family: sans-serif;
+    background-color: var(--color-dark-bg);
+    color: white;
+    overflow: hidden;
+    position: relative;
+    /* Asegura que el contenido esté sobre el video */
+    z-index: 1;
+}
+
+/*el hidden es para ocultar las pantallas que no se estan usando*/
+
+.hidden {
+    display: none !important;
+}
+
+/*color tipo neon, y el text shadow es para agregar una sombra al texto*/
+
+.neon-text {
+    color: var(--color-neon-cyan);
+    text-shadow: 0 0 3px var(--color-neon-cyan);
+}
+
+/* ============================================================ */
+/* PANTALLA DE INICIO                                           */
+/* ============================================================ */
+
+.inicio-container {
+    background-image: url('../img/FONDO-INICIO.png');
+    height: 100vh;
+    width: 100%;
+    background-size: cover;
+    background-position: center;
+    background-repeat: no-repeat;
+
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.boton-inicio-contenedor {
+    text-align: center;
+    margin-top: 70vh;
+}
+
+.btn-inicio {
+    width: 100%;
+    padding: 15px 40px;
+    border-radius: 10px;
+    border: none;
+    font-family: var(--font-main);
+    font-size: 16px;
+    color: white;
+    cursor: pointer;
+    margin-top: 20px;
+    background: rgba(0, 0, 0, 0.35);
+    transition: 0.25s ease;
+}
+
+.btn-inicio:hover {
+    background: #00aaff;
+    /* azul neón */
+    box-shadow: 0 0 12px #00aaff,
+        0 0 20px #00aaff,
+        0 0 40px #00aaff;
+    /* brillo */
+    transform: translateY(-3px);
+    /* se levanta un poco */
+}
+
+/* ============================================================ */
+/* VIDEO DE FONDO                                               */
+/* ============================================================ */
+
+#video-fondo {
+    position: fixed;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    min-width: 100%;
+    min-height: 100%;
+    width: auto;
+    height: auto;
+    z-index: -100;
+    object-fit: cover;
+    filter: blur(2px);
+}
+
+/* ============================================================ */
+/* FONDOS DE PANTALLA (niveles)                                 */
+/* ============================================================ */
+
+.login-background {
+    /* Pantalla completa (el video de fondo va por detrás) */
+    height: 100%;
+    width: 100%;
+}
+
+.login-background2 {
+    background-image: url('../img/bienvenido-nivel-1.png');
+    height: 100%;
+    width: 100%;
+    background-size: cover;
+    background-position: center;
+    background-repeat: no-repeat;
+}
+
+.login-background4 {
+    background-image: url('../img/bienvenido-nivel-2.png');
+    height: 100%;
+    width: 100%;
+    background-size: cover;
+    background-position: center;
+    background-repeat: no-repeat;
+}
+
+.login-background5 {
+    background-image: url('../img/bienvenido-nivel-3.png');
+    height: 100%;
+    width: 100%;
+    background-size: cover;
+    background-position: center;
+    background-repeat: no-repeat;
+}
+
+.login-background6 {
+    background-image: url('../img/bienvenido-nivel-4.png');
+    height: 100%;
+    width: 100%;
+    background-size: cover;
+    background-position: center;
+    background-repeat: no-repeat;
+}
+
+.login-background7 {
+    background-image: url('../img/bienvenido-nivel-5.png');
+    height: 100%;
+    width: 100%;
+    background-size: cover;
+    background-position: center;
+    background-repeat: no-repeat;
+}
+
+.login-container {
+    /* Esto asegura que el contenedor ocupe toda la pantalla */
+    height: 100vh;
+    width: 100%;
+
+    /* Centrado del contenido (la caja negra de sesión) */
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+/* ============================================================ */
+/* CAJA DE SESIÓN (Login Box)                                   */
+/* ============================================================ */
+
+.login-box {
+    position: relative;
+    z-index: 1;
+    /* Fondo tipo vidrio */
+    background: rgba(0, 0, 0, 0.08);
+    backdrop-filter: blur(15px);
+    -webkit-backdrop-filter: blur(15px);
+    /* Tamaño compacto y equilibrado */
+    width: 400px;
+    padding: 60px 40px;
+    border-radius: 20px;
+    border: 1px solid rgba(0, 0, 0, 0.25);
+    box-shadow: 0 0 25px rgba(0, 0, 0, 0.45);
+    display: flex;
+    flex-direction: column;
+    gap: 25px;
+    margin: 0 auto;
+    /* centrado horizontal */
+    margin-top: 10px;
+    /* posición vertical */
+    font-family: var(--font-main);
+}
+
+.login-box h2 {
+    text-align: center;
+    margin: 0;
+    margin-bottom: 20px;
+    font-size: 35px;
+}
+
+.form-group {
+    display: flex;
+    flex-direction: column;
+    width: 100%;
+    gap: 6px;
+}
+
+.neon-label {
+    background: rgba(0, 0, 0, 0.35);
+    padding: 4px 8px;
+    border-radius: 6px;
+    color: white;
+    font-size: 14px;
+    width: fit-content;
+}
+
+.login-input {
+    width: 100%;
+    padding: 12px;
+    border-radius: 8px;
+    border: none;
+    outline: none;
+    background: rgba(0, 0, 0, 0.35);
+    font-family: var(--font-main);
+    color: white;
+    font-size: 15px;
+}
+
+.login-btn {
+    width: 100%;
+    padding: 12px;
+    border-radius: 10px;
+    border: none;
+    font-family: var(--font-main);
+    font-size: 16px;
+    color: white;
+    cursor: pointer;
+    margin-top: 20px;
+    background: rgba(0, 0, 0, 0.35);
+    transition: 0.25s ease;
+}
+
+.login-btn:hover {
+    background: #00aaff;
+    /* azul neón */
+    box-shadow: 0 0 12px #00aaff,
+        0 0 20px #00aaff,
+        0 0 40px #00aaff;
+    /* brillo */
+    transform: translateY(-3px);
+    /* se levanta un poco */
+}
+
+.register-link {
+    text-align: center;
+}
+
+.register-btn {
+    font-family: var(--font-main);
+    margin-top: 10px;
+    background: none;
+    border: none;
+    color: var(--color-neon-cyan);
+    cursor: pointer;
+    font-size: 14px;
+}
+
+.register-btn:hover {
+    transform: translateY(-3px);
+}
+
+.boton-jugar-menu {
+    text-align: center;
+    margin-top: 20px;
+}
+
+.btn-jugar-menu {
+    width: 100%;
+    padding: 15px 40px;
+    border-radius: 10px;
+    border: none;
+    font-family: var(--font-main);
+    font-size: 16px;
+    color: white;
+    cursor: pointer;
+    margin-top: 20px;
+    background: rgba(0, 0, 0, 0.35);
+    transition: 0.25s ease;
+}
+
+.btn-jugar-menu:hover {
+    background: #00aaff;
+    box-shadow: 0 0 12px #00aaff,
+        0 0 20px #00aaff,
+        0 0 40px #00aaff;
+    transform: translateY(-3px);
+}
+
+/* ============================================================ */
+/* SALAS MULTIJUGADOR                                           */
+/* ============================================================ */
+
+.sala-box {
+    position: relative;
+    z-index: 1;
+    background: rgba(0, 0, 0, 0.08);
+    backdrop-filter: blur(15px);
+    -webkit-backdrop-filter: blur(15px);
+    width: 600px;
+    height: 500px;
+    padding: 60px 40px;
+    border-radius: 20px;
+    border: 1px solid rgba(0, 0, 0, 0.25);
+    box-shadow: 0 0 25px rgba(0, 0, 0, 0.45);
+    display: flex;
+    flex-direction: column;
+    gap: 5px;
+    margin: 0 auto;
+    font-family: var(--font-main);
+    text-align: center;
+    margin-top: 13%;
+}
+
+.sala-box h2 {
+    font-size: 30px;
+    color: var(--color-neon-cyan);
+}
+
+.info-sala-box {
+    display: flex;
+    flex-direction: column;
+    /* botones uno debajo del otro */
+    align-items: center;
+    /* los centra horizontalmente */
+    justify-content: center;
+    gap: 20px;
+    /* espacio entre botones */
+    height: 100%;
+}
+
+.btn-sala {
+    width: 60%;
+    padding: 15px 40px;
+    border-radius: 10px;
+    border: none;
+    font-family: var(--font-main);
+    font-size: 16px;
+    color: white;
+    cursor: pointer;
+    margin-top: 8px;
+    background: rgba(0, 0, 0, 0.35);
+    transition: 0.25s ease;
+}
+
+.btn-sala:hover {
+    background: #00aaff;
+    box-shadow: 0 0 12px #00aaff,
+        0 0 20px #00aaff,
+        0 0 40px #00aaff;
+    transform: translateY(-3px);
+}
+
+#salas-back-btn {
+    align-self: center;
+}
+
+/* ============================================================ */
+/* MENÚ                                                         */
+/* ============================================================ */
+
+.menu-box {
+    position: relative;
+    z-index: 1;
+    /* Fondo tipo vidrio */
+    background: rgba(0, 0, 0, 0.08);
+    backdrop-filter: blur(15px);
+    -webkit-backdrop-filter: blur(15px);
+    width: 400px;
+    padding: 60px 40px;
+    border-radius: 20px;
+    border: 1px solid rgba(0, 0, 0, 0.25);
+    box-shadow: 0 0 25px rgba(0, 0, 0, 0.45);
+    display: flex;
+    flex-direction: column;
+    gap: 25px;
+    margin: 0 auto;
+    /* centrado horizontal */
+    margin-top: 12vh;
+    /* posición vertical */
+    font-family: var(--font-main);
+}
+
+.menu-box h2 {
+    text-align: center;
+    margin: 0;
+    margin-bottom: 15px;
+    font-size: 35px;
+}
+
+.menu-title {
+    color: var(--color-neon-cyan);
+    font-size: 1.4em;
+    margin-bottom: 20px;
+}
+
+.menu-btn {
+    width: 100%;
+    padding: 10px;
+    border-radius: 10px;
+    border: none;
+    font-family: var(--font-main);
+    font-size: 16px;
+    color: white;
+    cursor: pointer;
+    background: rgba(0, 0, 0, 0.35);
+    transition: 0.25s ease;
+}
+
+.menu-btn:hover {
+    background: #00aaff;
+    /* azul neón */
+    box-shadow: 0 0 12px #00aaff,
+        0 0 20px #00aaff,
+        0 0 40px #00aaff;
+    /* brillo */
+    transform: translateY(-3px);
+    /* se levanta un poco */
+}
+
+/* ============================================================ */
+/* SOBRE NOSOTROS                                               */
+/* ============================================================ */
+
+.about-frame {
+    /* Reutiliza el estilo de marco cyber */
+    background-color: rgba(0, 0, 0, 0.6);
+    padding: 40px;
+    border-radius: 10px;
+    width: 70%;
+    max-width: 900px;
+    /* Un marco grande para el texto */
+    display: flex;
+    flex-direction: column;
+    gap: 25px;
+}
+
+.about-title {
+    text-align: center;
+    font-family: var(--font-main);
+    font-size: 2em;
+    margin-bottom: 10px;
+}
+
+.about-content {
+    line-height: 1.6;
+    text-align: justify;
+    font-size: 1em;
+    padding: 0 15px;
+    /* Da un estilo de fuente ligeramente diferente para el texto largo */
+    font-family: Arial, sans-serif;
+    color: #CCCCCC;
+}
+
+.about-content p {
+    margin-bottom: 15px;
+}
+
+.info-footer {
+    text-align: center;
+    margin-top: 20px;
+    padding-top: 15px;
+    border-top: 1px solid rgba(255, 255, 255, 0.1);
+}
+
+#about-continue-btn {
+    background: rgba(0, 0, 0, 0.35);
+    color: white;
+    padding: 15px 30px;
+    border: none;
+    font-family: var(--font-main);
+    font-size: 1.1em;
+    align-self: center;
+    /* Centra el botón en el frame */
+    width: 40%;
+}
+
+#about-continue-btn:hover {
+    background: #00aaff;
+    /* azul neón */
+    box-shadow: 0 0 12px #00aaff,
+        0 0 20px #00aaff,
+        0 0 40px #00aaff;
+    /* brillo */
+    transform: translateY(-3px);
+}
+
+.neon-button-action {
+    background-color: var(--color-button-default);
+    padding: 30px 20px;
+    border: none;
+    border-radius: 15px;
+    cursor: pointer;
+    font-family: var(--font-main);
+    font-size: 1.2em;
+    transition: background-color 0.2s, box-shadow 0.2s;
+}
+
+.neon-button-action2 {
+    background-color: var(--color-background-dark);
+    color: var(--color-neon-cyan);
+    padding: 25px 15px;
+    border: none;
+    border-radius: 15px;
+    cursor: pointer;
+    font-family: var(--font-main);
+    font-size: 1.2em;
+    transition: background-color 0.2s, box-shadow 0.2s;
+}
+
+/* ============================================================ */
+/* LOBBY                                                        */
+/* ============================================================ */
+
+#lobby {
+    /* El lobby ocupa toda la pantalla sobre el video */
+    font-family: var(--font-main);
+    height: 100%;
+    width: 100%;
+    padding: 40px 30px 30px;
+    display: flex;
+    flex-direction: column;
+    gap: 40px;
+    align-items: center;
+}
+
+/* Fila Superior (Username y Puntos) */
+.top-row {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    width: 100%;
+    padding: 0 10px;
+    gap: 40px;
+}
+
+/* Cajas de Info de Usuario y Puntos */
+.user-box,
+.point-box {
+    background-color: var(--color-background-dark);
+    backdrop-filter: blur(5px);
+    color: var(--color-neon-cyan);
+    padding: 12px 20px;
+    width: 300px;
+    height: auto;
+    border: none;
+    font-family: var(--font-main);
+    font-size: 1em;
+    transition: background-color 0.2s, box-shadow 0.2s;
+    border-radius: 10px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    text-align: center;
+    box-shadow: 0 0 8px #00ffff55;
+    gap: 10px;
+}
+
+.user-box h3,
+.point-box h3 {
+    font-size: 1em;
+    font-weight: 400;
+    margin: 0;
+}
+
+/* Contenido Principal del Lobby */
+.lobby-main-content {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    /* Dos columnas */
+    grid-template-rows: 1fr 1fr;
+    /* Dos filas del mismo tamaño */
+    gap: 30px;
+    width: 900px;
+    height: 600px;
+    /* define el alto total */
+}
+
+/* Panel de Jugadores (Sala de Espera) */
+.players-panel {
+    flex: 0 0 350px;
+    /* Ancho fijo para la lista de jugadores */
+    background: rgba(17, 17, 17, 0.85);
+    /* Fondo oscuro */
+    border: 2px solid var(--color-neon-magenta);
+    box-shadow: 0 0 15px rgba(255, 0, 255, 0.5);
+    /* Sombra magenta */
+    padding: 20px;
+    border-radius: 10px;
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+}
+
+.panel-title {
+    text-align: center;
+    font-size: 1.3em;
+    margin-bottom: 5px;
+    border-bottom: 1px solid var(--color-neon-magenta);
+    padding-bottom: 10px;
+}
+
+.player-list-header {
+    display: flex;
+    justify-content: space-between;
+    font-weight: bold;
+    color: var(--color-neon-cyan);
+    text-shadow: 0 0 3px var(--color-neon-cyan);
+    padding: 5px 0;
+    border-bottom: 1px dashed rgba(0, 255, 255, 0.5);
+}
+
+.player-list-item {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 8px 0;
+    border-bottom: 1px solid rgba(255, 255, 255, 0.1);
+}
+
+.local-player {
+    background-color: rgba(0, 255, 255, 0.1);
+    border-radius: 5px;
+    padding: 8px 5px;
+}
+
+.pos-col {
+    width: 10%;
+    text-align: center;
+}
+
+.name-col {
+    width: 60%;
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
+}
+
+.status-col {
+    width: 30%;
+    text-align: right;
+    font-size: 0.85em;
+    font-weight: bold;
+}
+
+.neon-status-ready {
+    color: var(--color-neon-cyan);
+    text-shadow: 0 0 5px var(--color-neon-cyan);
+}
+
+.neon-status-waiting {
+    color: #999;
+    font-weight: normal;
+}
+
+.lobby-back-btn {
+    margin-top: auto;
+    /* Empuja el botón al final de la columna */
+}
+
+/* Estilo Base para todos los Paneles Cyberpunk (El "Marco") */
+.cyber-panel {
+    background: rgba(17, 17, 17, 0.85);
+    /* Fondo oscuro */
+    border: 2px solid var(--color-neon-magenta);
+    box-shadow: 0 0 15px rgba(255, 0, 255, 0.5);
+    /* Sombra magenta */
+    padding: 20px;
+    border-radius: 10px;
+    display: flex;
+    flex-direction: column;
+    gap: 15px;
+    height: 100%;
+    /* Para que todos tengan la misma altura */
+}
+
+.cyber-panel h3 {
+    text-align: center;
+}
+
+.cyber-panel p {
+    text-align: center;
+}
+
+/* Panel de Chat Global (ocupa las dos filas de la derecha) */
+.lobby-chat-panel {
+    grid-column: 2;
+    grid-row: 1 / span 2;
+    flex: 1;
+    min-width: 300px;
+    display: flex;
+    flex-direction: column;
+    gap: 15px;
+}
+
+.chat-messages {
+    width: 100%;
+    height: 100%;
+    flex: 1;
+    /* Esto hace que ocupe todo el espacio disponible */
+    overflow-y: auto;
+    /* Scroll para mensajes */
+    padding: 10px;
+    display: flex;
+    flex-direction: column;
+    gap: 6px;
+}
+
+.chat-input-area {
+    display: flex;
+    align-items: center;
+    /* Centra verticalmente los elementos */
+    gap: 10px;
+}
+
+.chat-input {
+    flex: 1;
+    /* Ocupa todo el ancho restante */
+    padding: 8px 12px;
+    background-color: rgba(255, 255, 255, 0.08);
+    border: none;
+    border-radius: 4px;
+    font-family: var(--font-main);
+    font-size: 1em;
+    color: var(--color-text-main);
+    height: 40px;
+    /* Altura fija para alineación */
+    margin-top: 5px;
+}
+
+.chat-send-btn {
+    width: 100%;
+    height: 40px;
+    padding: 12px;
+    border: none;
+    border-radius: 10px;
+    font-family: var(--font-main);
+    font-size: 1em;
+    color: white;
+    cursor: pointer;
+    margin-top: 10px;
+    background: rgba(0, 0, 0, 0.35);
+    transition: 0.25s ease;
+}
+
+.chat-send-btn:hover {
+    background: #00aaff;
+    /* azul neón */
+    box-shadow: 0 0 12px #00aaff,
+        0 0 20px #00aaff,
+        0 0 40px #00aaff;
+    /* brillo */
+    transform: translateY(-3px);
+    /* se levanta un poco */
+    color: black;
+}
+
+.btn-continuar-nivel {
+    text-align: center;
+    margin-top: 50px;
+    background-color: #111;
+    border-radius: 10px;
+}
+
+#continuar-nivel-1 {
+    margin-top: 500px;
+}
+
+#continuar-nivel-2 {
+    margin-top: 500px;
+}
+
+#continuar-nivel-3 {
+    margin-top: 500px;
+}
+
+#continuar-nivel-4 {
+    margin-top: 500px;
+}
+
+#continuar-nivel-5 {
+    margin-top: 500px;
+}
+
+/* ============================================================ */
+/* IDENTIFICACIÓN DE AGENTES (Roles y Conjuntos Cruzados)       */
+/* ============================================================ */
+
+.final-training-section {
+    background: rgba(0, 0, 0, 0.6);
+    font-family: var(--font-main);
+    padding: 40px;
+    border-radius: 10px;
+    border: #00aaff 2px solid;
+    box-shadow: #00aaff 0px 0px 30px;
+    width: 80%;
+    margin: 2% auto;
+    /* centrado horizontal */
+    text-align: center;
+}
+
+.final-training-section h2 {
+    color: #00FFFF;
+}
+
+.sub-intro {
+    color: #ffffff;
+    font-size: 1em;
+    margin-top: 40px;
+    margin-bottom: 40px;
+}
+
+/* --- GRID DE IDENTIFICACIÓN DE AGENTES --- */
+.agent-identification-grid {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    gap: 30px;
+    text-align: left;
+    width: 70%;
+    margin: 0 auto;
+    height: 55vh;
+    /* 80% de la pantalla */
+}
+
+.id-card {
+    background-color: #1a1a3a;
+    border-radius: 8px;
+    padding: 15px;
+}
+
+.id-card h3 {
+    font-size: larger;
+}
+
+.id-card p {
+    margin: 8px 0;
+    color: #ffffff;
+    font-size: smaller;
+}
+
+/* Colores de Título para ID Cards */
+.cyborg-id h3 {
+    color: #ff004c;
+}
+
+.mercenary-id h3 {
+    color: #f2ff00;
+}
+
+.hacker-id h3 {
+    color: #00ffaa;
+}
+
+.neon-id h3 {
+    color: #ff66ff;
+}
+
+.start-button {
+    font-family: var(--font-main);
+    background: #00ffaa;
+    margin-top: 30px;
+    color: #1a1a3a;
+    border: none;
+    padding: 15px 40px;
+    font-size: 1.5em;
+    font-weight: bold;
+    cursor: pointer;
+    border-radius: 8px;
+    transition: background 0.3s, transform 0.3s;
+    text-transform: uppercase;
+    box-shadow: 0 0 15px #00ffaa;
+}
+
+.start-button:hover {
+    background: #00dd99;
+    transform: scale(1.03);
+}
+
+/* ============================================================ */
+/* JUGABILIDAD (NIVELES)                                        */
+/* ============================================================ */
+
+/* --- Fondo y Contenedor Principal --- */
+.contenedor-principal {
+    display: flex;
+    justify-content: space-around;
+    align-items: flex-start;
+    padding: 20px;
+    min-height: 100vh;
+}
+
+/* --- Encabezado (Header) --- */
+.header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 10px 20px;
+    background: rgba(0, 0, 0, 0.8);
+    border-bottom: 2px solid var(--color-neon-purple);
+    box-shadow: 0 0 20px var(--color-neon-purple);
+    font-family: var(--font-main);
+}
+
+.nivel-text {
+    font-size: 24px;
+    color: var(--color-neon-purple);
+    text-shadow: 0 0 5px var(--color-neon-purple);
+}
+
+.user-info label {
+    color: var(--color-neon-purple);
+    font-size: 14px;
+    margin-left: 15px;
+}
+
+.user-info input {
+    background: rgba(0, 0, 0, 0.5);
+    border: none;
+    color: white;
+    padding: 3px 8px;
+    width: 100px;
+}
+
+/* --- Paneles Laterales (Estilo Marco Neón) --- */
+.mision-panel,
+.acciones-panel {
+    width: 250px;
+    padding: 20px 15px;
+    margin-top: 50px;
+    background: rgba(0, 0, 0, 0.8);
+    border: 1px solid var(--color-neon-purple);
+    box-shadow: 0 0 20px var(--color-neon-purple);
+    border-radius: 5px;
+}
+
+.acciones-panel {
+    border-left: 2px solid var(--color-neon-purple);
+}
+
+.neon-title {
+    color: var(--color-neon-purple);
+    text-shadow: 0 0 5px var(--color-neon-purple);
+    border-bottom: 1px;
+    padding-bottom: 5px;
+    font-size: 18px;
+    margin-top: 0;
+}
+
+.mision-panel,
+.acciones-panel h2 {
+    font-family: var(--font-main);
+}
+
+.mision-panel,
+.acciones-panel p {
+    font-family: var(--font-main);
+    font-size: 16px;
+    line-height: 1.5;
+}
+
+.mision-panel p strong {
+    font-family: var(--font-main);
+    color: var(--color-neon-purple);
+    text-shadow: 0 0 3px var(--color-neon-purple);
+}
+
+/* --- Grid de Agentes --- */
+.agentes-grid {
+    display: grid;
+    grid-template-columns: repeat(6, 1fr);
+    gap: 30px;
+    width: 1200px;
+    margin: 50px;
+    padding: 30px;
+    background: rgba(0, 0, 0, 0.8);
+    border-radius: 10px;
+    box-shadow: 0 0 20px var(--color-neon-purple);
+    border: 1px solid var(--color-neon-purple);
+}
+
+/* --- Estilo de Carta (Agente) --- */
+.agente-card {
+    width: 160px;
+    height: 210px;
+    background: var(--color-mid-bg);
+    border-radius: 5px;
+    cursor: pointer;
+    overflow: hidden;
+    position: relative;
+    transition: transform 0.2s, box-shadow 0.2s, border-color 0.2s;
+    border: 5px solid var(--color-dark-bg);
+}
+
+.agente-card:hover {
+    transform: scale(1.05);
+    box-shadow: 0 0 30px var(--color-neon-purple);
+}
+
+.agente-card img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    opacity: 0.9;
+}
+
+/* --- Botones --- */
+.verificar-button {
+    font-family: var(--font-main);
+    width: 100%;
+    padding: 10px;
+    margin-top: 20px;
+    border: none;
+    border-radius: 5px;
+    color: var(--color-dark-bg);
+    font-weight: bold;
+    font-size: 16px;
+    cursor: pointer;
+    transition: background-color 0.3s, box-shadow 0.3s;
+}
+
+.verificar-button:hover {
+    background: #ff33ff;
+    box-shadow: 0 0 12px #ff33ff,
+        0 0 20px #ff33ff,
+        0 0 40px #ff33ff;
+    transform: translateY(-3px);
+}
+
+/* Estilo para el Mensaje de Resultado (Misión Cumplida) */
+.resultado-mensaje {
+    margin-top: 15px;
+    padding: 10px;
+    text-align: center;
+    font-weight: bold;
+    border-radius: 5px;
+    min-height: 30px;
+}
+
+.correcto {
+    font-family: var(--font-main);
+    background-color: #00ff0033;
+    border: 1px solid #00ff00;
+    color: #00ff00;
+}
+
+.incorrecto {
+    font-family: var(--font-main);
+    background-color: #ff000033;
+    border: 1px solid #ff0000;
+    color: #ff0000;
+}
+
+/* Estilo para el Botón de Nivel Siguiente */
+.nivel2-button {
+    font-family: var(--font-main);
+    width: 100%;
+    padding: 10px;
+    margin-top: 15px;
+    /* Espacio debajo del mensaje de resultado */
+    border: none;
+    border-radius: 5px;
+    color: var(--color-dark-bg);
+    font-weight: bold;
+    font-size: 16px;
+    cursor: pointer;
+    transition: background-color 0.3s, box-shadow 0.3s;
+}
+
+.nivel2-button:hover {
+    background: #ff33ff;
+    box-shadow: 0 0 12px #ff33ff,
+        0 0 20px #ff33ff,
+        0 0 40px #ff33ff;
+    transform: translateY(-3px);
+}
+
+/* ============================================================ */
+/* RANKING                                                      */
+/* ============================================================ */
+
+.rankin-box {
+    font-family: var(--font-main);
+    font-size: x-large;
+    background-color: rgba(0, 0, 0, 0.8);
+    color: rgb(167, 61, 233);
+    position: absolute;
+    width: 700px;
+    height: 80px;
+    border-radius: 10px;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.8);
+    overflow: hidden;
+    align-content: center;
+    text-align: center;
+    top: 5%;
+    left: 40%;
+    transform: translateX(-25%);
+}
+
+.text-rankin {
+    position: absolute;
+    top: 15%;
+    text-align: center;
+}
+
+.rankin-box2 {
+    background: rgba(0, 0, 0, 0.8);
+    backdrop-filter: blur(15px);
+    -webkit-backdrop-filter: blur(15px);
+    position: absolute;
+    top: 20%;
+    width: 700px;
+    height: 500px;
+    border-radius: 10px;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.8);
+    overflow: hidden;
+    align-content: center;
+    text-align: center;
+    left: 40%;
+    display: grid;
+    transform: translateX(-25%);
+}
+
+.box {
+    font-family: var(--font-main);
+    font-size: small;
+    background-color: rgba(255, 255, 255, 0.08);
+    color: rgb(167, 61, 233);
+    position: absolute;
+    width: 100px;
+    height: 50px;
+    border-radius: 10px;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.8);
+    overflow: hidden;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.p {
+    position: absolute;
+    top: 5%;
+    left: 4%;
+}
+
+.n {
+    position: absolute;
+    top: 5%;
+    left: 20%;
+    width: 200px;
+    height: 50px;
+}
+
+.pu {
+    position: absolute;
+    top: 5%;
+    left: 50%;
+    width: 200px;
+    height: 50px;
+}
+
+.ni {
+    position: absolute;
+    top: 5%;
+    left: 80%;
+}
+
+.uno {
+    position: absolute;
+    color: rgb(85, 237, 225);
+    top: 20%;
+    left: 4%;
+}
+
+.dos {
+    position: absolute;
+    color: rgb(85, 237, 225);
+    top: 20%;
+    left: 20%;
+    width: 200px;
+    height: 50px;
+}
+
+.tres {
+    position: absolute;
+    color: rgb(85, 237, 225);
+    top: 20%;
+    left: 50%;
+    width: 200px;
+    height: 50px;
+}
+
+.cuatro {
+    position: absolute;
+    color: rgb(85, 237, 225);
+    top: 20%;
+    left: 80%;
+}
+
+.cinco {
+    position: absolute;
+    color: rgb(178, 21, 21);
+    top: 35%;
+    left: 4%;
+}
+
+.seis {
+    position: absolute;
+    color: rgb(178, 21, 21);
+    top: 35%;
+    left: 20%;
+    width: 200px;
+    height: 50px;
+}
+
+.siete {
+    position: absolute;
+    color: rgb(178, 21, 21);
+    top: 35%;
+    left: 50%;
+    width: 200px;
+    height: 50px;
+}
+
+.ocho {
+    position: absolute;
+    color: rgb(178, 21, 21);
+    top: 35%;
+    left: 80%;
+}
+
+.nueve {
+    position: absolute;
+    color: rgb(0, 8, 255);
+    top: 50%;
+    left: 4%;
+}
+
+.diez {
+    position: absolute;
+    color: rgb(0, 8, 255);
+    top: 50%;
+    left: 20%;
+    width: 200px;
+    height: 50px;
+}
+
+.once {
+    position: absolute;
+    color: rgb(0, 8, 255);
+    top: 50%;
+    left: 50%;
+    width: 200px;
+    height: 50px;
+}
+
+.doce {
+    position: absolute;
+    color: rgb(0, 8, 255);
+    top: 50%;
+    left: 80%;
+}
+
+.trece {
+    position: absolute;
+    color: rgb(255, 247, 0);
+    top: 65%;
+    left: 4%;
+}
+
+.catorce {
+    position: absolute;
+    color: rgb(255, 247, 0);
+    top: 65%;
+    left: 20%;
+    width: 200px;
+    height: 50px;
+}
+
+.quince {
+    position: absolute;
+    color: rgb(255, 247, 0);
+    top: 65%;
+    left: 50%;
+    width: 200px;
+    height: 50px;
+}
+
+.dieciseis {
+    position: absolute;
+    color: rgb(255, 247, 0);
+    top: 65%;
+    left: 80%;
+}
+
+.disiesiete {
+    position: absolute;
+    color: rgb(255, 255, 255);
+    top: 80%;
+    left: 4%;
+}
+
+.diesiocho {
+    position: absolute;
+    color: rgb(255, 255, 255);
+    top: 80%;
+    left: 20%;
+    width: 200px;
+    height: 50px;
+}
+
+.diecinueve {
+    position: absolute;
+    color: rgb(255, 255, 255);
+    top: 80%;
+    left: 50%;
+    width: 200px;
+    height: 50px;
+}
+
+.veinte {
+    position: absolute;
+    color: rgb(255, 255, 255);
+    top: 80%;
+    left: 80%;
+}
+
+.box2 {
+    background-color: var(--color-background-dark);
+    color: rgb(167, 61, 233);
+    position: absolute;
+    width: 300px;
+    /* suficiente para dos botones */
+    height: 50px;
+    border-radius: 10px;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.8);
+
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    gap: 20px;
+
+    top: 90%;
+    left: 50%;
+    transform: translateX(-60%);
+}
+
+.rank-btn1 {
+    background-color: var(--color-background-dark);
+    color: rgb(167, 61, 233);
+    cursor: pointer;
+    border-radius: 15%;
+    border: none;
+    font-family: var(--font-main);
+    padding: 10px 20px;
+    margin: 0;
+}
+
+.rank-btn-anterior-2,
+.rank-btn-siguiente-2 {
+    background-color: transparent;
+    color: rgb(167, 61, 233);
+    cursor: pointer;
+    border-radius: 15%;
+    border: none;
+    font-family: var(--font-main);
+    padding: 10px 20px;
+    margin: 0;
+}
+
+.z {
+    font-family: var(--font-main);
+    background-color: var(--color-background-dark);
+    color: rgb(167, 61, 233);
+    cursor: pointer;
+    border-radius: 10%;
+    border: none;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.8);
+    height: 50px;
+    width: 200px;
+    position: absolute;
+    top: 90%;
+    left: 70%;
+}
+
+.rank-btn1:hover {
+    width: 300px;
+    height: 50px;
+    background: #ff00ff;
+    box-shadow: 0 0 12px #ff00ff,
+        0 0 20px #ff00ff,
+        0 0 40px #ff00ff;
+    transform: translateY(-3px);
+    color: black;
+}
+
+.rank-btn-anterior-2:hover,
+.rank-btn-siguiente-2:hover {
+    width: 150px;
+    height: 50px;
+    background: #ff00ff;
+    box-shadow: 0 0 12px #ff00ff,
+        0 0 20px #ff00ff,
+        0 0 40px #ff00ff;
+    transform: translateY(-3px);
+    color: black;
+}
+
+.z:hover {
+    background: #ff00ff;
+    box-shadow: 0 0 12px #ff00ff,
+        0 0 20px #ff00ff,
+        0 0 40px #ff00ff;
+    transform: translateY(-3px);
+    color: black;
+}
+
+/* ============================================================ */
+/* ESTADOS DE LAS CARTAS (todos los niveles)                    */
+/* ============================================================ */
+
+/* Estilo para la carta seleccionada */
+.agente-card.selected {
+    border: 3px solid var(--color-neon-cyan);
+    /* Borde neón para indicar selección */
+    box-shadow: 0 0 15px var(--color-neon-cyan);
+    transform: scale(1.05);
+}
+
+/* Estilo para la carta correcta (después de verificar) */
+.agente-card.correct {
+    border: 3px solid #00ff00;
+    /* Borde verde para acierto */
+    box-shadow: 0 0 15px #00ff00;
+}
+
+/* Estilo para la carta incorrecta (después de verificar) */
+.agente-card.incorrect {
+    border: 3px solid #ff0000;
+    /* Borde rojo para fallo */
+    box-shadow: 0 0 15px #ff0000;
+    opacity: 0.5;
+}

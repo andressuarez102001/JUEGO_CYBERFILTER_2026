@@ -1,0 +1,1439 @@
+<!DOCTYPE html>
+<html lang="es">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>CyberFilter</title>
+    <link href="https://fonts.googleapis.com/css2?family=Orbitron:wght@400;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="css/style.css">
+</head>
+
+
+
+<body>
+    <video id="video-fondo" autoplay muted loop playsinline>
+        <source src="img/FONDO.mp4" type="video/mp4">
+
+    </video>
+
+
+
+    <audio id="musicaFondo" loop>
+        <source src="musica/End_of_Line_TRON_Legacy.mp3" type="audio/mpeg">
+    </audio>
+
+
+
+    <div id="pantalla-inicio" class="inicio-container">
+
+      
+
+        <div class="boton-inicio-contenedor">
+            <button id="btn-iniciar" class="btn-inicio">INICIAR</button>
+        </div>
+    </div>
+
+
+
+
+
+    <div id="login-step-1" class="login-container login-background">
+        <div class="login-box">
+            <h2 class="neon-text box-title">INICIO DE SESION</h2>
+
+            <div class="form-group">
+                <label for="username-input" class="neon-label">Usuario</label>
+                <input type="text" id="username-input" class="login-input">
+            </div>
+            <div class="form-group">
+                <label for="password-input" class="neon-label">Contraseña</label>
+                <input type="password" id="password-input" class="login-input">
+            </div>
+
+            <button id="next-step-btn" class="login-btn">INGRESAR</button>
+
+            <div class="register-link">
+                <p>¿No tienes una cuenta?</p>
+                <button id="register-btn" class="register-btn">Regístrate Aquí</button>
+            </div>
+        </div>
+    </div>
+
+
+
+
+
+    <div id="login-step-2" class="login-container login-background hidden">
+        <div class="login-box">
+            <h2 class="neon-text box-title">REGISTRAR CUENTA</h2>
+
+            <div class="form-group">
+                <label for="reg-username" class="neon-label">Usuario:</label>
+                <input type="text" id="reg-username" class="login-input">
+            </div>
+
+            <div class="form-group">
+                <label for="reg-email" class="neon-label">Email:</label>
+                <input type="email" id="reg-email" class="login-input">
+            </div>
+
+            <div class="form-group">
+                <label for="reg-password" class="neon-label">Contraseña:</label>
+                <input type="password" id="reg-password" class="login-input">
+            </div>
+            <div class="form-group">
+                <label for="reg-confirm-password" class="neon-label">Confirmar Contraseña:</label>
+                <input type="password" id="reg-confirm-password" class="login-input">
+            </div>
+            <button id="login-btn" class="login-btn">REGISTRAR</button>
+        </div>
+    </div>
+
+
+
+
+
+
+    <div id="menu" class="login-container login-background hidden">
+        <div class="menu-box">
+            <h2 class="menu-title">MENU</h2>
+
+            <div class="form-group">
+                <button id="menu-back-btn" class="menu-btn">VOLVER AL INICIO</button>
+                <button id="about-btn" class="menu-btn">DONACIONES/SOBRE NOSOTROS</button>
+                <button id="levels-btn" class="menu-btn">NIVELES</button>
+                <button id="conf-btn" class="menu-btn">CONFIGURACION</button>
+
+                <div class="boton-jugar-menu">
+                    <button id="btn-jugar" class="btn-jugar-menu">JUGAR</button>
+                </div>
+            </div>
+        </div>
+    </div>
+
+
+
+
+    <div id="about-screen" class="login-container login-background hidden">
+        <div class="about-frame cyber-frame neon-border-purple">
+            <h2 class="neon-text about-title">SOBRE NOSOTROS</h2>
+            <div class="about-content">
+                <p>
+                    ¡Bienvenido a CyberFilter: La Frontera Lógica!
+                </p>
+                <p>
+                    Prepárate para sumergirte en un universo distópico donde la lógica es tu mejor arma y la astucia tu
+                    única aliada. En CyberFilter, la humanidad ha delegado la toma de decisiones a complejos algoritmos y
+                    sistemas de inteligencia artificial, resultando en una sociedad fragmentada y controlada. Tu misión,
+                    como agente de la resistencia, es infiltrarte en las redes de información más seguras para
+                    desmantelar este control y liberar a la población.
+                </p>
+                <p>
+                    El corazón de CyberFilter reside en su innovadora jugabilidad, basada en los principios de la
+                    Teoría de Conjuntos. Cada misión te presentará un desafío de rescate o eliminación de agentes,
+                    donde la clave será identificar y agrupar a los individuos correctos utilizando filtros lógicos.
+                </p>
+                <div class="info-footer">
+                    <p>Tu viaje comienza ahora. El destino de la humanidad digital está en tus manos. ¡Buena suerte,
+                        agente!</p>
+                </div>
+            </div>
+
+            <button id="about-continue-btn" class="neon-button-action">CONTINUAR</button>
+        </div>
+    </div>
+
+
+
+    <div id="levels" class="login-container login-background hidden">
+        <div class="menu-box">
+            <h2 class="menu-title">NIVELES</h2>
+            <button id="level-one" class="menu-btn">NIVEL 1</button>
+            <button class="menu-btn">NIVEL 2</button>
+            <button class="menu-btn">NIVEL 3</button>
+            <button class="menu-btn">NIVEL 4</button>
+            <button class="menu-btn">NIVEL 5</button>
+            <button id="menu-back" class="menu-btn">VOLVER AL MENU</button>
+        </div>
+    </div>
+
+
+    <div id="configuration" class="login-container login-background hidden">
+        <div class="menu-box">
+            <h2 class="menu-title">CONFIGURACION</h2>
+            <button class="menu-btn">CUENTA</button>
+            <button class="menu-btn">MUSICA</button>
+            <button class="menu-btn">BRILLO</button>
+            <button class="menu-btn">PERSONAJES</button>
+            <button id="configuration-back-btn" class="menu-btn">VOLVER AL MENU</button>
+        </div>
+    </div>
+
+
+
+
+
+
+<div id="lobby" class="login-background hidden">
+
+        <div class="top-row">
+            <div class="user-box">
+                <h3>Agente: <span id="nombre-usuario"></span></h3>
+            </div>
+
+            <div class="point-box">
+                <h3>Puntos: <span class="neon-text"></span></h3>
+            </div>
+        </div>
+
+        <div class="lobby-main-content">
+
+            <div id="players-waiting-room" class="players-panel">
+                <h3 class="neon-text panel-title">SALA DE ESPERA (1/5)</h3>
+                <div class="player-list-header">
+                    <span class="pos-col"></span>
+                    <span class="name-col">AGENTE/NOMBRE</span>
+                    <span class="status-col">ESTADO</span>
+                </div>
+                <div class="player-list-item local-player">
+                    <span class="pos-col">1</span>
+                    <span class="name-col" id="player-name-1">AndresSuarez2910 (Tu)</span>
+                    <span class="status-col neon-status-ready">LISTO</span>
+                </div>
+                <div class="player-list-item">
+                    <span class="pos-col">2</span>
+                    <span class="name-col" id="player-name-2">ArnulfoxX</span>
+                    <span class="status-col neon-status-waiting">ESPERANDO</span>
+                </div>
+                <div class="player-list-item">
+                    <span class="pos-col">3</span>
+                    <span class="name-col" id="player-name-3">Norberto69</span>
+                    <span class="status-col neon-status-waiting">ESPERANDO</span>
+                </div>
+                <div class="player-list-item">
+                    <span class="pos-col">4</span>
+                    <span class="name-col" id="player-name-4">Jaime34</span>
+                    <span class="status-col neon-status-waiting">ESPERANDO</span>
+                </div>
+                <div class="player-list-item">
+                    <span class="pos-col">5</span>
+                    <span class="name-col" id="player-name-5">Daniel24</span>
+                    <span class="status-col neon-status-waiting">ESPERANDO</span>
+                </div>
+                <button id="lobby-btn" class="menu-btn lobby-back-btn">MENU PRINCIPAL</button>
+            </div>
+
+
+            <div class="lobby-chat-panel cyber-panel">
+                <h3 class="neon-text panel-title">CHAT GLOBAL</h3>
+                
+                <div id="chat-messages" class="chat-messages">
+                    </div>
+
+                <div class="chat-input-area">
+                    <input type="text" id="chat-input" class="chat-input" placeholder="Escribe un mensaje...">
+                    <button id="chat-send-btn" class="chat-send-btn">ENVIAR</button>
+                </div>
+            </div>
+
+            <div class="info-panel-player cyber-panel">
+                <h3>INFORMACION</h3>
+                    <p>Para pasar al siguiente nivel debes seleccionar las cartas correctas en el tiempo que corresponde a cada nivel. Cada carta correcta, suma 100 puntos, si todas las cartas seleccionadas son correctas, ganas un adicional de 200 puntos</p>
+            </div>
+            
+            </div>
+            <div class="btn-jugar btn-continuar-nivel">
+            <button id="continuar-al-nivel" class="menu-btn">CONTINUAR</button>
+            </div>
+
+</div>
+   
+
+<div id="agentes-screen" class="final-training-section hidden">
+        
+        <h2>IDENTIFICACIÓN DE AGENTES</h2>
+        <h2>(Roles y Conjuntos Cruzados)</h2>
+        <p class="sub-intro">Observa las características únicas de cada agente y sus roles cruzados (agentes que están en dos clases a la vez).</p>
+
+        <div class="agent-identification-grid">
+            <div class="id-card cyborg-id">
+                <h3 class="titulo-tarjetas-cyborg">Cyborg</h3>
+                <p class="contenido-tarjetas">JEFE: Maxima resistencia; Lidera el avance</p>
+                <p class="contenido-tarjetas">SOLDADO: Unidad de choque; Combate frontal</p>
+                <p class="contenido-tarjetas">TECNICO: Fortificaciones y reparacion de escudos. Son de apariencia robotica futurista y algunos tienen armamento no tan avanzado.</p>
+                <p class="contenido-tarjetas">INFILTRADO: Fisico y flanqueo. (Cruce con hacker)</p>
+            </div>
+            <div class="id-card hacker-id">
+                <h3 class="titulo-tarjetas-hacker">Hacker</h3>
+                <p class="contenido-tarjetas">JEFE: Maximo control de redes y sistemas</p>
+                <p class="contenido-tarjetas">ASTUTA: Sabotaje rapido y alteracion. Siempre llevan a la mano un dispositivo para modificar y hackear bases de datos.</p>
+                <p class="contenido-tarjetas">SILENCIOSO: Neutralizacion sigilosa</p>
+                <p class="contenido-tarjetas">INFILTRADO: Bypass fisico y digital. (Cruce con cyborg)</p>
+
+            </div>
+            <div class="id-card mercenary-id">
+                <h3 class="titulo-tarjetas-mercenario">Mercenario</h3>
+                <p class="contenido-tarjetas">JEFE: Potencia el fuego. Liderazgo tactico</p>
+                <p class="contenido-tarjetas">PILOTO: Ataques de area y soporte aereo</p>
+                <p class="contenido-tarjetas">APARIENCIA: mas humanoide que robotica, solo el principal cuenta con arma, los demas se encargan de la salud, hacker y pilotear</p>
+                <p class="contenido-tarjetas">HACKER: Fuego y desactivacion de sistemas</p>
+                <p class="contenido-tarjetas">MEDICO: Curacion avanzada y Equipo Medico (cruce con Neon)</p>
+            </div>
+            <div class="id-card neon-id">
+                <h3 class="titulo-tarjetas-neon">Neon</h3>
+                <p class="contenido-tarjetas">JEFE:Coordina Sustancias de Apoyo y Control.</p>
+                <p class="contenido-tarjetas">DESTRUCTOR: Química Ofensiva (Ácidos/Explosivos).</p>
+                <p class="contenido-tarjetas">Apariencia futurista y tecnológica, con habilidades químicas avanzadas</p>
+                <p class="contenido-tarjetas">HECHICERA: Debuffs y Control de Mente.</p>
+                <p class="contenido-tarjetas">MÉDICO: Curación con Nanobots y Estimulantes. (CRUCE con MERCENARIO)</p>
+            </div>
+        </div>
+        
+       
+
+        <button id="tutorial-next-btn" class="start-button">CONTINUAR</button>
+    </div>
+
+
+
+
+
+
+    <div id="salas-multijugador" class="sala hidden">
+        <div class="sala-box">
+            <h2>MODO DE JUEGO</h2>
+           
+            <div class="info-sala-box">
+                    <button id="singleplayer-btn" class="btn-sala">SINGLE PLAYER</button>
+                    <button id="multiplayer-btn" class="btn-sala">MULTIPLAYER</button>
+            </div>
+            <button id="salas-back-btn" class="btn-sala">VOLVER AL MENU</button>
+        
+        </div>
+    </div>
+
+
+
+
+
+    <div id="imagen-nivel-1" class="login-container login-background2 hidden">
+        <div class="container-btn3">
+            <button id="continuar-nivel-1" class="menu-btn neon-button-action2">CONTINUAR</button>
+        </div>
+    </div>
+
+
+
+
+
+    
+
+
+    
+
+
+     <div id="nivel-1" class="hidden">
+
+        <div class="header">
+            <span class="nivel-text">NIVEL 1</span>
+            <div class="user-info">
+
+
+                <label>Username:</label>
+                <span id="nombre-usuario2"></span>
+
+
+
+                <label>Puntos:</label>
+                <input type="text" value="0" id="puntos-input" readonly>
+            </div>
+        </div>
+
+
+
+        <div class="contenedor-principal">
+
+
+
+            <div class="mision-panel">
+                <h2 class="neon-title">MISION NIVEL 1</h2>
+                <p>Rescata a todos los agentes que son CYBORG TECNICO y MERCENARIO MEDICO- Tiempo: 30 segundos</p>
+            </div>
+
+
+            <div class="agentes-grid" id="agentes-grid">
+                <div class="agente-card" data-index="0"><img src="img/HACKER-infiltrado.png" alt="Agente 1"></div>
+                <div class="agente-card" data-index="1"><img src="img/Cyborg-infiltrado.png" alt="Agente 2"></div>
+                <div class="agente-card" data-index="2"><img src="img/mercenario-hacker.png" alt="Agente 3"></div>
+                <div class="agente-card" data-index="3"><img src="img/Neon-destructor.png" alt="Agente 4"></div>
+
+                <div class="agente-card" data-index="4"><img src="img/Neon-hechizera.png" alt="Agente 5"></div>
+                <div class="agente-card" data-index="5"><img src="img/Cyborg-Soldado.png" alt="Agente 6"></div>
+                <div class="agente-card" data-index="6"><img src="img/Mercenario-jefe.png" alt="Agente 7"></div>
+                <div class="agente-card" data-index="7"><img src="img/HACKER-jefe.png" alt="Agente 8"></div>
+
+                <div class="agente-card" data-index="8"><img src="img/mercenario-medico.png" alt="Agente 9"></div>
+                <div class="agente-card" data-index="9"><img src="img/Cyborg-jefe.png" alt="Agente 10"></div>
+                <div class="agente-card" data-index="10"><img src="img/HACKER-silencioso.png" alt="Agente 11"></div>
+                <div class="agente-card" data-index="11"><img src="img/Neon-medico.png" alt="Agente 12"></div>
+
+                <div class="agente-card" data-index="12"><img src="img/Mercenario-piloto.png" alt="Agente 13"></div>
+                <div class="agente-card" data-index="13"><img src="img/Cyborg-Tenico.png" alt="Agente 14"></div>
+                <div class="agente-card" data-index="14"><img src="img/Neones-jefe.png" alt="Agente 15"></div>
+                <div class="agente-card" data-index="15"><img src="img/HACKER-astuta.png" alt="Agente 16"></div>
+                <div class="agente-card" data-index="16"><img src="img/HACKER-infiltrado.png" alt="Agente 17"></div>
+                <div class="agente-card" data-index="17"><img src="img/Cyborg-infiltrado.png" alt="Agente 18"></div>
+
+
+            </div>
+
+
+
+            <div class="acciones-panel">
+                <div class="motor-boleano-placeholder">
+                    <h2 class="neon-title">SELECCION MANUAL</h2>
+                    <p>Haz click en las cartas que creas que cumplen la mision.</p>
+                </div>
+
+                <button id="verificar-btn" class="verificar-button">VERIFICAR SELECCION</button>
+
+                <div id="resultado-correcto-nivel1" class="resultado-mensaje correcto hidden">
+                    Mision Cumplida!
+                </div>
+
+
+                <div id="resultado-incorrecto-nivel1" class="resultado-mensaje incorrecto hidden">
+                    Mision Fallida!
+                </div>
+
+                <button id="continuarbtn2" class="nivel2-button hidden">SIGUIENTE NIVEL (2)</button>
+            </div>
+        </div>
+
+
+    </div>
+
+
+
+
+
+
+
+
+
+    <div id="imagen-nivel-2" class="login-container login-background4 hidden">
+        	    <div class="container-btn3">
+             	        <button id="continuar-nivel-2" class="menu-btn neon-button-action2">CONTINUAR</button>
+             	    </div>
+    </div>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+    <div id="nivel-2" class="hidden">
+
+    <div class="header">
+        <span class="nivel-text">NIVEL 2</span>
+        <div class="user-info">
+
+
+            <label>Username:</label>
+            <span id="nombre-usuario3"></span>
+
+
+
+            <label>Puntos:</label>
+            <input type="text" value="0" id="puntos-input-nivel2" readonly> 
+        </div>
+    </div>
+
+
+
+    <div class="contenedor-principal">
+
+
+
+        <div class="mision-panel">
+            <h2 class="neon-title">MISION NIVEL 2</h2>
+            <p>Rescata a todos los agentes que NO son NEON DESTRUCTOR y que NO tienen la clase MERCENARIO HACKER - Tiempo: 20 segundos</p>
+        </div>
+
+
+        <div class="agentes-grid" id="agentes-grid-nivel2">
+            <div class="agente-card" data-index="0"><img src="img/HACKER-infiltrado.png" alt="Agente 1"></div>
+            <div class="agente-card" data-index="1"><img src="img/Cyborg-infiltrado.png" alt="Agente 2"></div>
+            <div class="agente-card" data-index="2"><img src="img/mercenario-hacker.png" alt="Agente 3"></div>
+            <div class="agente-card" data-index="3"><img src="img/Neon-destructor.png" alt="Agente 4"></div>
+
+            <div class="agente-card" data-index="4"><img src="img/Neon-hechizera.png" alt="Agente 5"></div>
+            <div class="agente-card" data-index="5"><img src="img/Cyborg-Soldado.png" alt="Agente 6"></div>
+            <div class="agente-card" data-index="6"><img src="img/Mercenario-jefe.png" alt="Agente 7"></div>
+            <div class="agente-card" data-index="7"><img src="img/HACKER-jefe.png" alt="Agente 8"></div>
+
+            <div class="agente-card" data-index="8"><img src="img/mercenario-medico.png" alt="Agente 9"></div>
+            <div class="agente-card" data-index="9"><img src="img/Cyborg-jefe.png" alt="Agente 10"></div>
+            <div class="agente-card" data-index="10"><img src="img/HACKER-silencioso.png" alt="Agente 11"></div>
+            <div class="agente-card" data-index="11"><img src="img/Neon-medico.png" alt="Agente 12"></div>
+
+            <div class="agente-card" data-index="12"><img src="img/Mercenario-piloto.png" alt="Agente 13"></div>
+            <div class="agente-card" data-index="13"><img src="img/Cyborg-Tenico.png" alt="Agente 14"></div>
+            <div class="agente-card" data-index="14"><img src="img/Neones-jefe.png" alt="Agente 15"></div>
+            <div class="agente-card" data-index="15"><img src="img/HACKER-astuta.png" alt="Agente 16"></div>
+            <div class="agente-card" data-index="16"><img src="img/HACKER-infiltrado.png" alt="Agente 17"></div>
+            <div class="agente-card" data-index="17"><img src="img/Cyborg-infiltrado.png" alt="Agente 18"></div>
+        </div>
+
+
+
+        <div class="acciones-panel">
+            <div class="motor-boleano-placeholder">
+                <h2 class="neon-title">SELECCION MANUAL</h2>
+                <p>Haz click en las cartas que creas que cumplen la mision.</p>
+            </div>
+
+            <button id="verificar-btn-nivel2" class="verificar-button">VERIFICAR SELECCION</button>
+
+            <div id="resultado-correcto-nivel2" class="resultado-mensaje correcto hidden">
+                Mision Cumplida!
+            </div>
+
+
+            <div id="resultado-incorrecto-nivel2" class="resultado-mensaje incorrecto hidden">
+                Mision Fallida!
+            </div>
+
+            <button id="continuarbtn3" class="nivel2-button hidden">SIGUIENTE NIVEL (3)</button>
+        </div>
+    </div>
+
+
+</div>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+    <div id="imagen-nivel-3" class="login-container login-background5 hidden">
+        	    <div class="container-btn3">
+             	        <button id="continuar-nivel-3" class="menu-btn neon-button-action2">CONTINUAR</button>
+             	    </div>
+    </div>
+
+
+
+
+
+
+
+
+    
+
+
+
+    <div id="nivel-3" class="hidden">
+
+    <div class="header">
+        <span class="nivel-text">NIVEL 3</span>
+        <div class="user-info">
+
+
+            <label>Username:</label>
+            <span id="nombre-usuario4"></span>
+
+
+
+            <label>Puntos:</label>
+            <input type="text" value="0" id="puntos-input-nivel3" readonly>
+        </div>
+    </div>
+
+
+
+    <div class="contenedor-principal">
+
+
+
+        <div class="mision-panel">
+            <h2 class="neon-title">MISION NIVEL 3</h2>
+            <p>Rescata a los agentes que son HACKER, INFILTRADO Y ASTUTA - Tiempo: 10 segundos</p>
+        </div>
+
+
+        <div class="agentes-grid" id="agentes-grid-nivel3">
+            <div class="agente-card" data-index="0"><img src="img/Neon-destructor.png" alt="Agente 1"></div>
+            <div class="agente-card" data-index="1"><img src="img/Cyborg-infiltrado.png" alt="Agente 2"></div>
+            <div class="agente-card" data-index="2"><img src="img/mercenario-hacker.png" alt="Agente 3"></div>
+            <div class="agente-card" data-index="3"><img src="img/Neon-destructor.png" alt="Agente 4"></div>
+
+            <div class="agente-card" data-index="4"><img src="img/Neon-hechizera.png" alt="Agente 5"></div>
+            <div class="agente-card" data-index="5"><img src="img/Cyborg-Soldado.png" alt="Agente 6"></div>
+            <div class="agente-card" data-index="6"><img src="img/Mercenario-jefe.png" alt="Agente 7"></div>
+            <div class="agente-card" data-index="7"><img src="img/HACKER-jefe.png" alt="Agente 8"></div>
+
+            <div class="agente-card" data-index="8"><img src="img/mercenario-medico.png" alt="Agente 9"></div>
+            <div class="agente-card" data-index="9"><img src="img/Cyborg-jefe.png" alt="Agente 10"></div>
+            <div class="agente-card" data-index="10"><img src="img/HACKER-silencioso.png" alt="Agente 11"></div>
+            <div class="agente-card" data-index="11"><img src="img/Neon-medico.png" alt="Agente 12"></div>
+
+            <div class="agente-card" data-index="12"><img src="img/Mercenario-piloto.png" alt="Agente 13"></div>
+            <div class="agente-card" data-index="13"><img src="img/Cyborg-Tenico.png" alt="Agente 14"></div>
+            <div class="agente-card" data-index="14"><img src="img/Neones-jefe.png" alt="Agente 15"></div>
+            <div class="agente-card" data-index="15"><img src="img/HACKER-astuta.png" alt="Agente 16"></div>
+            <div class="agente-card" data-index="16"><img src="img/HACKER-infiltrado.png" alt="Agente 17"></div>
+            <div class="agente-card" data-index="17"><img src="img/Cyborg-infiltrado.png" alt="Agente 18"></div>
+        </div>
+
+
+
+        <div class="acciones-panel">
+            <div class="motor-boleano-placeholder">
+                <h2 class="neon-title">SELECCION MANUAL</h2>
+                <p>Haz click en las cartas que creas que cumplen la mision.</p>
+            </div>
+
+            <button id="verificar-btn-nivel3" class="verificar-button">VERIFICAR SELECCION</button>
+
+            <div id="resultado-correcto-nivel3" class="resultado-mensaje correcto hidden">
+                Mision Cumplida!
+            </div>
+
+
+            <div id="resultado-incorrecto-nivel3" class="resultado-mensaje incorrecto hidden">
+                Mision Fallida!
+            </div>
+
+            <button id="continuarbtn4" class="nivel2-button hidden">SIGUIENTE NIVEL (4)</button>
+        </div>
+    </div>
+
+
+</div>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+    <div id="imagen-nivel-4" class="login-container login-background6 hidden">
+        	    <div class="container-btn3">
+             	        <button id="continuar-nivel-4" class="menu-btn neon-button-action2">CONTINUAR</button>
+             	    </div>
+    </div>
+
+
+
+
+
+
+
+
+
+
+
+   
+
+
+
+    <div id="nivel-4" class="hidden">
+
+    <div class="header">
+        <span class="nivel-text">NIVEL 4</span>
+        <div class="user-info">
+
+
+            <label>Username:</label>
+            <span id="nombre-usuario5"></span>
+
+
+
+            <label>Puntos:</label>
+            <input type="text" value="0" id="puntos-input-nivel4" readonly>
+        </div>
+    </div>
+
+
+
+    <div class="contenedor-principal">
+
+
+
+        <div class="mision-panel">
+            <h2 class="neon-title">MISION NIVEL 4</h2>
+            <p>Rescata a los agentes con poder de software e informatica SIN EL LIDER, luego el MERCENARIO LIDER. SI SELECCIONAS UNA CARTA MAL, REGRESAS AL LOBBY. TIEMPO: 15 SEGUNDOS</p>
+        </div>
+
+
+        <div class="agentes-grid" id="agentes-grid-nivel4">
+            <div class="agente-card" data-index="0"><img src="img/Neon-destructor.png" alt="Agente 1"></div>
+            <div class="agente-card" data-index="1"><img src="img/Cyborg-infiltrado.png" alt="Agente 2"></div>
+            <div class="agente-card" data-index="2"><img src="img/mercenario-hacker.png" alt="Agente 3"></div>
+            <div class="agente-card" data-index="3"><img src="img/Neon-destructor.png" alt="Agente 4"></div>
+
+            <div class="agente-card" data-index="4"><img src="img/Neon-hechizera.png" alt="Agente 5"></div>
+            <div class="agente-card" data-index="5"><img src="img/Cyborg-Soldado.png" alt="Agente 6"></div>
+            <div class="agente-card" data-index="6"><img src="img/Mercenario-jefe.png" alt="Agente 7"></div>
+            <div class="agente-card" data-index="7"><img src="img/HACKER-jefe.png" alt="Agente 8"></div>
+
+            <div class="agente-card" data-index="8"><img src="img/mercenario-medico.png" alt="Agente 9"></div>
+            <div class="agente-card" data-index="9"><img src="img/Cyborg-jefe.png" alt="Agente 10"></div>
+            <div class="agente-card" data-index="10"><img src="img/HACKER-silencioso.png" alt="Agente 11"></div>
+            <div class="agente-card" data-index="11"><img src="img/Neon-medico.png" alt="Agente 12"></div>
+
+            <div class="agente-card" data-index="12"><img src="img/Mercenario-piloto.png" alt="Agente 13"></div>
+            <div class="agente-card" data-index="13"><img src="img/Cyborg-Tenico.png" alt="Agente 14"></div>
+            <div class="agente-card" data-index="14"><img src="img/Neones-jefe.png" alt="Agente 15"></div>
+            <div class="agente-card" data-index="15"><img src="img/HACKER-astuta.png" alt="Agente 16"></div>
+            <div class="agente-card" data-index="16"><img src="img/HACKER-infiltrado.png" alt="Agente 17"></div>
+            <div class="agente-card" data-index="17"><img src="img/Cyborg-infiltrado.png" alt="Agente 18"></div>
+        </div>
+
+
+
+        <div class="acciones-panel">
+            <div class="motor-boleano-placeholder">
+                <h2 class="neon-title">SELECCION MANUAL</h2>
+                <p>Haz click en las cartas que creas que cumplen la mision.</p>
+            </div>
+
+            <button id="verificar-btn-nivel4" class="verificar-button">VERIFICAR SELECCION</button>
+
+            <div id="resultado-correcto-nivel4" class="resultado-mensaje correcto hidden">
+                Mision Cumplida!
+            </div>
+
+
+            <div id="resultado-incorrecto-nivel4" class="resultado-mensaje incorrecto hidden">
+                Mision Fallida!
+            </div>
+
+            <button id="continuarbtn5" class="nivel2-button hidden">SIGUIENTE NIVEL (5)</button>
+        </div>
+    </div>
+
+
+</div>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+    <div id="imagen-nivel-5" class="login-container login-background7 hidden">
+        	    <div class="container-btn3">
+             	        <button id="continuar-nivel-5" class="menu-btn neon-button-action2">CONTINUAR</button>
+             	    </div>
+    </div>
+
+
+
+
+
+
+
+
+
+
+
+
+    <div id="nivel-5" class="hidden">
+
+    <div class="header">
+        <span class="nivel-text">NIVEL 5</span>
+        <div class="user-info">
+
+
+            <label>Username:</label>
+            <span id="nombre-usuario6"></span>
+
+
+
+            <label>Puntos:</label>
+            <input type="text" value="0" id="puntos-input-nivel5" readonly>
+        </div>
+    </div>
+
+
+
+    <div class="contenedor-principal">
+
+
+
+        <div class="mision-panel">
+            <h2 class="neon-title">MISION NIVEL 5</h2>
+            <p>Rescata a LOS PERSONAJES PRINCIPALES DEL JUEGO, LUEGO RESCATA A 2 PERSONAJES QUE PERTENEZCAN A DIFERENTES CONJUNTOS PERO A LA MISMA CLASE(INFILTRADOS). NOTA: CUALQUIER MOVIMIENTO ERRONEO TE DEVOLVERA AL LOBBY Y EMPEZARAS DE NUEVO! - TIEMPO: 10 SEGUNDOS</p>
+        </div>
+
+
+        <div class="agentes-grid" id="agentes-grid-nivel5">
+            <div class="agente-card" data-index="0"><img src="img/HACKER-infiltrado.png" alt="Agente 1"></div>
+            <div class="agente-card" data-index="1"><img src="img/Cyborg-infiltrado.png" alt="Agente 2"></div>
+            <div class="agente-card" data-index="2"><img src="img/mercenario-hacker.png" alt="Agente 3"></div>
+            <div class="agente-card" data-index="3"><img src="img/Neon-destructor.png" alt="Agente 4"></div>
+
+            <div class="agente-card" data-index="4"><img src="img/Neon-hechizera.png" alt="Agente 5"></div>
+            <div class="agente-card" data-index="5"><img src="img/Cyborg-Soldado.png" alt="Agente 6"></div>
+            <div class="agente-card" data-index="6"><img src="img/Mercenario-jefe.png" alt="Agente 7"></div>
+            <div class="agente-card" data-index="7"><img src="img/HACKER-jefe.png" alt="Agente 8"></div>
+
+            <div class="agente-card" data-index="8"><img src="img/mercenario-medico.png" alt="Agente 9"></div>
+            <div class="agente-card" data-index="9"><img src="img/Cyborg-jefe.png" alt="Agente 10"></div>
+            <div class="agente-card" data-index="10"><img src="img/HACKER-silencioso.png" alt="Agente 11"></div>
+            <div class="agente-card" data-index="11"><img src="img/Neon-medico.png" alt="Agente 12"></div>
+
+            <div class="agente-card" data-index="12"><img src="img/Mercenario-piloto.png" alt="Agente 13"></div>
+            <div class="agente-card" data-index="13"><img src="img/Cyborg-Tenico.png" alt="Agente 14"></div>
+            <div class="agente-card" data-index="14"><img src="img/Neones-jefe.png" alt="Agente 15"></div>
+            <div class="agente-card" data-index="15"><img src="img/HACKER-astuta.png" alt="Agente 16"></div>
+            <div class="agente-card" data-index="16"><img src="img/HACKER-infiltrado.png" alt="Agente 17"></div>
+            <div class="agente-card" data-index="17"><img src="img/Cyborg-infiltrado.png" alt="Agente 18"></div>
+        </div>
+
+
+
+        <div class="acciones-panel">
+            <div class="motor-boleano-placeholder">
+                <h2 class="neon-title">SELECCION MANUAL</h2>
+                <p>Haz click en las cartas que creas que cumplen la mision.</p>
+            </div>
+
+            <button id="verificar-btn-nivel5" class="verificar-button">VERIFICAR SELECCION</button>
+
+            <div id="resultado-correcto-nivel5" class="resultado-mensaje correcto hidden">
+                Mision Cumplida!
+            </div>
+
+
+            <div id="resultado-incorrecto-nivel5" class="resultado-mensaje incorrecto hidden">
+                Mision Fallida!
+            </div>
+
+            <button id="continuarbtnRanking" class="nivel2-button hidden">TABLA RANKING</button>
+        </div>
+    </div>
+
+
+</div>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+    <!-- RANKING -->
+
+    <div id="ranking1" class="login-container login-background hidden">
+        <div class="rankin-box">
+            <p>BASES DE DATOS: AGENTES</p>
+            <p>RANKING GLOBAL</p>
+        </div>
+
+        <div class="rankin-box2">
+            <div class="p box">
+                <h3 class="text-rankin">POSICION</h3>
+            </div>
+            <div class="n box">
+                <h3 class="text-rankin">NOMBRE/AGENTE</h3>
+            </div>
+            <div class="pu box">
+                <h3 class="text-rankin">PUNTOSTOTALES</h3>
+            </div>
+            <div class="ni box">
+                <h3 class="text-rankin">NIVEL MAXIMO</h3>
+            </div>
+
+            <div class="uno box">
+                <h3 class="text-rankin">1</h3>
+            </div>
+            <div class="dos box">
+                <h3 class="text-rankin">Arnulfo</h3>
+            </div>
+            <div class="tres box">
+                <h3 class="text-rankin">998</h3>
+            </div>
+            <div class="cuatro box">
+                <h3 class="text-rankin">4</h3>
+            </div>
+
+            <div class="cinco box">
+                <h3 class="text-rankin">2</h3>
+            </div>
+            <div class="seis box">
+                <h3 class="text-rankin">Norverto</h3>
+            </div>
+            <div class="siete box">
+                <h3 class="text-rankin">889</h3>
+            </div>
+            <div class="ocho box">
+                <h3 class="text-rankin">4</h3>
+            </div>
+
+            <div class="nueve box">
+                <h3 class="text-rankin">3</h3>
+            </div>
+            <div class="diez box">
+                <h3 class="text-rankin">Jaime</h3>
+            </div>
+            <div class="once box">
+                <h3 class="text-rankin">810</h3>
+            </div>
+            <div class="doce box">
+                <h3 class="text-rankin">4</h3>
+            </div>
+
+            <div class="trece box">
+                <h3 class="text-rankin">4</h3>
+            </div>
+            <div class="catorce box">
+                <h3 class="text-rankin">Andres</h3>
+            </div>
+            <div class="quince box">
+                <h3 class="text-rankin">766</h3>
+            </div>
+            <div class="dieciseis box">
+                <h3 class="text-rankin">3</h3>
+            </div>
+
+            <div class="disiesiete box">
+                <h3 class="text-rankin">5</h3>
+            </div>
+            <div class="diesiocho box">
+                <h3 class="text-rankin">Daniel</h3>
+            </div>
+            <div class="diecinueve box">
+                <h3 class="text-rankin">422</h3>
+            </div>
+            <div class="veinte box">
+                <h3 class="text-rankin">2</h3>
+            </div>
+
+        </div>
+
+        <div class="box2">
+            <button id="rank-btn" class="rank-btn1">SIGUIENTE</button>
+        </div>
+
+
+
+    </div>
+
+    <div id="ranking2" class="login-container login-background hidden">
+        <div class="rankin-box">
+            <p>BASES DE DATOS.AGENTES</p>
+            <p>RANKING GLOBAL</p>
+        </div>
+
+        <div class="rankin-box2">
+            <div class="p box">
+                <h3 class="text-rankin">POSICION</h3>
+            </div>
+            <div class="n box">
+                <h3 class="text-rankin">NOMBRE/AGENTE</h3>
+            </div>
+            <div class="pu box">
+                <h3 class="text-rankin">PUNTOSTOTALES</h3>
+            </div>
+            <div class="ni box">
+                <h3 class="text-rankin">NIVEL MAXIMO</h3>
+            </div>
+
+            <div class="uno box">
+                <h3 class="text-rankin">1</h3>
+            </div>
+            <div class="dos box">
+                <h3 class="text-rankin">Andres</h3>
+            </div>
+            <div class="tres box">
+                <h3 class="text-rankin">968</h3>
+            </div>
+            <div class="cuatro box">
+                <h3 class="text-rankin">4</h3>
+            </div>
+
+            <div class="cinco box">
+                <h3 class="text-rankin">2</h3>
+            </div>
+            <div class="seis box">
+                <h3 class="text-rankin">Daniel</h3>
+            </div>
+            <div class="siete box">
+                <h3 class="text-rankin">859</h3>
+            </div>
+            <div class="ocho box">
+                <h3 class="text-rankin">4</h3>
+            </div>
+
+            <div class="nueve box">
+                <h3 class="text-rankin">3</h3>
+            </div>
+            <div class="diez box">
+                <h3 class="text-rankin">Jesus</h3>
+            </div>
+            <div class="once box">
+                <h3 class="text-rankin">860</h3>
+            </div>
+            <div class="doce box">
+                <h3 class="text-rankin">4</h3>
+            </div>
+
+            <div class="trece box">
+                <h3 class="text-rankin">4</h3>
+            </div>
+            <div class="catorce box">
+                <h3 class="text-rankin">Arnulfo</h3>
+            </div>
+            <div class="quince box">
+                <h3 class="text-rankin">796</h3>
+            </div>
+            <div class="dieciseis box">
+                <h3 class="text-rankin">4</h3>
+            </div>
+
+            <div class="disiesiete box">
+                <h3 class="text-rankin">5</h3>
+            </div>
+            <div class="diesiocho box">
+                <h3 class="text-rankin">Norberto</h3>
+            </div>
+            <div class="diecinueve box">
+                <h3 class="text-rankin">122</h3>
+            </div>
+            <div class="veinte box">
+                <h3 class="text-rankin">2</h3>
+            </div>
+
+        </div>
+
+        <div class="box2">
+            <button id="ranki-btn1" class="rank-btn-anterior-2">ANTERIOR</button>
+            <button id="rank-btn2" class="rank-btn-siguiente-2">SIGUIENTE</button>
+        </div>
+
+
+
+
+
+
+    </div>
+
+
+    <div id="ranking3" class="login-container login-background hidden">
+        <div class="rankin-box">
+            <p>BASES DE DATOS.AGENTES</p>
+            <p>RANKING GLOBAL</p>
+        </div>
+
+        <div class="rankin-box2">
+            <div class="p box">
+                <h3 class="text-rankin">POSICION</h3>
+            </div>
+            <div class="n box">
+                <h3 class="text-rankin">NOMBRE/AGENTE</h3>
+            </div>
+            <div class="pu box">
+                <h3 class="text-rankin">PUNTOSTOTALES</h3>
+            </div>
+            <div class="ni box">
+                <h3 class="text-rankin">NIVEL MAXIMO</h3>
+            </div>
+
+            <div class="uno box">
+                <h3 class="text-rankin">1</h3>
+            </div>
+            <div class="dos box">
+                <h3 class="text-rankin">Norberto</h3>
+            </div>
+            <div class="tres box">
+                <h3 class="text-rankin">928</h3>
+            </div>
+            <div class="cuatro box">
+                <h3 class="text-rankin">4</h3>
+            </div>
+
+            <div class="cinco box">
+                <h3 class="text-rankin">2</h3>
+            </div>
+            <div class="seis box">
+                <h3 class="text-rankin">Andres</h3>
+            </div>
+            <div class="siete box">
+                <h3 class="text-rankin">819</h3>
+            </div>
+            <div class="ocho box">
+                <h3 class="text-rankin">4</h3>
+            </div>
+
+            <div class="nueve box">
+                <h3 class="text-rankin">3</h3>
+            </div>
+            <div class="diez box">
+                <h3 class="text-rankin">Jaime</h3>
+            </div>
+            <div class="once box">
+                <h3 class="text-rankin">800</h3>
+            </div>
+            <div class="doce box">
+                <h3 class="text-rankin">4</h3>
+            </div>
+
+            <div class="trece box">
+                <h3 class="text-rankin">4</h3>
+            </div>
+            <div class="catorce box">
+                <h3 class="text-rankin">Daniel</h3>
+            </div>
+            <div class="quince box">
+                <h3 class="text-rankin">716</h3>
+            </div>
+            <div class="dieciseis box">
+                <h3 class="text-rankin">3</h3>
+            </div>
+
+            <div class="disiesiete box">
+                <h3 class="text-rankin">5</h3>
+            </div>
+            <div class="diesiocho box">
+                <h3 class="text-rankin">Arnulfo</h3>
+            </div>
+            <div class="diecinueve box">
+                <h3 class="text-rankin">321</h3>
+            </div>
+            <div class="veinte box">
+                <h3 class="text-rankin">2</h3>
+            </div>
+
+        </div>
+
+        <div class="box2">
+
+            <button id="ranki-btn2" class="rank-btn-anterior-2">ANTERIOR</button>
+            <button id="rank-btn3" class="rank-btn-siguiente-2">SIGUIENTE</button>
+        </div>
+
+
+
+    </div>
+
+
+    <div id="ranking4" class="login-container login-background hidden">
+        <div class="rankin-box">
+            <p>BASES DE DATOS.AGENTES</p>
+            <p>RANKING GLOBAL</p>
+        </div>
+
+        <div class="rankin-box2">
+            <div class="p box">
+                <h3 class="text-rankin">POSICION</h3>
+            </div>
+            <div class="n box">
+                <h3 class="text-rankin">NOMBRE/AGENTE</h3>
+            </div>
+            <div class="pu box">
+                <h3 class="text-rankin">PUNTOSTOTALES</h3>
+            </div>
+            <div class="ni box">
+                <h3 class="text-rankin">NIVEL MAXIMO</h3>
+            </div>
+
+            <div class="uno box">
+                <h3 class="text-rankin">1</h3>
+            </div>
+            <div class="dos box">
+                <h3 class="text-rankin">Andres</h3>
+            </div>
+            <div class="tres box">
+                <h3 class="text-rankin">998</h3>
+            </div>
+            <div class="cuatro box">
+                <h3 class="text-rankin">4</h3>
+            </div>
+
+            <div class="cinco box">
+                <h3 class="text-rankin">2</h3>
+            </div>
+            <div class="seis box">
+                <h3 class="text-rankin">Daniel</h3>
+            </div>
+            <div class="siete box">
+                <h3 class="text-rankin">855</h3>
+            </div>
+            <div class="ocho box">
+                <h3 class="text-rankin">4</h3>
+            </div>
+
+            <div class="nueve box">
+                <h3 class="text-rankin">3</h3>
+            </div>
+            <div class="diez box">
+                <h3 class="text-rankin">Arnulfo</h3>
+            </div>
+            <div class="once box">
+                <h3 class="text-rankin">815</h3>
+            </div>
+            <div class="doce box">
+                <h3 class="text-rankin">4</h3>
+            </div>
+
+            <div class="trece box">
+                <h3 class="text-rankin">4</h3>
+            </div>
+            <div class="catorce box">
+                <h3 class="text-rankin">Norberto</h3>
+            </div>
+            <div class="quince box">
+                <h3 class="text-rankin">716</h3>
+            </div>
+            <div class="dieciseis box">
+                <h3 class="text-rankin">3</h3>
+            </div>
+
+            <div class="disiesiete box">
+                <h3 class="text-rankin">5</h3>
+            </div>
+            <div class="diesiocho box">
+                <h3 class="text-rankin">Jaime</h3>
+            </div>
+            <div class="diecinueve box">
+                <h3 class="text-rankin">233</h3>
+            </div>
+            <div class="veinte box">
+                <h3 class="text-rankin">4</h3>
+            </div>
+
+        </div>
+
+        <div class="box2">
+
+            <button id="ranki-btn3" class="rank-btn-anterior-2">ANTERIOR</button>
+            <button id="rank-btn4" class="rank-btn-siguiente-2">SIGUIENTE</button>
+        </div>
+
+
+
+    </div>
+
+    <div id="ranking5" class="login-container login-background hidden">
+        <div class="rankin-box">
+            <p>BASES DE DATOS.AGENTES</p>
+            <p>RANKING GLOBAL</p>
+        </div>
+
+        <div class="rankin-box2">
+            <div class="p box">
+                <h3 class="text-rankin">POSICION</h3>
+            </div>
+            <div class="n box">
+                <h3 class="text-rankin">NOMBRE/AGENTE</h3>
+            </div>
+            <div class="pu box">
+                <h3 class="text-rankin">PUNTOSTOTALES</h3>
+            </div>
+            <div class="ni box">
+                <h3 class="text-rankin">NIVEL MAXIMO</h3>
+            </div>
+
+            <div class="uno box">
+                <h3 class="text-rankin">1</h3>
+            </div>
+            <div class="dos box">
+                <h3 class="text-rankin">Andres</h3>
+            </div>
+            <div class="tres box">
+                <h3 class="text-rankin">1000</h3>
+            </div>
+            <div class="cuatro box">
+                <h3 class="text-rankin">5</h3>
+            </div>
+
+            <div class="cinco box">
+                <h3 class="text-rankin">2</h3>
+            </div>
+            <div class="seis box">
+                <h3 class="text-rankin">Daniel</h3>
+            </div>
+            <div class="siete box">
+                <h3 class="text-rankin">950</h3>
+            </div>
+            <div class="ocho box">
+                <h3 class="text-rankin">4</h3>
+            </div>
+
+            <div class="nueve box">
+                <h3 class="text-rankin">3</h3>
+            </div>
+            <div class="diez box">
+                <h3 class="text-rankin">Jaime</h3>
+            </div>
+            <div class="once box">
+                <h3 class="text-rankin">832</h3>
+            </div>
+            <div class="doce box">
+                <h3 class="text-rankin">4</h3>
+            </div>
+
+            <div class="trece box">
+                <h3 class="text-rankin">4</h3>
+            </div>
+            <div class="catorce box">
+                <h3 class="text-rankin">Arnulfo</h3>
+            </div>
+            <div class="quince box">
+                <h3 class="text-rankin">612</h3>
+            </div>
+            <div class="dieciseis box">
+                <h3 class="text-rankin">3</h3>
+            </div>
+
+            <div class="disiesiete box">
+                <h3 class="text-rankin">5</h3>
+            </div>
+            <div class="diesiocho box">
+                <h3 class="text-rankin">Norberto</h3>
+            </div>
+            <div class="diecinueve box">
+                <h3 class="text-rankin">487</h3>
+            </div>
+            <div class="veinte box">
+                <h3 class="text-rankin">2</h3>
+            </div>
+
+        </div>
+
+        <div class="box2">
+
+            <button id="ranki-btn4" class="rank-btn1">ANTERIOR</button>
+
+        </div>
+
+        <button id="rank-btn5" class="rank-btn z">VOLVER AL LOBBY</button>
+
+
+
+    </div>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+    <script src="js/ScreenManager.js"></script>
+    <script src="js/UserSession.js"></script>
+    <script src="js/ScoreManager.js"></script>
+    <script src="js/MusicPlayer.js"></script>
+    <script src="js/Chat.js"></script>
+    <script src="js/CardGrid.js"></script>
+    <script src="js/Level.js"></script>
+    <script src="js/StrictLevel.js"></script>
+    <script src="js/AuthService.js"></script>
+    <script src="js/Ranking.js"></script>
+    <script src="js/Game.js"></script>
+    <script src="js/script.js"></script>
+</body>
+
+</html>
