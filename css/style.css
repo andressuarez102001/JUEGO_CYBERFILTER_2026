@@ -823,7 +823,7 @@ body {
     border-radius: 10px;
     border: #00aaff 2px solid;
     box-shadow: #00aaff 0px 0px 30px;
-    width: 80%;
+    width: min(94%, 1280px);
     margin: 2% auto;
     /* centrado horizontal */
     text-align: center;
@@ -844,28 +844,102 @@ body {
 .agent-identification-grid {
     display: grid;
     grid-template-columns: repeat(2, 1fr);
-    gap: 30px;
+    gap: 22px;
     text-align: left;
-    width: 70%;
+    width: 100%;
     margin: 0 auto;
-    height: 55vh;
-    /* 80% de la pantalla */
 }
 
 .id-card {
-    background-color: #1a1a3a;
+    background: linear-gradient(145deg, rgba(26, 26, 58, 0.96), rgba(7, 15, 30, 0.96));
     border-radius: 8px;
-    padding: 15px;
+    border: 1px solid currentColor;
+    box-shadow: inset 0 0 18px rgba(0, 255, 255, 0.06);
+    padding: 18px;
+    min-width: 0;
 }
 
 .id-card h3 {
-    font-size: larger;
+    font-size: 1.4rem;
+    margin-bottom: 14px;
+    text-transform: uppercase;
 }
 
 .id-card p {
-    margin: 8px 0;
-    color: #ffffff;
-    font-size: smaller;
+    margin: 0;
+    color: #e8f8ff;
+    font-size: 0.78rem;
+    line-height: 1.45;
+}
+
+.agent-profile {
+    display: grid;
+    grid-template-columns: 112px minmax(0, 1fr);
+    align-items: start;
+    gap: 14px;
+}
+
+.agent-portrait {
+    width: 112px;
+    aspect-ratio: 3 / 4;
+    object-fit: cover;
+    border: 1px solid currentColor;
+    border-radius: 4px;
+    box-shadow: 0 0 12px currentColor;
+}
+
+.agent-summary {
+    font-size: 0.86rem !important;
+    font-weight: bold;
+    margin-bottom: 8px !important;
+}
+
+.id-card h4 {
+    color: inherit;
+    font-size: 0.72rem;
+    margin: 6px 0;
+    text-transform: uppercase;
+}
+
+.role-list {
+    color: #f4f7ff;
+    font-family: Arial, sans-serif;
+    font-size: 0.75rem;
+    line-height: 1.42;
+    list-style: none;
+    padding: 0;
+}
+
+.role-list li {
+    margin-bottom: 4px;
+}
+
+.role-list li::before {
+    content: '▹';
+    color: currentColor;
+    margin-right: 5px;
+}
+
+.agent-note {
+    border-top: 1px solid currentColor;
+    margin-top: 14px !important;
+    padding-top: 10px;
+}
+
+.agent-examples {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 7px;
+    margin-top: 12px;
+}
+
+.agent-examples img {
+    width: 100%;
+    aspect-ratio: 4 / 3;
+    object-fit: cover;
+    border: 1px solid currentColor;
+    border-radius: 3px;
+    filter: saturate(0.9) contrast(1.08);
 }
 
 /* Colores de Título para ID Cards */
@@ -873,7 +947,15 @@ body {
     color: #ff004c;
 }
 
+.cyborg-id {
+    color: #ff4f78;
+}
+
 .mercenary-id h3 {
+    color: #f2ff00;
+}
+
+.mercenary-id {
     color: #f2ff00;
 }
 
@@ -881,7 +963,15 @@ body {
     color: #00ffaa;
 }
 
+.hacker-id {
+    color: #00ffaa;
+}
+
 .neon-id h3 {
+    color: #ff66ff;
+}
+
+.neon-id {
     color: #ff66ff;
 }
 
@@ -1538,6 +1628,31 @@ body {
 }
 
 @media (max-width: 820px) {
+    /* En móvil el contenido de cada pantalla puede ser más alto que el visor. */
+    html,
+    body {
+        height: auto;
+        min-height: 100%;
+        overflow-x: hidden;
+    }
+
+    body {
+        overflow-y: auto;
+        -webkit-overflow-scrolling: touch;
+    }
+
+    .login-container,
+    .login-background,
+    .login-background2,
+    .login-background4,
+    .login-background5,
+    .login-background6,
+    .login-background7 {
+        height: auto;
+        min-height: 100dvh;
+        padding: 24px 12px;
+    }
+
     .login-box {
         width: 92%;
         padding: 40px 24px;
@@ -1557,8 +1672,39 @@ body {
         height: auto;
     }
 
+    #lobby {
+        height: auto;
+        min-height: 100dvh;
+        padding: 24px 12px;
+        gap: 24px;
+    }
+
+    .top-row {
+        flex-direction: column;
+        gap: 12px;
+        padding: 0;
+    }
+
+    .user-box,
+    .point-box {
+        width: 100%;
+        max-width: 420px;
+    }
+
     .players-panel {
         flex: 0 0 auto;
+    }
+
+    .lobby-chat-panel {
+        grid-column: auto;
+        grid-row: auto;
+        min-width: 0;
+        min-height: 360px;
+    }
+
+    .btn-continuar-nivel {
+        width: min(96%, 420px);
+        margin: 0 auto;
     }
 
     .agent-identification-grid {
@@ -1590,6 +1736,40 @@ body {
     .acciones-panel {
         width: 100%;
         margin-top: 10px;
+    }
+
+    .contenedor-principal {
+        min-height: 0;
+        padding: 12px;
+        gap: 12px;
+    }
+
+    .agentes-grid {
+        width: 100%;
+        max-width: none;
+    }
+
+    .final-training-section {
+        width: calc(100% - 24px);
+        margin: 12px auto;
+        padding: 24px 16px;
+    }
+
+    .sala-box {
+        width: calc(100% - 24px);
+        height: auto;
+        min-height: 420px;
+        margin: 24px auto;
+        padding: 36px 20px;
+    }
+
+    .btn-sala,
+    #about-continue-btn {
+        width: 100%;
+    }
+
+    [id^="continuar-nivel-"] {
+        margin-top: 0;
     }
 
     /* Ranking en flujo normal para pantallas pequeñas */
@@ -1660,10 +1840,98 @@ body {
 }
 
 @media (max-width: 520px) {
+    body {
+        font-size: 15px;
+    }
+
+    .login-container,
+    .login-background,
+    .login-background2,
+    .login-background4,
+    .login-background5,
+    .login-background6,
+    .login-background7 {
+        padding: 16px 10px;
+    }
+
+    .login-box,
+    .menu-box {
+        width: 100%;
+        padding: 28px 18px;
+        gap: 18px;
+        margin-top: 0;
+    }
+
     .agentes-grid {
         grid-template-columns: repeat(auto-fill, minmax(96px, 1fr));
         gap: 12px;
         padding: 14px;
+    }
+
+    .agente-card {
+        border-width: 3px;
+    }
+
+    .header {
+        padding: 10px;
+    }
+
+    .user-info input {
+        width: 82px;
+    }
+
+    .chat-input-area {
+        flex-wrap: wrap;
+    }
+
+    .chat-input,
+    .chat-send-btn {
+        width: 100%;
+        font-size: 16px;
+    }
+
+    .chat-send-btn {
+        margin-top: 0;
+    }
+
+    .final-training-section h2 {
+        font-size: 20px;
+    }
+
+    .id-card {
+        padding: 14px;
+    }
+
+    .id-card h3 {
+        font-size: 1.2rem;
+        margin-bottom: 10px;
+    }
+
+    .agent-profile {
+        grid-template-columns: 92px minmax(0, 1fr);
+        gap: 10px;
+    }
+
+    .agent-portrait {
+        width: 92px;
+    }
+
+    .role-list {
+        font-size: 0.7rem;
+    }
+
+    .agent-note {
+        font-size: 0.72rem !important;
+    }
+
+    .sub-intro {
+        margin: 20px 0;
+    }
+
+    .start-button {
+        width: 100%;
+        padding: 14px;
+        font-size: 1.1em;
     }
 
     .nivel-text {

@@ -208,37 +208,97 @@
         <p class="sub-intro">Observa las características únicas de cada agente y sus roles cruzados (agentes que están en dos clases a la vez).</p>
 
         <div class="agent-identification-grid">
-            <div class="id-card cyborg-id">
-                <h3 class="titulo-tarjetas-cyborg">Cyborg</h3>
-                <p class="contenido-tarjetas">JEFE: Maxima resistencia; Lidera el avance</p>
-                <p class="contenido-tarjetas">SOLDADO: Unidad de choque; Combate frontal</p>
-                <p class="contenido-tarjetas">TECNICO: Fortificaciones y reparacion de escudos. Son de apariencia robotica futurista y algunos tienen armamento no tan avanzado.</p>
-                <p class="contenido-tarjetas">INFILTRADO: Fisico y flanqueo. (Cruce con hacker)</p>
-            </div>
-            <div class="id-card hacker-id">
-                <h3 class="titulo-tarjetas-hacker">Hacker</h3>
-                <p class="contenido-tarjetas">JEFE: Maximo control de redes y sistemas</p>
-                <p class="contenido-tarjetas">ASTUTA: Sabotaje rapido y alteracion. Siempre llevan a la mano un dispositivo para modificar y hackear bases de datos.</p>
-                <p class="contenido-tarjetas">SILENCIOSO: Neutralizacion sigilosa</p>
-                <p class="contenido-tarjetas">INFILTRADO: Bypass fisico y digital. (Cruce con cyborg)</p>
+            <article class="id-card cyborg-id">
+                <h3><span aria-hidden="true">⚡</span> Cyborg</h3>
+                <div class="agent-profile">
+                    <img class="agent-portrait" src="img/Cyborg-jefe.png" alt="Agente cyborg líder">
+                    <div>
+                        <p class="agent-summary">Resistencia y combate frontal.</p>
+                        <h4>Roles</h4>
+                        <ul class="role-list">
+                            <li><strong>Jefe:</strong> máxima resistencia; lidera el avance.</li>
+                            <li><strong>Soldado:</strong> unidad de choque y combate frontal.</li>
+                            <li><strong>Técnico:</strong> fortificaciones y reparación de escudos.</li>
+                            <li><strong>Infiltrado:</strong> físico y flanqueo. Cruce con Hacker.</li>
+                        </ul>
+                    </div>
+                </div>
+                <p class="agent-note">Apariencia robótica futurista, con armamento avanzado.</p>
+                <div class="agent-examples" aria-label="Ejemplos de agentes cyborg">
+                    <img src="img/Cyborg-Soldado.png" alt="Cyborg soldado">
+                    <img src="img/Cyborg-Tenico.png" alt="Cyborg técnico">
+                    <img src="img/Cyborg-infiltrado.png" alt="Cyborg infiltrado">
+                </div>
+            </article>
 
-            </div>
-            <div class="id-card mercenary-id">
-                <h3 class="titulo-tarjetas-mercenario">Mercenario</h3>
-                <p class="contenido-tarjetas">JEFE: Potencia el fuego. Liderazgo tactico</p>
-                <p class="contenido-tarjetas">PILOTO: Ataques de area y soporte aereo</p>
-                <p class="contenido-tarjetas">APARIENCIA: mas humanoide que robotica, solo el principal cuenta con arma, los demas se encargan de la salud, hacker y pilotear</p>
-                <p class="contenido-tarjetas">HACKER: Fuego y desactivacion de sistemas</p>
-                <p class="contenido-tarjetas">MEDICO: Curacion avanzada y Equipo Medico (cruce con Neon)</p>
-            </div>
-            <div class="id-card neon-id">
-                <h3 class="titulo-tarjetas-neon">Neon</h3>
-                <p class="contenido-tarjetas">JEFE:Coordina Sustancias de Apoyo y Control.</p>
-                <p class="contenido-tarjetas">DESTRUCTOR: Química Ofensiva (Ácidos/Explosivos).</p>
-                <p class="contenido-tarjetas">Apariencia futurista y tecnológica, con habilidades químicas avanzadas</p>
-                <p class="contenido-tarjetas">HECHICERA: Debuffs y Control de Mente.</p>
-                <p class="contenido-tarjetas">MÉDICO: Curación con Nanobots y Estimulantes. (CRUCE con MERCENARIO)</p>
-            </div>
+            <article class="id-card hacker-id">
+                <h3><span aria-hidden="true">⌘</span> Hacker</h3>
+                <div class="agent-profile">
+                    <img class="agent-portrait" src="img/HACKER-jefe.png" alt="Agente hacker líder">
+                    <div>
+                        <p class="agent-summary">Tecnología y sabotaje.</p>
+                        <h4>Roles</h4>
+                        <ul class="role-list">
+                            <li><strong>Jefe:</strong> máximo control de redes y sistemas.</li>
+                            <li><strong>Astuta:</strong> sabotaje rápido y alteración.</li>
+                            <li><strong>Silencioso:</strong> neutralización sigilosa.</li>
+                            <li><strong>Infiltrado:</strong> bypass físico y digital. Cruce con Cyborg.</li>
+                        </ul>
+                    </div>
+                </div>
+                <p class="agent-note">Especialistas en modificar y hackear bases de datos.</p>
+                <div class="agent-examples" aria-label="Ejemplos de agentes hacker">
+                    <img src="img/HACKER-astuta.png" alt="Hacker astuta">
+                    <img src="img/HACKER-silencioso.png" alt="Hacker silencioso">
+                    <img src="img/HACKER-infiltrado.png" alt="Hacker infiltrado">
+                </div>
+            </article>
+
+            <article class="id-card mercenary-id">
+                <h3><span aria-hidden="true">◎</span> Mercenario</h3>
+                <div class="agent-profile">
+                    <img class="agent-portrait" src="img/Mercenario-jefe.png" alt="Agente mercenario líder">
+                    <div>
+                        <p class="agent-summary">Ataque y soporte táctico.</p>
+                        <h4>Roles</h4>
+                        <ul class="role-list">
+                            <li><strong>Jefe:</strong> potencia el fuego y el liderazgo táctico.</li>
+                            <li><strong>Piloto:</strong> ataques de área y soporte aéreo.</li>
+                            <li><strong>Hacker:</strong> fuego y desactivación de sistemas.</li>
+                            <li><strong>Médico:</strong> curación avanzada. Cruce con Neón.</li>
+                        </ul>
+                    </div>
+                </div>
+                <p class="agent-note">De apariencia humanoide; cubren salud, hackeo y pilotaje.</p>
+                <div class="agent-examples" aria-label="Ejemplos de agentes mercenarios">
+                    <img src="img/Mercenario-piloto.png" alt="Mercenario piloto">
+                    <img src="img/mercenario-hacker.png" alt="Mercenario hacker">
+                    <img src="img/mercenario-medico.png" alt="Mercenario médico">
+                </div>
+            </article>
+
+            <article class="id-card neon-id">
+                <h3><span aria-hidden="true">✦</span> Neón</h3>
+                <div class="agent-profile">
+                    <img class="agent-portrait" src="img/Neones-jefe.png" alt="Agente neón líder">
+                    <div>
+                        <p class="agent-summary">Química y control avanzado.</p>
+                        <h4>Roles</h4>
+                        <ul class="role-list">
+                            <li><strong>Jefe:</strong> coordina sustancias de apoyo y control.</li>
+                            <li><strong>Destructor:</strong> química ofensiva.</li>
+                            <li><strong>Hechicera:</strong> debuffs y control de mente.</li>
+                            <li><strong>Médico:</strong> nanobots y estimulantes. Cruce con Mercenario.</li>
+                        </ul>
+                    </div>
+                </div>
+                <p class="agent-note">Apariencia futurista con habilidades químicas avanzadas.</p>
+                <div class="agent-examples" aria-label="Ejemplos de agentes neón">
+                    <img src="img/Neon-destructor.png" alt="Neón destructor">
+                    <img src="img/Neon-hechizera.png" alt="Neón hechicera">
+                    <img src="img/Neon-medico.png" alt="Neón médico">
+                </div>
+            </article>
         </div>
 
         <button id="tutorial-next-btn" class="start-button">CONTINUAR</button>
