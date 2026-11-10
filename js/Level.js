@@ -48,12 +48,6 @@ class Level {
     }
 
     selectIndex(index, card) {
-        const isSelecting = !card.classList.contains('selected');
-        if (isSelecting && !this.isCorrectIndex(index)) {
-            this.views.cards.markIncorrect(index);
-            this.requestRetryQuestion('¡SELECCIÓN INCORRECTA!');
-            return;
-        }
         this.toggleCard(index);
     }
 
