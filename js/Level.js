@@ -1,15 +1,27 @@
 class Level {
-    static POINTS_ON_SUCCESS = 100;
+    static POINTS_PER_CARD = 100;
+    static SUCCESS_BONUS = 200;
     static FAIL_RETRY_DELAY = 3000;
 
     constructor(config, views, deps) {
+        const dependencies = deps || {};
+        this.config = config;
         this.correctAgents = config.correctAgents;
         this.resetsScoreOnReset = Boolean(config.resetsScoreOnReset);
         this.showWrongSelectionsOnFail = Boolean(config.showWrongSelectionsOnFail);
 
         this.views = views;
-        this.deps = deps;
+        this.deps = dependencies;
         this.selection = [];
+        this.restartId = null;
+        this.timer = dependencies.timer || new LevelTimer(
+            views.timer,
+            config.timeLimit,
+            () => this.onTimeout()
+        );
+
+        this.resultOkText = views.resultOk ? views.resultOk.textContent : '';
+        this.resultFailText = views.resultFail ? views.resultFail.textContent : '';
 
         this.bindEvents();
     }
@@ -34,7 +46,11 @@ class Level {
         if (!card || this.isLocked()) {
             return;
         }
-        this.toggleCard(parseInt(card.getAttribute('data-index'), 10));
+        this.selectIndex(parseInt(card.getAttribute('data-index'), 10), card);
+    }
+
+    selectIndex(index, card) {
+        this.toggleCard(index);
     }
 
     toggleCard(index) {
@@ -66,26 +82,43 @@ class Level {
     }
 
     onSuccess() {
+        this.stopTimer();
         this.showResult(this.views.resultOk);
         this.revealNextBtn();
         this.lock();
         this.views.cards.markCorrect(this.correctAgents);
-        this.deps.score.add(Level.POINTS_ON_SUCCESS);
+
+        const points = this.correctAgents.length * Level.POINTS_PER_CARD + Level.SUCCESS_BONUS;
+        this.deps.score.add(points);
+
+        if (this.deps.onLevelComplete) {
+            this.deps.onLevelComplete(this.config.number, this.deps.score.value);
+        }
     }
 
     onFail() {
+        this.stopTimer();
         this.showResult(this.views.resultFail);
         this.lock();
         if (this.showWrongSelectionsOnFail) {
             this.views.cards.markSelectedAsWrong();
         }
-        setTimeout(() => this.reset(), Level.FAIL_RETRY_DELAY);
+        this.restartId = setTimeout(() => this.restart(), Level.FAIL_RETRY_DELAY);
     }
 
-    showResult(element) {
-        if (element) {
-            element.classList.remove('hidden');
+    onTimeout() {
+        this.showResult(this.views.resultFail, '¡TIEMPO AGOTADO!');
+        this.onFail();
+    }
+
+    showResult(element, message) {
+        if (!element) {
+            return;
         }
+        if (message) {
+            element.textContent = message;
+        }
+        element.classList.remove('hidden');
     }
 
     hideResults() {
@@ -94,6 +127,15 @@ class Level {
                 element.classList.add('hidden');
             }
         });
+    }
+
+    restoreResultTexts() {
+        if (this.views.resultOk) {
+            this.views.resultOk.textContent = this.resultOkText;
+        }
+        if (this.views.resultFail) {
+            this.views.resultFail.textContent = this.resultFailText;
+        }
     }
 
     revealNextBtn() {
@@ -109,6 +151,7 @@ class Level {
     }
 
     lock() {
+        this.stopTimer();
         if (this.views.verifyBtn) {
             this.views.verifyBtn.disabled = true;
         }
@@ -120,18 +163,46 @@ class Level {
         }
     }
 
+    startTimer() {
+        this.timer.start();
+    }
+
+    stopTimer() {
+        this.timer.stop();
+    }
+
+    clearPendingRestart() {
+        if (this.restartId) {
+            clearTimeout(this.restartId);
+            this.restartId = null;
+        }
+    }
+
+    leave() {
+        this.stopTimer();
+        this.clearPendingRestart();
+    }
+
     enter() {
+        this.restart();
+    }
+
+    restart() {
         this.reset();
+        this.startTimer();
     }
 
     reset() {
+        this.clearPendingRestart();
         this.selection = [];
         this.views.cards.clearStates();
         this.hideResults();
+        this.restoreResultTexts();
         this.hideNextBtn();
         this.unlock();
         if (this.resetsScoreOnReset) {
             this.deps.score.reset();
         }
+        this.timer.reset();
     }
 }

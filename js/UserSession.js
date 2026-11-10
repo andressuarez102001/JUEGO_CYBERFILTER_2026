@@ -1,17 +1,18 @@
-class UserSession {
+class UserSession extends StorageRepository {
+    #displays;
+
     constructor(storage, storageKey, displays) {
-        this.storage = storage;
-        this.storageKey = storageKey;
-        this.displays = displays;
+        super(storage, storageKey);
+        this.#displays = displays;
     }
 
     save(name) {
-        this.storage.setItem(this.storageKey, name);
+        this.writeRaw(name);
         this.refresh();
     }
 
     get() {
-        return this.storage.getItem(this.storageKey);
+        return this.readRaw(null);
     }
 
     refresh() {
@@ -19,7 +20,7 @@ class UserSession {
         if (!name) {
             return;
         }
-        this.displays.forEach(display => {
+        this.#displays.forEach(display => {
             display.textContent = name;
         });
     }

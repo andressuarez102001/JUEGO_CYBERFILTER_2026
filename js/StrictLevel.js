@@ -1,12 +1,7 @@
 class StrictLevel extends Level {
     static PENALTY_DELAY = 1500;
 
-    onGridClick(event) {
-        const card = event.target.closest('.agente-card');
-        if (!card || this.isLocked()) {
-            return;
-        }
-        const index = parseInt(card.getAttribute('data-index'), 10);
+    selectIndex(index, card) {
         const isSelecting = !card.classList.contains('selected');
         if (isSelecting && !this.isCorrectIndex(index)) {
             this.penalize();
@@ -15,14 +10,20 @@ class StrictLevel extends Level {
         this.toggleCard(index);
     }
 
+    onTimeout() {
+        this.showResult(this.views.resultFail, '¡TIEMPO AGOTADO!');
+        this.penalize();
+    }
+
     onFail() {
         this.penalize();
     }
 
     penalize() {
+        this.stopTimer();
         this.showResult(this.views.resultFail);
         this.lock();
-        setTimeout(() => {
+        this.restartId = setTimeout(() => {
             this.hideResults();
             this.deps.returnToLobby();
         }, StrictLevel.PENALTY_DELAY);

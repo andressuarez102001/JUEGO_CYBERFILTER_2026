@@ -1,30 +1,42 @@
-class ScoreManager {
-    constructor(storage, storageKey, inputs) {
-        this.storage = storage;
-        this.storageKey = storageKey;
-        this.inputs = inputs;
+class ScoreManager extends StorageRepository {
+    #targets;
+
+    constructor(storage, storageKey, targets) {
+        super(storage, storageKey);
+        this.#targets = targets;
     }
 
     get value() {
-        return parseInt(this.storage.getItem(this.storageKey) || 0, 10);
+        const parsed = parseInt(this.readRaw('0'), 10);
+        return Number.isNaN(parsed) ? 0 : parsed;
     }
 
-    add(points) {
-        const total = this.value + points;
-        this.storage.setItem(this.storageKey, total);
-        this.syncInputs();
+    set(value) {
+        const total = Math.max(0, parseInt(value, 10) || 0);
+        this.writeRaw(String(total));
+        this.sync();
         return total;
     }
 
-    reset() {
-        this.storage.setItem(this.storageKey, 0);
-        this.syncInputs();
+    add(points) {
+        return this.set(this.value + (parseInt(points, 10) || 0));
     }
 
-    syncInputs() {
+    reset() {
+        return this.set(0);
+    }
+
+    sync() {
         const total = this.value;
-        this.inputs.forEach(input => {
-            input.value = total;
+        this.#targets.forEach(target => {
+            if (!target) {
+                return;
+            }
+            if (target.tagName === 'INPUT') {
+                target.value = total;
+            } else {
+                target.textContent = total;
+            }
         });
     }
 }

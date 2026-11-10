@@ -9,34 +9,22 @@
     <link rel="stylesheet" href="css/style.css">
 </head>
 
-
-
 <body>
     <video id="video-fondo" autoplay muted loop playsinline>
         <source src="img/FONDO.mp4" type="video/mp4">
 
     </video>
 
-
-
     <audio id="musicaFondo" loop>
         <source src="musica/End_of_Line_TRON_Legacy.mp3" type="audio/mpeg">
     </audio>
 
-
-
     <div id="pantalla-inicio" class="inicio-container">
-
-      
 
         <div class="boton-inicio-contenedor">
             <button id="btn-iniciar" class="btn-inicio">INICIAR</button>
         </div>
     </div>
-
-
-
-
 
     <div id="login-step-1" class="login-container login-background">
         <div class="login-box">
@@ -59,10 +47,6 @@
             </div>
         </div>
     </div>
-
-
-
-
 
     <div id="login-step-2" class="login-container login-background hidden">
         <div class="login-box">
@@ -90,11 +74,6 @@
         </div>
     </div>
 
-
-
-
-
-
     <div id="menu" class="login-container login-background hidden">
         <div class="menu-box">
             <h2 class="menu-title">MENU</h2>
@@ -103,7 +82,7 @@
                 <button id="menu-back-btn" class="menu-btn">VOLVER AL INICIO</button>
                 <button id="about-btn" class="menu-btn">DONACIONES/SOBRE NOSOTROS</button>
                 <button id="levels-btn" class="menu-btn">NIVELES</button>
-                <button id="conf-btn" class="menu-btn">CONFIGURACION</button>
+                <button id="ranking-btn" class="menu-btn">RANKING</button>
 
                 <div class="boton-jugar-menu">
                     <button id="btn-jugar" class="btn-jugar-menu">JUGAR</button>
@@ -111,9 +90,6 @@
             </div>
         </div>
     </div>
-
-
-
 
     <div id="about-screen" class="login-container login-background hidden">
         <div class="about-frame cyber-frame neon-border-purple">
@@ -144,36 +120,13 @@
         </div>
     </div>
 
-
-
     <div id="levels" class="login-container login-background hidden">
         <div class="menu-box">
             <h2 class="menu-title">NIVELES</h2>
             <button id="level-one" class="menu-btn">NIVEL 1</button>
-            <button class="menu-btn">NIVEL 2</button>
-            <button class="menu-btn">NIVEL 3</button>
-            <button class="menu-btn">NIVEL 4</button>
-            <button class="menu-btn">NIVEL 5</button>
             <button id="menu-back" class="menu-btn">VOLVER AL MENU</button>
         </div>
     </div>
-
-
-    <div id="configuration" class="login-container login-background hidden">
-        <div class="menu-box">
-            <h2 class="menu-title">CONFIGURACION</h2>
-            <button class="menu-btn">CUENTA</button>
-            <button class="menu-btn">MUSICA</button>
-            <button class="menu-btn">BRILLO</button>
-            <button class="menu-btn">PERSONAJES</button>
-            <button id="configuration-back-btn" class="menu-btn">VOLVER AL MENU</button>
-        </div>
-    </div>
-
-
-
-
-
 
 <div id="lobby" class="login-background hidden">
 
@@ -183,7 +136,7 @@
             </div>
 
             <div class="point-box">
-                <h3>Puntos: <span class="neon-text"></span></h3>
+                <h3>Puntos: <span id="lobby-puntos" class="neon-text">0</span></h3>
             </div>
         </div>
 
@@ -224,10 +177,9 @@
                 <button id="lobby-btn" class="menu-btn lobby-back-btn">MENU PRINCIPAL</button>
             </div>
 
-
             <div class="lobby-chat-panel cyber-panel">
                 <h3 class="neon-text panel-title">CHAT GLOBAL</h3>
-                
+
                 <div id="chat-messages" class="chat-messages">
                     </div>
 
@@ -241,17 +193,16 @@
                 <h3>INFORMACION</h3>
                     <p>Para pasar al siguiente nivel debes seleccionar las cartas correctas en el tiempo que corresponde a cada nivel. Cada carta correcta, suma 100 puntos, si todas las cartas seleccionadas son correctas, ganas un adicional de 200 puntos</p>
             </div>
-            
+
             </div>
             <div class="btn-jugar btn-continuar-nivel">
             <button id="continuar-al-nivel" class="menu-btn">CONTINUAR</button>
             </div>
 
 </div>
-   
 
 <div id="agentes-screen" class="final-training-section hidden">
-        
+
         <h2>IDENTIFICACIÓN DE AGENTES</h2>
         <h2>(Roles y Conjuntos Cruzados)</h2>
         <p class="sub-intro">Observa las características únicas de cada agente y sus roles cruzados (agentes que están en dos clases a la vez).</p>
@@ -289,33 +240,22 @@
                 <p class="contenido-tarjetas">MÉDICO: Curación con Nanobots y Estimulantes. (CRUCE con MERCENARIO)</p>
             </div>
         </div>
-        
-       
 
         <button id="tutorial-next-btn" class="start-button">CONTINUAR</button>
     </div>
 
-
-
-
-
-
     <div id="salas-multijugador" class="sala hidden">
         <div class="sala-box">
             <h2>MODO DE JUEGO</h2>
-           
+
             <div class="info-sala-box">
                     <button id="singleplayer-btn" class="btn-sala">SINGLE PLAYER</button>
                     <button id="multiplayer-btn" class="btn-sala">MULTIPLAYER</button>
             </div>
             <button id="salas-back-btn" class="btn-sala">VOLVER AL MENU</button>
-        
+
         </div>
     </div>
-
-
-
-
 
     <div id="imagen-nivel-1" class="login-container login-background2 hidden">
         <div class="container-btn3">
@@ -323,44 +263,27 @@
         </div>
     </div>
 
-
-
-
-
-    
-
-
-    
-
-
      <div id="nivel-1" class="hidden">
 
         <div class="header">
             <span class="nivel-text">NIVEL 1</span>
+            <span class="timer-text" id="timer-nivel-1">00:30</span>
             <div class="user-info">
-
 
                 <label>Username:</label>
                 <span id="nombre-usuario2"></span>
-
-
 
                 <label>Puntos:</label>
                 <input type="text" value="0" id="puntos-input" readonly>
             </div>
         </div>
 
-
-
         <div class="contenedor-principal">
-
-
 
             <div class="mision-panel">
                 <h2 class="neon-title">MISION NIVEL 1</h2>
                 <p>Rescata a todos los agentes que son CYBORG TECNICO y MERCENARIO MEDICO- Tiempo: 30 segundos</p>
             </div>
-
 
             <div class="agentes-grid" id="agentes-grid">
                 <div class="agente-card" data-index="0"><img src="img/HACKER-infiltrado.png" alt="Agente 1"></div>
@@ -382,13 +305,8 @@
                 <div class="agente-card" data-index="13"><img src="img/Cyborg-Tenico.png" alt="Agente 14"></div>
                 <div class="agente-card" data-index="14"><img src="img/Neones-jefe.png" alt="Agente 15"></div>
                 <div class="agente-card" data-index="15"><img src="img/HACKER-astuta.png" alt="Agente 16"></div>
-                <div class="agente-card" data-index="16"><img src="img/HACKER-infiltrado.png" alt="Agente 17"></div>
-                <div class="agente-card" data-index="17"><img src="img/Cyborg-infiltrado.png" alt="Agente 18"></div>
-
 
             </div>
-
-
 
             <div class="acciones-panel">
                 <div class="motor-boleano-placeholder">
@@ -402,7 +320,6 @@
                     Mision Cumplida!
                 </div>
 
-
                 <div id="resultado-incorrecto-nivel1" class="resultado-mensaje incorrecto hidden">
                     Mision Fallida!
                 </div>
@@ -411,16 +328,7 @@
             </div>
         </div>
 
-
     </div>
-
-
-
-
-
-
-
-
 
     <div id="imagen-nivel-2" class="login-container login-background4 hidden">
         	    <div class="container-btn3">
@@ -428,47 +336,27 @@
              	    </div>
     </div>
 
-
-
-
-
-
-
-
-
-
-
-
-
-
     <div id="nivel-2" class="hidden">
 
     <div class="header">
         <span class="nivel-text">NIVEL 2</span>
+        <span class="timer-text" id="timer-nivel-2">00:20</span>
         <div class="user-info">
-
 
             <label>Username:</label>
             <span id="nombre-usuario3"></span>
-
-
 
             <label>Puntos:</label>
             <input type="text" value="0" id="puntos-input-nivel2" readonly> 
         </div>
     </div>
 
-
-
     <div class="contenedor-principal">
-
-
 
         <div class="mision-panel">
             <h2 class="neon-title">MISION NIVEL 2</h2>
             <p>Rescata a todos los agentes que NO son NEON DESTRUCTOR y que NO tienen la clase MERCENARIO HACKER - Tiempo: 20 segundos</p>
         </div>
-
 
         <div class="agentes-grid" id="agentes-grid-nivel2">
             <div class="agente-card" data-index="0"><img src="img/HACKER-infiltrado.png" alt="Agente 1"></div>
@@ -490,11 +378,7 @@
             <div class="agente-card" data-index="13"><img src="img/Cyborg-Tenico.png" alt="Agente 14"></div>
             <div class="agente-card" data-index="14"><img src="img/Neones-jefe.png" alt="Agente 15"></div>
             <div class="agente-card" data-index="15"><img src="img/HACKER-astuta.png" alt="Agente 16"></div>
-            <div class="agente-card" data-index="16"><img src="img/HACKER-infiltrado.png" alt="Agente 17"></div>
-            <div class="agente-card" data-index="17"><img src="img/Cyborg-infiltrado.png" alt="Agente 18"></div>
         </div>
-
-
 
         <div class="acciones-panel">
             <div class="motor-boleano-placeholder">
@@ -508,7 +392,6 @@
                 Mision Cumplida!
             </div>
 
-
             <div id="resultado-incorrecto-nivel2" class="resultado-mensaje incorrecto hidden">
                 Mision Fallida!
             </div>
@@ -517,23 +400,7 @@
         </div>
     </div>
 
-
 </div>
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
 
     <div id="imagen-nivel-3" class="login-container login-background5 hidden">
         	    <div class="container-btn3">
@@ -541,48 +408,30 @@
              	    </div>
     </div>
 
-
-
-
-
-
-
-
-    
-
-
-
     <div id="nivel-3" class="hidden">
 
     <div class="header">
         <span class="nivel-text">NIVEL 3</span>
+        <span class="timer-text" id="timer-nivel-3">00:10</span>
         <div class="user-info">
-
 
             <label>Username:</label>
             <span id="nombre-usuario4"></span>
-
-
 
             <label>Puntos:</label>
             <input type="text" value="0" id="puntos-input-nivel3" readonly>
         </div>
     </div>
 
-
-
     <div class="contenedor-principal">
-
-
 
         <div class="mision-panel">
             <h2 class="neon-title">MISION NIVEL 3</h2>
             <p>Rescata a los agentes que son HACKER, INFILTRADO Y ASTUTA - Tiempo: 10 segundos</p>
         </div>
 
-
         <div class="agentes-grid" id="agentes-grid-nivel3">
-            <div class="agente-card" data-index="0"><img src="img/Neon-destructor.png" alt="Agente 1"></div>
+            <div class="agente-card" data-index="0"><img src="img/HACKER-infiltrado.png" alt="Agente 1"></div>
             <div class="agente-card" data-index="1"><img src="img/Cyborg-infiltrado.png" alt="Agente 2"></div>
             <div class="agente-card" data-index="2"><img src="img/mercenario-hacker.png" alt="Agente 3"></div>
             <div class="agente-card" data-index="3"><img src="img/Neon-destructor.png" alt="Agente 4"></div>
@@ -601,11 +450,7 @@
             <div class="agente-card" data-index="13"><img src="img/Cyborg-Tenico.png" alt="Agente 14"></div>
             <div class="agente-card" data-index="14"><img src="img/Neones-jefe.png" alt="Agente 15"></div>
             <div class="agente-card" data-index="15"><img src="img/HACKER-astuta.png" alt="Agente 16"></div>
-            <div class="agente-card" data-index="16"><img src="img/HACKER-infiltrado.png" alt="Agente 17"></div>
-            <div class="agente-card" data-index="17"><img src="img/Cyborg-infiltrado.png" alt="Agente 18"></div>
         </div>
-
-
 
         <div class="acciones-panel">
             <div class="motor-boleano-placeholder">
@@ -619,7 +464,6 @@
                 Mision Cumplida!
             </div>
 
-
             <div id="resultado-incorrecto-nivel3" class="resultado-mensaje incorrecto hidden">
                 Mision Fallida!
             </div>
@@ -628,23 +472,7 @@
         </div>
     </div>
 
-
 </div>
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
 
     <div id="imagen-nivel-4" class="login-container login-background6 hidden">
         	    <div class="container-btn3">
@@ -652,51 +480,30 @@
              	    </div>
     </div>
 
-
-
-
-
-
-
-
-
-
-
-   
-
-
-
     <div id="nivel-4" class="hidden">
 
     <div class="header">
         <span class="nivel-text">NIVEL 4</span>
+        <span class="timer-text" id="timer-nivel-4">00:15</span>
         <div class="user-info">
-
 
             <label>Username:</label>
             <span id="nombre-usuario5"></span>
-
-
 
             <label>Puntos:</label>
             <input type="text" value="0" id="puntos-input-nivel4" readonly>
         </div>
     </div>
 
-
-
     <div class="contenedor-principal">
-
-
 
         <div class="mision-panel">
             <h2 class="neon-title">MISION NIVEL 4</h2>
             <p>Rescata a los agentes con poder de software e informatica SIN EL LIDER, luego el MERCENARIO LIDER. SI SELECCIONAS UNA CARTA MAL, REGRESAS AL LOBBY. TIEMPO: 15 SEGUNDOS</p>
         </div>
 
-
         <div class="agentes-grid" id="agentes-grid-nivel4">
-            <div class="agente-card" data-index="0"><img src="img/Neon-destructor.png" alt="Agente 1"></div>
+            <div class="agente-card" data-index="0"><img src="img/HACKER-infiltrado.png" alt="Agente 1"></div>
             <div class="agente-card" data-index="1"><img src="img/Cyborg-infiltrado.png" alt="Agente 2"></div>
             <div class="agente-card" data-index="2"><img src="img/mercenario-hacker.png" alt="Agente 3"></div>
             <div class="agente-card" data-index="3"><img src="img/Neon-destructor.png" alt="Agente 4"></div>
@@ -715,11 +522,7 @@
             <div class="agente-card" data-index="13"><img src="img/Cyborg-Tenico.png" alt="Agente 14"></div>
             <div class="agente-card" data-index="14"><img src="img/Neones-jefe.png" alt="Agente 15"></div>
             <div class="agente-card" data-index="15"><img src="img/HACKER-astuta.png" alt="Agente 16"></div>
-            <div class="agente-card" data-index="16"><img src="img/HACKER-infiltrado.png" alt="Agente 17"></div>
-            <div class="agente-card" data-index="17"><img src="img/Cyborg-infiltrado.png" alt="Agente 18"></div>
         </div>
-
-
 
         <div class="acciones-panel">
             <div class="motor-boleano-placeholder">
@@ -733,7 +536,6 @@
                 Mision Cumplida!
             </div>
 
-
             <div id="resultado-incorrecto-nivel4" class="resultado-mensaje incorrecto hidden">
                 Mision Fallida!
             </div>
@@ -742,25 +544,7 @@
         </div>
     </div>
 
-
 </div>
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
 
     <div id="imagen-nivel-5" class="login-container login-background7 hidden">
         	    <div class="container-btn3">
@@ -768,45 +552,27 @@
              	    </div>
     </div>
 
-
-
-
-
-
-
-
-
-
-
-
     <div id="nivel-5" class="hidden">
 
     <div class="header">
         <span class="nivel-text">NIVEL 5</span>
+        <span class="timer-text" id="timer-nivel-5">00:10</span>
         <div class="user-info">
-
 
             <label>Username:</label>
             <span id="nombre-usuario6"></span>
-
-
 
             <label>Puntos:</label>
             <input type="text" value="0" id="puntos-input-nivel5" readonly>
         </div>
     </div>
 
-
-
     <div class="contenedor-principal">
-
-
 
         <div class="mision-panel">
             <h2 class="neon-title">MISION NIVEL 5</h2>
             <p>Rescata a LOS PERSONAJES PRINCIPALES DEL JUEGO, LUEGO RESCATA A 2 PERSONAJES QUE PERTENEZCAN A DIFERENTES CONJUNTOS PERO A LA MISMA CLASE(INFILTRADOS). NOTA: CUALQUIER MOVIMIENTO ERRONEO TE DEVOLVERA AL LOBBY Y EMPEZARAS DE NUEVO! - TIEMPO: 10 SEGUNDOS</p>
         </div>
-
 
         <div class="agentes-grid" id="agentes-grid-nivel5">
             <div class="agente-card" data-index="0"><img src="img/HACKER-infiltrado.png" alt="Agente 1"></div>
@@ -828,11 +594,7 @@
             <div class="agente-card" data-index="13"><img src="img/Cyborg-Tenico.png" alt="Agente 14"></div>
             <div class="agente-card" data-index="14"><img src="img/Neones-jefe.png" alt="Agente 15"></div>
             <div class="agente-card" data-index="15"><img src="img/HACKER-astuta.png" alt="Agente 16"></div>
-            <div class="agente-card" data-index="16"><img src="img/HACKER-infiltrado.png" alt="Agente 17"></div>
-            <div class="agente-card" data-index="17"><img src="img/Cyborg-infiltrado.png" alt="Agente 18"></div>
         </div>
-
-
 
         <div class="acciones-panel">
             <div class="motor-boleano-placeholder">
@@ -846,7 +608,6 @@
                 Mision Cumplida!
             </div>
 
-
             <div id="resultado-incorrecto-nivel5" class="resultado-mensaje incorrecto hidden">
                 Mision Fallida!
             </div>
@@ -855,58 +616,7 @@
         </div>
     </div>
 
-
 </div>
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
 
     <!-- RANKING -->
 
@@ -1000,8 +710,6 @@
         <div class="box2">
             <button id="rank-btn" class="rank-btn1">SIGUIENTE</button>
         </div>
-
-
 
     </div>
 
@@ -1097,13 +805,7 @@
             <button id="rank-btn2" class="rank-btn-siguiente-2">SIGUIENTE</button>
         </div>
 
-
-
-
-
-
     </div>
-
 
     <div id="ranking3" class="login-container login-background hidden">
         <div class="rankin-box">
@@ -1198,10 +900,7 @@
             <button id="rank-btn3" class="rank-btn-siguiente-2">SIGUIENTE</button>
         </div>
 
-
-
     </div>
-
 
     <div id="ranking4" class="login-container login-background hidden">
         <div class="rankin-box">
@@ -1295,8 +994,6 @@
             <button id="ranki-btn3" class="rank-btn-anterior-2">ANTERIOR</button>
             <button id="rank-btn4" class="rank-btn-siguiente-2">SIGUIENTE</button>
         </div>
-
-
 
     </div>
 
@@ -1393,45 +1090,28 @@
 
         </div>
 
-        <button id="rank-btn5" class="rank-btn z">VOLVER AL LOBBY</button>
-
-
+        <button id="rank-btn5" class="rank-btn z">VOLVER</button>
 
     </div>
 
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
     <script src="js/ScreenManager.js"></script>
+    <script src="js/StorageRepository.js"></script>
+    <script src="js/PasswordHasher.js"></script>
     <script src="js/UserSession.js"></script>
     <script src="js/ScoreManager.js"></script>
     <script src="js/MusicPlayer.js"></script>
     <script src="js/Chat.js"></script>
+    <script src="js/Card.js"></script>
     <script src="js/CardGrid.js"></script>
+    <script src="js/LevelConfig.js"></script>
+    <script src="js/LevelTimer.js"></script>
     <script src="js/Level.js"></script>
     <script src="js/StrictLevel.js"></script>
+    <script src="js/LevelFactory.js"></script>
     <script src="js/AuthService.js"></script>
+    <script src="js/Leaderboard.js"></script>
     <script src="js/Ranking.js"></script>
+    <script src="js/GameConfig.js"></script>
     <script src="js/Game.js"></script>
     <script src="js/script.js"></script>
 </body>
