@@ -2075,3 +2075,456 @@ body {
         font-size: 11px;
     }
 }
+
+/* ============================================================ */
+/* RENOVACIÓN VISUAL CYBERPUNK                                  */
+/* Esta capa redefine solamente la apariencia; no altera la lógica. */
+/* ============================================================ */
+
+:root {
+    --color-background-dark: #050816;
+    --color-neon-cyan: #22e6ff;
+    --color-neon-magenta: #ff2bd6;
+    --color-neon-purple: #a855f7;
+    --color-mid-bg: #101936;
+    --color-text-main: #eef8ff;
+    --cyber-glass: rgba(7, 14, 35, 0.78);
+    --cyber-line: rgba(74, 232, 255, 0.38);
+    --cyber-shadow: 0 0 0 1px rgba(34, 230, 255, 0.18), 0 14px 40px rgba(0, 0, 0, 0.48);
+}
+
+body {
+    background:
+        radial-gradient(circle at 15% 15%, rgba(34, 230, 255, 0.13), transparent 26%),
+        radial-gradient(circle at 85% 80%, rgba(255, 43, 214, 0.13), transparent 30%),
+        #050816;
+    font-family: var(--font-main);
+}
+
+body::before {
+    content: '';
+    position: fixed;
+    inset: 0;
+    z-index: -1;
+    pointer-events: none;
+    opacity: 0.3;
+    background-image:
+        linear-gradient(rgba(34, 230, 255, 0.06) 1px, transparent 1px),
+        linear-gradient(90deg, rgba(34, 230, 255, 0.05) 1px, transparent 1px);
+    background-size: 42px 42px;
+    mask-image: linear-gradient(to bottom, transparent, black 12%, black 88%, transparent);
+}
+
+#video-fondo {
+    filter: blur(2px) saturate(1.25) brightness(0.38) contrast(1.08);
+}
+
+.inicio-container {
+    position: relative;
+    isolation: isolate;
+    background-image:
+        linear-gradient(180deg, rgba(2, 6, 20, 0.1) 30%, rgba(2, 6, 20, 0.85) 100%),
+        url('../img/FONDO-INICIO.png');
+}
+
+.inicio-container::after {
+    content: 'CYBERFILTER // PROTOCOLO DE ACCESO';
+    position: absolute;
+    top: clamp(24px, 7vh, 72px);
+    left: 50%;
+    width: min(88%, 760px);
+    transform: translateX(-50%);
+    color: rgba(214, 252, 255, 0.78);
+    font-size: clamp(0.68rem, 1.3vw, 0.95rem);
+    letter-spacing: 0.22em;
+    text-align: center;
+    text-shadow: 0 0 14px var(--color-neon-cyan);
+}
+
+.boton-inicio-contenedor {
+    position: relative;
+    z-index: 1;
+}
+
+.login-background,
+.login-background2,
+.login-background4,
+.login-background5,
+.login-background6,
+.login-background7 {
+    position: relative;
+    isolation: isolate;
+}
+
+.login-background::before,
+.login-background2::before,
+.login-background4::before,
+.login-background5::before,
+.login-background6::before,
+.login-background7::before {
+    content: '';
+    position: absolute;
+    inset: 0;
+    z-index: -1;
+    pointer-events: none;
+    background:
+        linear-gradient(125deg, rgba(4, 7, 24, 0.7), rgba(4, 7, 24, 0.18) 52%, rgba(27, 5, 39, 0.58)),
+        repeating-linear-gradient(90deg, transparent 0 79px, rgba(34, 230, 255, 0.04) 80px 81px);
+}
+
+.login-box,
+.menu-box,
+.sala-box,
+.about-frame {
+    position: relative;
+    overflow: hidden;
+    background: linear-gradient(145deg, rgba(12, 24, 53, 0.88), rgba(5, 8, 22, 0.84));
+    border: 1px solid var(--cyber-line);
+    box-shadow: var(--cyber-shadow), inset 0 1px 0 rgba(255, 255, 255, 0.09);
+}
+
+.login-box::before,
+.menu-box::before,
+.sala-box::before,
+.about-frame::before {
+    content: '';
+    position: absolute;
+    inset: 0 auto auto 0;
+    width: 44%;
+    height: 2px;
+    background: linear-gradient(90deg, transparent, var(--color-neon-cyan), transparent);
+    box-shadow: 0 0 14px var(--color-neon-cyan);
+}
+
+.menu-title,
+.login-box h2,
+.sala-box h2,
+.about-title {
+    color: var(--color-neon-cyan);
+    letter-spacing: 0.08em;
+    text-shadow: 0 0 18px rgba(34, 230, 255, 0.7);
+}
+
+.neon-label {
+    color: #a9f5ff;
+    background: transparent;
+    letter-spacing: 0.05em;
+}
+
+.login-input,
+.chat-input,
+.user-info input {
+    border: 1px solid rgba(94, 220, 255, 0.24);
+    border-radius: 7px;
+    background: rgba(1, 6, 19, 0.68);
+    box-shadow: inset 0 0 18px rgba(0, 0, 0, 0.35);
+    transition: border-color 0.2s ease, box-shadow 0.2s ease;
+}
+
+.login-input:focus,
+.chat-input:focus,
+.user-info input:focus {
+    border-color: var(--color-neon-cyan);
+    box-shadow: 0 0 0 3px rgba(34, 230, 255, 0.12), inset 0 0 18px rgba(0, 0, 0, 0.35);
+}
+
+.btn-inicio,
+.menu-btn,
+.login-btn,
+.btn-jugar-menu,
+.btn-sala,
+.start-button,
+.neon-button-action,
+.neon-button-action2,
+.verificar-button,
+.nivel2-button,
+.chat-send-btn {
+    position: relative;
+    overflow: hidden;
+    border: 1px solid rgba(34, 230, 255, 0.55);
+    border-radius: 7px;
+    background: linear-gradient(100deg, rgba(13, 31, 64, 0.96), rgba(38, 11, 69, 0.9));
+    box-shadow: inset 0 0 0 1px rgba(255, 255, 255, 0.06), 0 5px 16px rgba(0, 0, 0, 0.32);
+    color: #eafcff;
+    font-weight: 700;
+    letter-spacing: 0.05em;
+    transition: transform 0.2s ease, border-color 0.2s ease, box-shadow 0.2s ease, background 0.2s ease;
+}
+
+.btn-inicio::before,
+.menu-btn::before,
+.login-btn::before,
+.btn-jugar-menu::before,
+.btn-sala::before,
+.start-button::before,
+.neon-button-action::before,
+.neon-button-action2::before,
+.verificar-button::before,
+.nivel2-button::before,
+.chat-send-btn::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    bottom: 0;
+    left: -85%;
+    width: 45%;
+    transform: skewX(-24deg);
+    background: linear-gradient(90deg, transparent, rgba(255, 255, 255, 0.32), transparent);
+    transition: left 0.45s ease;
+}
+
+.btn-inicio:hover,
+.menu-btn:hover,
+.login-btn:hover,
+.btn-jugar-menu:hover,
+.btn-sala:hover,
+.start-button:hover,
+.neon-button-action:hover,
+.neon-button-action2:hover,
+.verificar-button:hover,
+.nivel2-button:hover,
+.chat-send-btn:hover {
+    transform: translateY(-3px);
+    border-color: #d7fbff;
+    background: linear-gradient(100deg, #116486, #6a1b85);
+    box-shadow: 0 0 12px rgba(34, 230, 255, 0.65), 0 0 28px rgba(255, 43, 214, 0.32);
+    color: white;
+}
+
+.btn-inicio:hover::before,
+.menu-btn:hover::before,
+.login-btn:hover::before,
+.btn-jugar-menu:hover::before,
+.btn-sala:hover::before,
+.start-button:hover::before,
+.neon-button-action:hover::before,
+.neon-button-action2:hover::before,
+.verificar-button:hover::before,
+.nivel2-button:hover::before,
+.chat-send-btn:hover::before {
+    left: 125%;
+}
+
+.btn-jugar-menu,
+.start-button,
+.verificar-button {
+    background: linear-gradient(100deg, #006e8e, #a214a5);
+    border-color: var(--color-neon-cyan);
+}
+
+.header {
+    position: sticky;
+    top: 0;
+    z-index: 10;
+    background: linear-gradient(90deg, rgba(3, 8, 23, 0.96), rgba(23, 8, 47, 0.92));
+    border-bottom: 1px solid rgba(34, 230, 255, 0.58);
+    box-shadow: 0 5px 22px rgba(0, 0, 0, 0.45);
+}
+
+.nivel-text {
+    letter-spacing: 0.1em;
+    color: #ff58e0;
+    text-shadow: 0 0 14px rgba(255, 43, 214, 0.8);
+}
+
+.timer-text {
+    min-width: 102px;
+    text-align: center;
+    background: rgba(2, 11, 28, 0.78);
+    box-shadow: inset 0 0 16px rgba(34, 230, 255, 0.12), 0 0 14px rgba(34, 230, 255, 0.18);
+}
+
+.contenedor-principal {
+    position: relative;
+    background:
+        radial-gradient(circle at 50% 20%, rgba(34, 230, 255, 0.08), transparent 38%),
+        linear-gradient(180deg, rgba(4, 8, 25, 0.55), rgba(4, 8, 25, 0.8));
+}
+
+.mision-panel,
+.acciones-panel,
+.cyber-panel,
+.players-panel {
+    background: linear-gradient(160deg, rgba(14, 25, 58, 0.9), rgba(4, 9, 26, 0.87));
+    border: 1px solid rgba(168, 85, 247, 0.72);
+    box-shadow: 0 13px 28px rgba(0, 0, 0, 0.35), inset 0 1px 0 rgba(255, 255, 255, 0.07);
+}
+
+.mision-panel,
+.acciones-panel {
+    border-radius: 10px;
+}
+
+.neon-title {
+    color: var(--color-neon-cyan);
+    text-shadow: 0 0 10px rgba(34, 230, 255, 0.6);
+    border-bottom: 1px solid rgba(34, 230, 255, 0.22);
+}
+
+.agentes-grid {
+    position: relative;
+    background:
+        linear-gradient(rgba(11, 18, 41, 0.88), rgba(4, 8, 21, 0.95)),
+        repeating-linear-gradient(90deg, transparent 0 59px, rgba(34, 230, 255, 0.06) 60px 61px);
+    border: 1px solid rgba(255, 43, 214, 0.7);
+    box-shadow: 0 0 0 1px rgba(34, 230, 255, 0.12), 0 0 26px rgba(255, 43, 214, 0.24), inset 0 0 30px rgba(1, 4, 14, 0.7);
+}
+
+.agentes-grid::before {
+    content: 'RED DE AGENTES // SELECCIÓN TÁCTICA';
+    position: absolute;
+    top: 9px;
+    left: 17px;
+    color: rgba(186, 248, 255, 0.5);
+    font-size: 0.58rem;
+    letter-spacing: 0.14em;
+    pointer-events: none;
+}
+
+.agente-card {
+    border: 2px solid rgba(80, 213, 255, 0.35);
+    border-radius: 8px;
+    background: #060a18;
+    box-shadow: 0 7px 15px rgba(0, 0, 0, 0.45), inset 0 0 0 1px rgba(255, 255, 255, 0.07);
+    transform: translateZ(0);
+}
+
+.agente-card::after {
+    content: '';
+    position: absolute;
+    inset: 5px;
+    border: 1px solid rgba(213, 252, 255, 0.38);
+    border-radius: 4px;
+    pointer-events: none;
+}
+
+.agente-card:hover {
+    transform: translateY(-7px) scale(1.025);
+    border-color: var(--color-neon-cyan);
+    box-shadow: 0 0 0 1px rgba(34, 230, 255, 0.72), 0 12px 28px rgba(0, 0, 0, 0.55), 0 0 19px rgba(34, 230, 255, 0.42);
+}
+
+.agente-card img {
+    opacity: 0.98;
+    filter: contrast(1.08) saturate(1.1);
+    transition: filter 0.2s ease, transform 0.25s ease;
+}
+
+.agente-card:hover img {
+    filter: contrast(1.12) saturate(1.2) brightness(1.08);
+    transform: scale(1.035);
+}
+
+.agente-card.selected {
+    border-color: var(--color-neon-cyan);
+    box-shadow: 0 0 0 2px rgba(34, 230, 255, 0.6), 0 0 25px rgba(34, 230, 255, 0.65);
+}
+
+.agente-card.selected::after {
+    border-color: #e6fdff;
+    box-shadow: inset 0 0 16px rgba(34, 230, 255, 0.28);
+}
+
+.agente-card.correct {
+    border-color: #25ffb7;
+    box-shadow: 0 0 0 2px rgba(37, 255, 183, 0.52), 0 0 24px rgba(37, 255, 183, 0.6);
+}
+
+.agente-card.incorrect {
+    border-color: #ff4b6e;
+    box-shadow: 0 0 0 2px rgba(255, 75, 110, 0.45), 0 0 21px rgba(255, 75, 110, 0.45);
+}
+
+.resultado-mensaje {
+    border-radius: 7px;
+    font-family: var(--font-main);
+    letter-spacing: 0.04em;
+}
+
+.correcto {
+    background: rgba(14, 205, 138, 0.14);
+    border-color: #25ffb7;
+    color: #7fffd1;
+    box-shadow: inset 0 0 16px rgba(37, 255, 183, 0.12);
+}
+
+.incorrecto {
+    background: rgba(255, 49, 93, 0.13);
+    border-color: #ff4b6e;
+    color: #ff9bac;
+    box-shadow: inset 0 0 16px rgba(255, 75, 110, 0.1);
+}
+
+#lobby {
+    background: radial-gradient(circle at 20% 0%, rgba(34, 230, 255, 0.1), transparent 32%);
+}
+
+.user-box,
+.point-box {
+    border: 1px solid rgba(34, 230, 255, 0.35);
+    background: rgba(5, 14, 34, 0.82);
+    box-shadow: inset 0 0 18px rgba(34, 230, 255, 0.07), 0 6px 20px rgba(0, 0, 0, 0.28);
+}
+
+.retry-modal {
+    background: rgba(2, 5, 17, 0.88);
+}
+
+.retry-dialog {
+    position: relative;
+    overflow: hidden;
+    border-color: var(--color-neon-cyan);
+    background:
+        linear-gradient(145deg, rgba(17, 34, 70, 0.98), rgba(10, 6, 30, 0.98)),
+        #080b1c;
+    box-shadow: 0 0 0 1px rgba(255, 43, 214, 0.34), 0 0 38px rgba(34, 230, 255, 0.34), 0 25px 70px rgba(0, 0, 0, 0.65);
+}
+
+.retry-dialog::before {
+    content: 'SISTEMA DE RECUPERACIÓN // RESPUESTA REQUERIDA';
+    display: block;
+    margin-bottom: 15px;
+    color: rgba(34, 230, 255, 0.58);
+    font-size: 0.63rem;
+    letter-spacing: 0.16em;
+}
+
+.retry-dialog h2 {
+    letter-spacing: 0.08em;
+    text-shadow: 0 0 15px rgba(34, 230, 255, 0.58);
+}
+
+.retry-option {
+    border-color: rgba(34, 230, 255, 0.4);
+    background: linear-gradient(100deg, rgba(17, 35, 70, 0.8), rgba(42, 13, 70, 0.74));
+}
+
+.retry-option:hover,
+.retry-option:focus-visible {
+    background: linear-gradient(100deg, #087ca0, #972a9a);
+    color: white;
+    box-shadow: 0 0 18px rgba(34, 230, 255, 0.42);
+}
+
+button:focus-visible,
+input:focus-visible {
+    outline: 2px solid #f5fdff;
+    outline-offset: 3px;
+}
+
+@media (max-width: 820px) {
+    .agentes-grid::before {
+        display: none;
+    }
+}
+
+@media (prefers-reduced-motion: reduce) {
+    *,
+    *::before,
+    *::after {
+        scroll-behavior: auto !important;
+        animation-duration: 0.01ms !important;
+        animation-iteration-count: 1 !important;
+        transition-duration: 0.01ms !important;
+    }
+}

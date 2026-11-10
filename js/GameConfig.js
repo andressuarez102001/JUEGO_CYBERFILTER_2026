@@ -41,9 +41,9 @@ class GameConfig {
             timerId: 'timer-nivel-1',
             correctAgents: [8, 13],
             retryQuestion: {
-                question: '¿Cuántos elementos tiene el conjunto {1, 2, 3}?',
-                options: ['2', '3', '4'],
-                correctOption: 1
+                question: 'En una cafetería colombiana pides un “tinto”. ¿Qué te sirven normalmente?',
+                options: ['Café negro', 'Vino tinto', 'Té de frutos rojos'],
+                correctOption: 0
             },
             timeLimit: 30,
             resetsScoreOnReset: true
@@ -62,8 +62,8 @@ class GameConfig {
             timerId: 'timer-nivel-2',
             correctAgents: [0, 1, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13, 14, 15],
             retryQuestion: {
-                question: 'Si A = {1, 2, 3} y B = {3, 4}, ¿cuál es A ∩ B?',
-                options: ['{1, 2, 3, 4}', '{3}', '{1, 2}'],
+                question: '¿Qué ciudad colombiana es conocida como “la ciudad de la eterna primavera”?',
+                options: ['Cali', 'Medellín', 'Bucaramanga'],
                 correctOption: 1
             },
             timeLimit: 30
@@ -82,8 +82,8 @@ class GameConfig {
             timerId: 'timer-nivel-3',
             correctAgents: [0, 15],
             retryQuestion: {
-                question: '¿Cuál es el 25% de 80?',
-                options: ['20', '25', '40'],
+                question: '¿Cuál es el ave que aparece en el escudo de Colombia?',
+                options: ['El cóndor de los Andes', 'El águila real', 'El colibrí'],
                 correctOption: 0
             },
             timeLimit: 30,
@@ -103,9 +103,9 @@ class GameConfig {
             timerId: 'timer-nivel-4',
             correctAgents: [0, 6, 10, 15],
             retryQuestion: {
-                question: '¿Qué valores satisfacen x² − 5x + 6 = 0?',
-                options: ['x = 1 y x = 6', 'x = 2 y x = 3', 'x = −2 y x = −3'],
-                correctOption: 1
+                question: 'Aunque Sídney es muy famosa, ¿cuál es la capital de Australia?',
+                options: ['Sídney', 'Melbourne', 'Canberra'],
+                correctOption: 2
             },
             timeLimit: 30,
             strict: true
@@ -124,8 +124,8 @@ class GameConfig {
             timerId: 'timer-nivel-5',
             correctAgents: [0, 1, 6, 7, 9, 14],
             retryQuestion: {
-                question: 'Si todos los A pertenecen a B y x pertenece a A, ¿qué se concluye?',
-                options: ['x pertenece a B', 'x no pertenece a B', 'No se puede concluir nada'],
+                question: '¿Cuál de estos países tiene tres capitales oficiales?',
+                options: ['Sudáfrica', 'Canadá', 'Japón'],
                 correctOption: 0
             },
             timeLimit: 30,
