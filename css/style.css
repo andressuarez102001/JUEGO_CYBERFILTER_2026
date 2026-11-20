@@ -47,6 +47,112 @@ body {
     display: none !important;
 }
 
+/* Pantalla de cierre tras completar los cinco niveles. */
+.mission-complete {
+    min-height: 100vh;
+    display: grid;
+    place-items: center;
+    padding: 24px;
+    overflow-y: auto;
+    background:
+        radial-gradient(circle at 50% 15%, rgba(0, 255, 255, 0.22), transparent 34%),
+        radial-gradient(circle at 80% 80%, rgba(255, 0, 255, 0.2), transparent 38%),
+        linear-gradient(135deg, #050b1d, #120825 58%, #071a2a);
+}
+
+.mission-complete-card {
+    width: min(960px, 100%);
+    padding: clamp(26px, 5vw, 54px);
+    border: 1px solid rgba(0, 255, 255, 0.75);
+    border-radius: 22px;
+    background: rgba(5, 12, 32, 0.9);
+    box-shadow: 0 0 26px rgba(0, 255, 255, 0.38), 0 0 70px rgba(255, 0, 255, 0.18);
+    text-align: center;
+    font-family: var(--font-main);
+}
+
+.mission-complete-kicker,
+.dialogue-signal {
+    color: var(--color-neon-cyan);
+    font-size: 0.75rem;
+    letter-spacing: 0.14em;
+}
+
+.mission-complete h1 {
+    margin: 12px 0 8px;
+    color: #fff;
+    font-size: clamp(2rem, 5vw, 4rem);
+    text-shadow: 0 0 12px var(--color-neon-cyan), 0 0 28px var(--color-neon-magenta);
+}
+
+.mission-complete-subtitle {
+    color: #cceffa;
+    line-height: 1.55;
+}
+
+.mission-complete-scene {
+    display: grid;
+    grid-template-columns: minmax(105px, 0.7fr) minmax(260px, 2fr) minmax(105px, 0.7fr);
+    align-items: end;
+    gap: clamp(12px, 3vw, 32px);
+    margin: 28px 0 20px;
+}
+
+.mission-agent {
+    width: 100%;
+    max-height: 260px;
+    object-fit: contain;
+    filter: drop-shadow(0 0 14px rgba(0, 255, 255, 0.65));
+}
+
+.mission-agent-right {
+    filter: drop-shadow(0 0 14px rgba(255, 0, 255, 0.68));
+}
+
+.mission-dialogue {
+    padding: clamp(18px, 3vw, 30px);
+    border: 1px solid rgba(255, 0, 255, 0.65);
+    border-radius: 18px;
+    background: linear-gradient(145deg, rgba(32, 13, 66, 0.92), rgba(6, 36, 60, 0.92));
+    box-shadow: inset 0 0 24px rgba(0, 255, 255, 0.08);
+}
+
+.mission-dialogue p {
+    margin-top: 13px;
+    color: #fff;
+    font-family: Arial, sans-serif;
+    font-size: clamp(0.95rem, 2vw, 1.08rem);
+    line-height: 1.55;
+}
+
+.mission-complete-congrats {
+    color: #fff277;
+    font-size: clamp(1rem, 2.5vw, 1.32rem);
+    text-shadow: 0 0 10px rgba(255, 242, 119, 0.72);
+}
+
+.mission-complete-button {
+    margin-top: 25px;
+    padding: 14px 24px;
+}
+
+@media (max-width: 620px) {
+    .mission-complete { align-items: start; }
+
+    .mission-complete-scene {
+        grid-template-columns: 1fr 1fr;
+    }
+
+    .mission-dialogue {
+        grid-column: 1 / -1;
+        grid-row: 1;
+    }
+
+    .mission-agent {
+        max-height: 160px;
+    }
+}
+
 /*color tipo neon, y el text shadow es para agregar una sombra al texto*/
 
 .neon-text {

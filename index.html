@@ -169,7 +169,7 @@
 
             <div class="info-panel-player cyber-panel">
                 <h3>INFORMACIÓN DE MISIÓN</h3>
-                <p>Selecciona las cartas correctas en 30 segundos. Una carta incorrecta activa una pregunta de recuperación: si la respondes bien, repites el mismo nivel; si no, vuelves al lobby.</p>
+                <p>Selecciona las cartas correctas en 60 segundos. Una carta incorrecta activa una pregunta de recuperación: si la respondes bien, repites el mismo nivel; si no, vuelves al lobby.</p>
             </div>
 
             </div>
@@ -304,7 +304,7 @@
 
         <div class="header">
             <span class="nivel-text">NIVEL 1</span>
-            <span class="timer-text" id="timer-nivel-1">00:30</span>
+            <span class="timer-text" id="timer-nivel-1">01:00</span>
             <button id="menu-nivel-1" class="level-menu-button" type="button">MENU</button>
             <div class="user-info">
 
@@ -320,7 +320,7 @@
 
             <div class="mision-panel">
                 <h2 class="neon-title">MISION NIVEL 1</h2>
-                <p>Rescata a todos los agentes que son CYBORG TECNICO y MERCENARIO MEDICO- Tiempo: 30 segundos</p>
+                <p>Rescata a todos los agentes que son CYBORG TECNICO y MERCENARIO MEDICO- Tiempo: 60 segundos</p>
             </div>
 
             <div class="agentes-grid" id="agentes-grid">
@@ -378,7 +378,7 @@
 
     <div class="header">
         <span class="nivel-text">NIVEL 2</span>
-        <span class="timer-text" id="timer-nivel-2">00:30</span>
+        <span class="timer-text" id="timer-nivel-2">01:00</span>
         <button id="menu-nivel-2" class="level-menu-button" type="button">MENU</button>
         <div class="user-info">
 
@@ -394,7 +394,7 @@
 
         <div class="mision-panel">
             <h2 class="neon-title">MISION NIVEL 2</h2>
-            <p>Rescata a todos los agentes que NO son NEON DESTRUCTOR y que NO tienen la clase MERCENARIO HACKER - Tiempo: 30 segundos</p>
+            <p>Rescata a todos los agentes que NO son NEON DESTRUCTOR y que NO tienen la clase MERCENARIO HACKER - Tiempo: 60 segundos</p>
         </div>
 
         <div class="agentes-grid" id="agentes-grid-nivel2">
@@ -451,7 +451,7 @@
 
     <div class="header">
         <span class="nivel-text">NIVEL 3</span>
-        <span class="timer-text" id="timer-nivel-3">00:30</span>
+        <span class="timer-text" id="timer-nivel-3">01:00</span>
         <button id="menu-nivel-3" class="level-menu-button" type="button">MENU</button>
         <div class="user-info">
 
@@ -467,7 +467,7 @@
 
         <div class="mision-panel">
             <h2 class="neon-title">MISION NIVEL 3</h2>
-            <p>Rescata a los agentes que son HACKER, INFILTRADO Y ASTUTA - Tiempo: 30 segundos</p>
+            <p>Rescata a los agentes que son HACKER, INFILTRADO Y ASTUTA - Tiempo: 60 segundos</p>
         </div>
 
         <div class="agentes-grid" id="agentes-grid-nivel3">
@@ -524,7 +524,7 @@
 
     <div class="header">
         <span class="nivel-text">NIVEL 4</span>
-        <span class="timer-text" id="timer-nivel-4">00:30</span>
+        <span class="timer-text" id="timer-nivel-4">01:00</span>
         <button id="menu-nivel-4" class="level-menu-button" type="button">MENU</button>
         <div class="user-info">
 
@@ -540,7 +540,7 @@
 
         <div class="mision-panel">
             <h2 class="neon-title">MISION NIVEL 4</h2>
-            <p>Rescata a los agentes con poder de software e informatica SIN EL LIDER, luego el MERCENARIO LIDER. Si seleccionas una carta mal, responde la pregunta de recuperación. TIEMPO: 30 SEGUNDOS</p>
+            <p>Rescata a los agentes con poder de software e informatica SIN EL LIDER, luego el MERCENARIO LIDER. Si seleccionas una carta mal, responde la pregunta de recuperación. TIEMPO: 60 SEGUNDOS</p>
         </div>
 
         <div class="agentes-grid" id="agentes-grid-nivel4">
@@ -597,7 +597,7 @@
 
     <div class="header">
         <span class="nivel-text">NIVEL 5</span>
-        <span class="timer-text" id="timer-nivel-5">00:30</span>
+        <span class="timer-text" id="timer-nivel-5">01:00</span>
         <button id="menu-nivel-5" class="level-menu-button" type="button">MENU</button>
         <div class="user-info">
 
@@ -613,7 +613,7 @@
 
         <div class="mision-panel">
             <h2 class="neon-title">MISION NIVEL 5</h2>
-            <p>Rescata a LOS PERSONAJES PRINCIPALES DEL JUEGO, LUEGO RESCATA A 2 PERSONAJES QUE PERTENEZCAN A DIFERENTES CONJUNTOS PERO A LA MISMA CLASE(INFILTRADOS). Un movimiento erróneo activa una pregunta de recuperación. TIEMPO: 30 SEGUNDOS</p>
+            <p>Rescata a LOS PERSONAJES PRINCIPALES DEL JUEGO, LUEGO RESCATA A 2 PERSONAJES QUE PERTENEZCAN A DIFERENTES CONJUNTOS PERO A LA MISMA CLASE(INFILTRADOS). Un movimiento erróneo activa una pregunta de recuperación. TIEMPO: 60 SEGUNDOS</p>
         </div>
 
         <div class="agentes-grid" id="agentes-grid-nivel5">
@@ -659,6 +659,25 @@
     </div>
 
 </div>
+
+    <section id="mission-complete" class="mission-complete hidden" aria-labelledby="mission-complete-title">
+        <div class="mission-complete-card">
+            <p class="mission-complete-kicker">TRANSMISIÓN RECIBIDA · BASE CYBERFILTER</p>
+            <h1 id="mission-complete-title">¡MISIÓN CUMPLIDA!</h1>
+            <p class="mission-complete-subtitle">Has superado los 5 niveles y devuelto el equilibrio a la red.</p>
+            <div class="mission-complete-scene">
+                <img src="img/HACKER-infiltrado.png" alt="Agente hacker celebrando" class="mission-agent mission-agent-left">
+                <div class="mission-dialogue">
+                    <span class="dialogue-signal">CANAL DE EQUIPO · SEGURO</span>
+                    <p>“¡Excelente trabajo, agente! Tu lógica, rapidez y determinación salvaron la misión.”</p>
+                    <p>Gracias por completar esta aventura. El equipo CyberFilter celebra contigo.</p>
+                </div>
+                <img src="img/Cyborg-jefe.png" alt="Agente cyborg celebrando" class="mission-agent mission-agent-right">
+            </div>
+            <p class="mission-complete-congrats">¡Felicitaciones por llegar hasta el final!</p>
+            <button id="mission-complete-menu-btn" class="menu-btn mission-complete-button" type="button">VOLVER AL MENÚ PRINCIPAL</button>
+        </div>
+    </section>
 
     <div id="retry-question-modal" class="retry-modal hidden" role="dialog" aria-modal="true" aria-labelledby="retry-question-title">
         <div class="retry-dialog">

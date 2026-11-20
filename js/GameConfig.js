@@ -8,7 +8,8 @@ class GameConfig {
         'levels',
         'salas-multijugador',
         'agentes-screen',
-        'lobby'
+        'lobby',
+        'mission-complete'
     ]);
 
     static MENU_NAVIGATION = Object.freeze({
@@ -45,7 +46,7 @@ class GameConfig {
                 options: ['Café negro', 'Vino tinto', 'Té de frutos rojos'],
                 correctOption: 0
             },
-            timeLimit: 30,
+            timeLimit: 60,
             resetsScoreOnReset: true
         }),
         new LevelConfig({
@@ -66,7 +67,7 @@ class GameConfig {
                 options: ['Cali', 'Medellín', 'Bucaramanga'],
                 correctOption: 1
             },
-            timeLimit: 30
+            timeLimit: 60
         }),
         new LevelConfig({
             number: 3,
@@ -86,7 +87,7 @@ class GameConfig {
                 options: ['El cóndor de los Andes', 'El águila real', 'El colibrí'],
                 correctOption: 0
             },
-            timeLimit: 30,
+            timeLimit: 60,
             showWrongSelectionsOnFail: true
         }),
         new LevelConfig({
@@ -107,7 +108,7 @@ class GameConfig {
                 options: ['Sídney', 'Melbourne', 'Canberra'],
                 correctOption: 2
             },
-            timeLimit: 30,
+            timeLimit: 60,
             strict: true
         }),
         new LevelConfig({
@@ -128,7 +129,7 @@ class GameConfig {
                 options: ['Sudáfrica', 'Canadá', 'Japón'],
                 correctOption: 0
             },
-            timeLimit: 30,
+            timeLimit: 60,
             strict: true
         })
     ]);

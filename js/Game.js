@@ -142,6 +142,7 @@ class Game {
             this.onClick(`menu-nivel-${config.number}`, () => this.returnToMenu());
         });
         this.onClick('retry-menu-btn', () => this.returnToMenu());
+        this.onClick('mission-complete-menu-btn', () => this.returnToMenu());
     }
 
     refreshLobbyIdentity() {
@@ -160,7 +161,10 @@ class Game {
         GameConfig.LEVELS.forEach(config => {
             this.screens.hide(config.screenId, config.imagenId);
         });
-        this.returnToLobby();
+        this.retryQuestion.close();
+        this.screens.hide('lobby');
+        this.screens.show('mission-complete');
+        this.score.sync();
     }
 
     openRetryQuestion(level, question) {
@@ -174,6 +178,7 @@ class Game {
 
     returnToLobby() {
         this.retryQuestion.close();
+        this.screens.hide('mission-complete');
         this.levels.forEach(level => {
             level.leave();
             level.reset();
@@ -187,6 +192,7 @@ class Game {
 
     returnToMenu() {
         this.retryQuestion.close();
+        this.screens.hide('mission-complete');
         this.levels.forEach(level => {
             level.leave();
             level.reset();
