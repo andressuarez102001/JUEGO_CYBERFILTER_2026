@@ -649,7 +649,7 @@ body {
 /* ============================================================ */
 
 #lobby {
-    /* El lobby ocupa toda la pantalla sobre el video */
+    /* El lobby ocupa toda la pantalla sobre una batalla de fondo. */
     font-family: var(--font-main);
     height: 100%;
     width: 100%;
@@ -658,6 +658,84 @@ body {
     flex-direction: column;
     gap: 40px;
     align-items: center;
+    position: relative;
+    isolation: isolate;
+    overflow: hidden;
+    background: #030817;
+}
+
+#lobby::before {
+    z-index: 1;
+    background:
+        linear-gradient(90deg, rgba(1, 8, 23, 0.92) 0%, rgba(3, 11, 30, 0.64) 26%, rgba(4, 7, 24, 0.4) 50%, rgba(22, 4, 31, 0.64) 74%, rgba(3, 6, 20, 0.92) 100%),
+        linear-gradient(180deg, rgba(2, 8, 24, 0.3), rgba(2, 5, 18, 0.78));
+}
+
+#lobby > :not(.lobby-battle-background) {
+    position: relative;
+    z-index: 2;
+}
+
+.lobby-battle-background {
+    position: absolute;
+    inset: 0;
+    z-index: 0;
+    overflow: hidden;
+    background:
+        radial-gradient(ellipse at center, rgba(0, 236, 255, 0.22), transparent 21%),
+        radial-gradient(ellipse at center, rgba(255, 0, 205, 0.18), transparent 43%),
+        linear-gradient(110deg, #031126, #100725 49%, #1b061f);
+}
+
+.lobby-battle-background::before,
+.lobby-battle-background::after {
+    content: '';
+    position: absolute;
+    left: -15%;
+    width: 130%;
+    height: 2px;
+    background: linear-gradient(90deg, transparent, #00f5ff 26%, #fff 50%, #ff39ea 74%, transparent);
+    box-shadow: 0 0 10px #00f5ff, 0 0 26px #ff39ea;
+    opacity: 0.78;
+    transform: rotate(-8deg);
+}
+
+.lobby-battle-background::before { top: 39%; }
+.lobby-battle-background::after { top: 58%; transform: rotate(9deg); opacity: 0.5; }
+
+.lobby-fighter {
+    position: absolute;
+    width: clamp(170px, 19vw, 350px);
+    max-height: 75vh;
+    object-fit: contain;
+    opacity: 0.9;
+    filter: saturate(1.18) contrast(1.07) drop-shadow(0 0 16px rgba(0, 242, 255, 0.56));
+    animation: lobby-fighter-drift 5s ease-in-out infinite alternate;
+}
+
+.lobby-fighter-hacker { left: -3vw; bottom: -7vh; transform: rotate(-10deg); }
+.lobby-fighter-mercenary { left: 12vw; top: -13vh; width: clamp(140px, 15vw, 270px); opacity: 0.66; animation-delay: -2.2s; }
+.lobby-fighter-cyborg { right: -3vw; bottom: -7vh; transform: scaleX(-1) rotate(-10deg); filter: saturate(1.18) contrast(1.07) drop-shadow(0 0 16px rgba(255, 39, 221, 0.62)); animation-delay: -1.2s; }
+.lobby-fighter-neon { right: 12vw; top: -13vh; width: clamp(140px, 15vw, 270px); opacity: 0.66; filter: saturate(1.2) contrast(1.08) drop-shadow(0 0 16px rgba(255, 39, 221, 0.62)); animation-delay: -3.1s; }
+
+.lobby-energy-beam {
+    position: absolute;
+    left: 50%;
+    top: 47%;
+    width: 12px;
+    height: 12px;
+    border-radius: 50%;
+    background: #fff;
+    box-shadow: 0 0 18px 12px #00eaff, 0 0 45px 28px rgba(255, 0, 220, 0.55);
+    animation: lobby-energy-pulse 1.5s ease-in-out infinite alternate;
+}
+
+@keyframes lobby-fighter-drift {
+    to { translate: 0 -12px; }
+}
+
+@keyframes lobby-energy-pulse {
+    to { transform: scale(1.55); filter: brightness(1.4); }
 }
 
 /* Fila Superior (Username y Puntos) */
