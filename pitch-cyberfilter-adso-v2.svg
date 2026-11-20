@@ -1,0 +1,110 @@
+<svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" width="1920" height="1080" viewBox="0 0 1920 1080" role="img" aria-labelledby="title desc">
+  <title id="title">CyberFilter — Pitch de proyecto ADSO</title>
+  <desc id="desc">Pitch visual de CyberFilter, un juego educativo cyberpunk para aprender teoría de conjuntos.</desc>
+  <defs>
+    <linearGradient id="bg" x1="0" y1="0" x2="1" y2="1"><stop stop-color="#020613"/><stop offset=".52" stop-color="#071b3b"/><stop offset="1" stop-color="#21072e"/></linearGradient>
+    <linearGradient id="panel" x1="0" y1="0" x2="1" y2="1"><stop stop-color="#102b56" stop-opacity=".92"/><stop offset="1" stop-color="#070c21" stop-opacity=".94"/></linearGradient>
+    <linearGradient id="accent" x1="0" y1="0" x2="1" y2="0"><stop stop-color="#16e5ff"/><stop offset="1" stop-color="#e72bd6"/></linearGradient>
+    <radialGradient id="orb"><stop stop-color="#16e5ff" stop-opacity=".36"/><stop offset="1" stop-color="#16e5ff" stop-opacity="0"/></radialGradient>
+    <pattern id="grid" width="42" height="42" patternUnits="userSpaceOnUse"><path d="M42 0H0V42" fill="none" stroke="#2aeaff" stroke-opacity=".07"/><circle cx="0" cy="0" r="1.2" fill="#2aeaff" fill-opacity=".25"/></pattern>
+    <filter id="glow" x="-40%" y="-40%" width="180%" height="180%"><feGaussianBlur stdDeviation="7" result="blur"/><feMerge><feMergeNode in="blur"/><feMergeNode in="SourceGraphic"/></feMerge></filter>
+    <filter id="shadow" x="-30%" y="-30%" width="160%" height="160%"><feDropShadow dx="0" dy="16" stdDeviation="16" flood-color="#000" flood-opacity=".65"/></filter>
+    <clipPath id="hero"><rect width="448" height="620" rx="24"/></clipPath>
+    <style>
+      .orbit { font-family: Orbitron, Arial, sans-serif; } .title { font-family: Orbitron, Arial, sans-serif; font-weight: 800; letter-spacing: 1.5px; } .label { font-family: Orbitron, Arial, sans-serif; font-size: 14px; font-weight: 700; letter-spacing: 2px; } .body { font-family: Arial, sans-serif; fill:#d8f2fb; font-size:18px; } .small { font-family: Arial, sans-serif; fill:#b8d6e5; font-size:15px; } .cardTitle { font-family: Orbitron, Arial, sans-serif; fill:#fff; font-size:19px; font-weight:700; }
+    </style>
+  </defs>
+  <rect width="1920" height="1080" fill="url(#bg)"/><rect width="1920" height="1080" fill="url(#grid)"/>
+  <circle cx="184" cy="155" r="340" fill="url(#orb)"/><circle cx="1720" cy="880" r="370" fill="url(#orb)" opacity=".75"/>
+  <path d="M0 828h154l74-74h192l73-73h240" fill="none" stroke="#1ee7ff" stroke-opacity=".25" stroke-width="5"/><path d="M1410 124h130l67 67h245l68 68" fill="none" stroke="#f431d8" stroke-opacity=".24" stroke-width="5"/>
+  <rect x="36" y="32" width="1848" height="1016" rx="28" fill="none" stroke="#23e7ff" stroke-opacity=".56" stroke-width="2"/>
+  <rect x="62" y="58" width="1796" height="964" rx="22" fill="#020917" fill-opacity=".25" stroke="#ff3cdb" stroke-opacity=".18"/>
+
+  <!-- Header -->
+  <text x="112" y="112" class="label" fill="#28ecff">ADSO · TECNÓLOGO EN ANÁLISIS Y DESARROLLO DE SOFTWARE · SENA CASA PIEDECUESTA</text>
+  <text x="112" y="193" class="title" font-size="72" fill="#efffff" filter="url(#glow)">CYBERFILTER</text>
+  <text x="117" y="232" class="title" font-size="25" fill="#ff55dc">LA LÓGICA NO SE MEMORIZA. SE JUEGA.</text>
+  <rect x="1392" y="94" width="378" height="101" rx="16" fill="url(#panel)" stroke="#2aeaff"/>
+  <text x="1420" y="127" class="label" fill="#2aeaff">PRESENTADO POR</text>
+  <text x="1420" y="165" class="title" font-size="22" fill="#fff">ANDRÉS ELIÁN DÍAZ SUÁREZ</text>
+
+  <!-- Hero story -->
+  <g transform="translate(112 290)" filter="url(#shadow)">
+    <rect width="448" height="620" rx="24" fill="url(#panel)" stroke="#2aeaff" stroke-width="2"/>
+    <g clip-path="url(#hero)"><image x="0" y="0" width="448" height="620" preserveAspectRatio="xMidYMid slice" xlink:href="img/HACKER-infiltrado.png" opacity=".78"/><rect width="448" height="620" fill="url(#bg)" fill-opacity=".37"/></g>
+    <rect x="24" y="27" width="225" height="34" rx="17" fill="#071b36" stroke="#24eaff"/>
+    <text x="42" y="49" class="label" fill="#2aeaff">JUEGO EDUCATIVO</text>
+    <rect x="24" y="404" width="400" height="185" rx="16" fill="#061126" fill-opacity=".88" stroke="#ff43d7"/>
+    <text x="47" y="442" class="label" fill="#ff55dc">LA IDEA CENTRAL</text>
+    <text x="47" y="481" class="title" font-size="26" fill="#fff">CONVERTIR LA TEORÍA</text>
+    <text x="47" y="514" class="title" font-size="26" fill="#fff">DE CONJUNTOS EN</text>
+    <text x="47" y="547" class="title" font-size="26" fill="#2aeaff">UNA MISIÓN INTERACTIVA.</text>
+    <text x="47" y="575" class="small">Observar · clasificar · decidir · aprender</text>
+  </g>
+
+  <!-- The pitch message -->
+  <g transform="translate(606 291)">
+    <text x="0" y="0" class="label" fill="#ff55dc">PITCH EN UNA MIRADA</text>
+    <text x="0" y="39" class="title" font-size="33" fill="#fff">DEL RETO ESCOLAR A UNA EXPERIENCIA QUE ENGANCHA</text>
+    <text x="0" y="70" class="body">CyberFilter propone aprender clasificando agentes y resolviendo misiones bajo presión de tiempo.</text>
+
+    <g transform="translate(0 102)">
+      <rect width="580" height="210" rx="18" fill="url(#panel)" stroke="#ff43d7"/>
+      <text x="28" y="39" class="label" fill="#ff55dc">01 · PROBLEMA</text>
+      <text x="28" y="80" class="cardTitle">LO ABSTRACTO PUEDE DESCONECTAR.</text>
+      <text x="28" y="112" class="body">La teoría de conjuntos suele sentirse lejana</text><text x="28" y="137" class="body">cuando se enseña solo con símbolos y ejercicios.</text>
+      <text x="28" y="177" class="small">Necesidad: participación, contexto y retroalimentación.</text>
+      <circle cx="533" cy="52" r="26" fill="#ff43d7" fill-opacity=".16" stroke="#ff43d7"/><text x="533" y="59" class="title" font-size="24" fill="#ff83e6" text-anchor="middle">?</text>
+    </g>
+    <g transform="translate(614 102)">
+      <rect width="580" height="210" rx="18" fill="url(#panel)" stroke="#2aeaff"/>
+      <text x="28" y="39" class="label" fill="#2aeaff">02 · SOLUCIÓN</text>
+      <text x="28" y="80" class="cardTitle">APRENDER JUGANDO Y DECIDIENDO.</text>
+      <text x="28" y="112" class="body">Un universo cyberpunk donde cada agente</text><text x="28" y="137" class="body">representa conjuntos, atributos y relaciones.</text>
+      <text x="28" y="177" class="small">Valor: lógica aplicada, narrativa y emoción.</text>
+      <path d="M520 35l36 26-36 26z" fill="#2aeaff" filter="url(#glow)"/>
+    </g>
+
+    <g transform="translate(0 338)">
+      <rect width="1194" height="251" rx="20" fill="#07162f" fill-opacity=".9" stroke="#2aeaff"/>
+      <text x="28" y="41" class="label" fill="#2aeaff">03 · EXPERIENCIA DE JUEGO</text>
+      <g transform="translate(30 70)">
+        <circle cx="26" cy="26" r="26" fill="#092a50" stroke="#2aeaff"/><text x="26" y="33" class="title" font-size="20" fill="#fff" text-anchor="middle">1</text>
+        <text x="68" y="22" class="cardTitle">OBSERVA</text><text x="68" y="49" class="small">Conjuntos y roles</text>
+        <path d="M265 26h70" stroke="#2aeaff" stroke-width="2"/><path d="M335 26l-12-8v16z" fill="#2aeaff"/>
+      </g>
+      <g transform="translate(370 70)">
+        <circle cx="26" cy="26" r="26" fill="#092a50" stroke="#2aeaff"/><text x="26" y="33" class="title" font-size="20" fill="#fff" text-anchor="middle">2</text>
+        <text x="68" y="22" class="cardTitle">SELECCIONA</text><text x="68" y="49" class="small">Cartas que cumplen la misión</text>
+        <path d="M340 26h70" stroke="#2aeaff" stroke-width="2"/><path d="M410 26l-12-8v16z" fill="#2aeaff"/>
+      </g>
+      <g transform="translate(800 70)">
+        <circle cx="26" cy="26" r="26" fill="#092a50" stroke="#2aeaff"/><text x="26" y="33" class="title" font-size="20" fill="#fff" text-anchor="middle">3</text>
+        <text x="68" y="22" class="cardTitle">VERIFICA Y APRENDE</text><text x="68" y="49" class="small">Feedback, trivia y una nueva oportunidad</text>
+      </g>
+      <path d="M31 149H1163" stroke="#2aeaff" stroke-opacity=".23"/>
+      <text x="31" y="188" class="body">5 niveles progresivos</text><text x="295" y="188" class="body">30 segundos por misión</text><text x="600" y="188" class="body">Preguntas de recuperación</text><text x="935" y="188" class="body">Diseño responsive</text>
+      <text x="31" y="219" class="small">El error no termina el aprendizaje: activa una decisión adicional y permite volver a intentarlo.</text>
+    </g>
+
+    <g transform="translate(0 617)">
+      <rect width="377" height="180" rx="18" fill="url(#panel)" stroke="#25ffb6"/>
+      <text x="25" y="37" class="label" fill="#25ffb6">04 · DIFERENCIAL</text><text x="25" y="75" class="cardTitle">APRENDER CON NARRATIVA</text>
+      <text x="25" y="108" class="small">No es una lista de ejercicios:</text><text x="25" y="131" class="small">es una misión con identidad visual.</text>
+    </g>
+    <g transform="translate(408 617)">
+      <rect width="377" height="180" rx="18" fill="url(#panel)" stroke="#f5ef1d"/>
+      <text x="25" y="37" class="label" fill="#f5ef1d">05 · IMPACTO</text><text x="25" y="75" class="cardTitle">MÁS PARTICIPACIÓN</text>
+      <text x="25" y="108" class="small">Pensado para estudiantes y docentes</text><text x="25" y="131" class="small">que buscan una práctica significativa.</text>
+    </g>
+    <g transform="translate(816 617)">
+      <rect width="378" height="180" rx="18" fill="url(#accent)" filter="url(#glow)"/>
+      <text x="28" y="38" class="label" fill="#fff">CIERRE</text><text x="28" y="81" class="title" font-size="26" fill="#fff">JUGAR PARA</text><text x="28" y="114" class="title" font-size="26" fill="#fff">ENTENDER.</text>
+      <text x="28" y="148" class="small" fill="#fff">Cada decisión revela una relación lógica.</text>
+    </g>
+  </g>
+
+  <!-- Footer -->
+  <rect x="112" y="956" width="1658" height="51" rx="12" fill="#07172e" stroke="#2aeaff" stroke-opacity=".55"/>
+  <text x="142" y="988" class="title" font-size="18" fill="#fff">CYBERFILTER:</text><text x="328" y="988" class="body" font-size="18">un puente entre el pensamiento lógico, el diseño de software y una experiencia de aprendizaje memorable.</text>
+</svg>
