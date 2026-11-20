@@ -58,6 +58,11 @@ class Game {
         this.bindAuth();
         this.bindMenuNavigation();
         this.bindLevelFlow();
+        this.gamepad = new GamepadController(this.doc, {
+            getActiveScreen: () => this.getActiveScreen(),
+            onBack: () => this.handleGamepadBack()
+        });
+        this.gamepad.init();
         this.music.activateOnFirstClick(this.doc);
         this.user.refresh();
         this.score.sync();
@@ -70,6 +75,45 @@ class Game {
             this.screens.register(this.doc.getElementById(config.imagenId));
             this.screens.register(this.doc.getElementById(config.screenId));
         });
+    }
+
+    getActiveScreen() {
+        const screenIds = [
+            ...GameConfig.SCREEN_IDS,
+            ...GameConfig.LEVELS.flatMap(config => [config.imagenId, config.screenId])
+        ];
+        return screenIds
+            .map(id => this.doc.getElementById(id))
+            .find(element => element && !element.classList.contains('hidden')) || null;
+    }
+
+    handleGamepadBack() {
+        const retryModal = this.doc.getElementById('retry-question-modal');
+        if (retryModal && !retryModal.classList.contains('hidden')) {
+            this.returnToMenu();
+            return;
+        }
+
+        const activeScreen = this.getActiveScreen();
+        const activeId = activeScreen ? activeScreen.id : '';
+        if (activeId === 'pantalla-inicio') {
+            return;
+        }
+        if (activeId === 'login-step-1') {
+            this.screens.go('login-step-1', 'pantalla-inicio');
+            return;
+        }
+        if (activeId === 'login-step-2') {
+            this.screens.go('login-step-2', 'login-step-1');
+            return;
+        }
+        if (GameConfig.LEVELS.some(config => config.screenId === activeId || config.imagenId === activeId)) {
+            this.returnToLobby();
+            return;
+        }
+        if (activeId !== 'menu') {
+            this.returnToMenu();
+        }
     }
 
     onClick(id, handler) {
