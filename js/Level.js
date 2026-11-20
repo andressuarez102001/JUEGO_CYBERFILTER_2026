@@ -65,12 +65,11 @@ class Level {
         const selectedAgentIds = this.selection.map(index => this.views.cards.getAgentId(index));
         const selectedAgents = new Set(selectedAgentIds);
 
-        // Las cartas adicionales solo llenan la cuadrícula: no representan
-        // objetivos extra. Una misión se completa con un ejemplar de cada
-        // agente solicitado, sin repetir tipos ni incluir agentes incorrectos.
+        // Las cartas adicionales son copias del mismo agente. Se permite
+        // seleccionar un ejemplar por tipo o todas las copias correctas que
+        // aparecen en la cuadrícula, pero nunca una carta incorrecta.
         return (
-            this.selection.length === correctSet.size &&
-            selectedAgents.size === correctSet.size &&
+            this.selection.length >= correctSet.size &&
             selectedAgentIds.every(agentId => correctSet.has(agentId)) &&
             this.correctAgents.every(agentId => selectedAgents.has(agentId))
         );
