@@ -139,7 +139,9 @@ class Game {
                     this.finishRun();
                 }
             });
+            this.onClick(`menu-nivel-${config.number}`, () => this.returnToMenu());
         });
+        this.onClick('retry-menu-btn', () => this.returnToMenu());
     }
 
     refreshLobbyIdentity() {
@@ -180,6 +182,20 @@ class Game {
             this.screens.hide(config.screenId, config.imagenId);
         });
         this.screens.show('lobby');
+        this.score.sync();
+    }
+
+    returnToMenu() {
+        this.retryQuestion.close();
+        this.levels.forEach(level => {
+            level.leave();
+            level.reset();
+        });
+        GameConfig.LEVELS.forEach(config => {
+            this.screens.hide(config.screenId, config.imagenId);
+        });
+        this.screens.hide('lobby', 'agentes-screen', 'salas-multijugador', 'levels', 'about-screen');
+        this.screens.show('menu');
         this.score.sync();
     }
 }
